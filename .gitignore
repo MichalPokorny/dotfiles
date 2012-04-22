@@ -1,0 +1,270 @@
+*
+!.*
+.pentadactyl/info/safe/*
+.xsession-errors
+.thumbnails
+*.sw*
+.recently-used
+.pulse-cookie
+.Xauthority
+.ICEauthority
+.lesshst
+.maildir
+.*history
+.*_hist
+.~lock*
+.qt
+.netbeans
+.viminfo
+.java
+.wine
+
+# obsahuje GitHub token
+.gitconfig
+
+# obsahuje hesla
+.fetchmailrc*
+
+.*~
+.*.pid
+
+# ???
+.apvlvinfo
+
+# obsahuje penezenku
+.bitcoin*
+
+.*.log
+
+.*_cache
+.*_auth
+
+# asi od fetchmailu?
+.fetchids
+
+.hwid
+
+.*.log
+*xosdutilctl
+
+.vim/.netrwhist
+
+.gitk
+.tuxguitar-1.2
+.mnemosyne
+
+.slocdata
+.fehbg
+.gpg
+
+.last_bank_rates
+.dbshell
+
+.xmonad/*.hi
+.xmonad/*.o
+.xmonad/*.errors
+.xmonad/xmonad-x86_64-linux
+.xmonad/history
+
+# info z vimperatoru: nechci zalohovat
+.vimperator/info
+
+# RSA nechci zalohovat!
+.ssh
+
+# cache se nehodi.
+.cache
+
+# TODO: playlisty...
+.mpd
+
+# z flashe nezalohuju
+.macromedia
+.adobe
+
+# obsahuje jenom "lokalni nastaveni": autojump, geeqie, ...
+.local
+
+.config/stetic/library-cache
+.config/geeqie/history
+.config/chromium
+.config/bless/history.xml
+.config/bless/last.session
+
+# obsahuje asi jenom sockety
+.dbus
+
+# obsahuje nainstalovane gemy
+.gem
+
+# hlavne .gstreamer-0.10/registry.x86_64.bin
+*.bin
+
+# obsahuje runtime veci
+.pulse
+
+# obsahuje historii, ...
+.elinks
+
+# obsahuje pozici okna
+.config/gtk-2.0/gtkfilechooser.ini
+.config/transmission/settings.json
+
+# obsahuje cache fontu
+.config/libreoffice/3/user/psprint/
+.config/libreoffice/3/user/uno_packages/cache
+
+# obsahuje volatilni veci
+.config/dconf/user
+
+# obsahuje cache
+.config/Trolltech.conf
+
+# neobsahuje zajimave veci
+.VirtualBox
+
+# obsahuje jenom cache, logy, a trusted certificates
+.icedtea
+
+# neni verejne
+.gnupg
+.pki
+
+# neobsahuje konfiguraky ktere chci uchovavat
+.vagrant.d
+
+# obsahuje seznam moji hudby.....
+.lyrics
+
+# jenom "WHEREAREMYFILES"
+.wicd
+
+# obsahuje spousty ruznych cachi, historii, ...
+.mozilla
+
+# obsahuje staty transmissionu
+.config/transmission
+
+# obsahuje pozice okna Skypu
+.config/Skype/Skype.conf
+
+.config/transmission/dht.dat
+.adom.data/*
+
+# obsahuje pozice okna LyXu
+.config/LyX/lyx.conf
+
+# system-specific
+.config/xbuild
+
+# casto se meni
+.config/geeqie/geeqierc.xml
+.config/geeqie/accels
+.config/zim/accelmap
+.config/libreoffice/3/user/registrymodifications.xcu
+
+# obsahuje pozice okna Homebank
+.config/homebank/preferences
+
+# obsahuje zbytecnosti
+.LuminanceHDR
+
+# obsahuje pozice okna
+.config/Luminance
+
+# je cache
+.config/MonoDevelop-3.0/repository-cache
+
+# obsahuje pozice okna
+.config/vlc/vlc-qt-interface.conf
+
+# neni dulezite a obsahuje zrejme secrets
+.Skype
+
+# neni dulezite a je mutabilni
+.audacity-data
+
+# hlavne v .bundler
+*/tmp/*
+
+# .darcs
+*/cache/*
+
+# cache LuaTeX
+.texlive/texmf-var/luatex-cache
+
+# Gervill je syntetizer, zrejme pro TuxGuitar. neni potreba.
+.gervill
+
+# ve Wiresharku nemam zadna divna nastaveni
+.wireshark
+
+# history, probably zsh
+.histfile
+
+# ltris: neni treba ukladat...
+.lgames
+
+# .lftp/rl_history: nechci
+*history*
+
+# obsahuje tajemstvi
+.subversion/auth
+.subversion/servers
+
+# nezajimave
+.subversion/README.txt
+
+# obsahuje historii otevreni souboru
+.mono/mwf_config
+
+# obsahuje historii fishe
+.config/fish
+
+# recently used colors
+.gimp-2.8/colorrc
+
+# recently closed docks
+.gimp-2.8/dockrc
+
+# session-specific info
+.gimp-2.8/sessionrc
+
+# nastaveni nastroju: volatile
+.gimp-2.8/tool-options
+
+# volatile
+.gimp-2.8/parasiterc
+.gimp-2.8/templaterc
+.gimp-2.8/controllerrc
+.gimp-2.8/menurc
+
+# non-necessary
+.gimp-2.8/pluginrc
+
+.gimp-2.8/tags.xml
+
+# obsahuje pozici okna Orage :(
+.config/orage/oragerc
+
+# obsahuje treba less, tj. programy
+.npm
+
+# obsahuje historii a .confy pro haskell
+.ghc
+
+# secrets
+.config/gtk-3.0/bookmarks
+
+# je balickovaci manazer
+.cabal
+
+# obsahuje pomerne nedulezite veci plus velke obrazy androidovych virtualnich veci
+.android
+
+# obsahuje pozice okna
+.config/MonoDevelop-3.0/*
+.config/MonoDevelop/log
+
+# volatilni; velikost panelu
+.config/mc/ini
