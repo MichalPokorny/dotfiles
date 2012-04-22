@@ -82,3 +82,7 @@ let g:miniBufExplModSelTarget = 1
 
 au BufNewFile,BufRead *.phpt set filetype=php
 au BufNewFile,BufRead,BufEnter *.cpp,*.h set omnifunc=omni#cpp#complete#Main
+
+" no mistyped :w or :q...
+:command W w
+:command Q q
