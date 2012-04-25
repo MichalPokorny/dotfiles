@@ -46,3 +46,4 @@ alias su='sux'
 # Kompletuj prikazy po techto vecech...
 complete -cf sudo
 complete -cf man
+alias lingot="fmit"
