@@ -53,6 +53,11 @@ set background=dark
 set mouse=a
 set noexpandtab
 
+" all lowercase -> case insensitive search
+" anything uppercase -> case sensitive
+set ignorecase
+set smartcase
+
 " chci aspon 5 radku mezi koncem stranky a kurzorem
 set scrolloff=5
 syntax on
