@@ -2,6 +2,8 @@
 # ~/.bashrc
 #
 
+. /etc/profile
+
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
@@ -38,12 +40,18 @@ alias GP='git pull'
 alias Am='alsamixer'
 alias Wc='wicd-curses'
 alias diff='colordiff'
-alias ..='cd ..'
 alias ls='ls --color=auto'
 alias phpc='php -a'
 alias su='sux'
+alias ..='cd ..'
 
 # Kompletuj prikazy po techto vecech...
 complete -cf sudo
 complete -cf man
 alias lingot="fmit"
+
+shopt -s histappend
+
+# Vypsani adresare -> cd tam.
+# Echuje, kam se CDckuje... :(
+shopt -s autocd
