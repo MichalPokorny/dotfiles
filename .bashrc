@@ -55,3 +55,7 @@ shopt -s histappend
 # Vypsani adresare -> cd tam.
 # Echuje, kam se CDckuje... :(
 shopt -s autocd
+
+complete -o nospace -F _cd j
+export AUTOJUMP_IGNORE_CASE=1
+

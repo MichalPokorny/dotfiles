@@ -15,3 +15,5 @@ colorscheme zenburn
 
 hi -a TabClose display:none !important;
 
+map e :write<CR>
+map E :write<CR>:tabclose<CR>
