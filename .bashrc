@@ -17,9 +17,18 @@ if [[ $- != *i* ]]; then
 	return	# shell je neinteraktivni
 fi
 
-#PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w $(__git_ps1 "\033[00m\]%s \033[01;34m\]")\$\[\033[00m\] '
-#PS1='\[\033[01;32m\]\u\[\033[01;34m\] \w $(__git_ps1 "\033[00m\]%s \033[01;34m\]")\$\[\033[00m\] '
-PS1='\[\033[01;32m\]\w \[\033[01;34m\]$(__git_ps1 "\033[00m\]%s \033[01;34m\]")\$\[\033[00m\] '
+my_git_ps1 ()
+{
+	if [ -z "$(git symbolic-ref HEAD 2> /dev/null)" ]; then
+		return
+	fi
+	local GITROOT="$(git rev-parse --show-toplevel)"
+	if [ "$GITROOT" != "/home/prvak" ]; then
+		__git_ps1 "\033[00m%s \033[01;34m"
+	fi
+}
+
+PS1='\[\033[01;32m\]\w \[\033[01;34m\]$(my_git_ps1)\$\[\033[00m\] '
 
 #fortune
 ## fortune cs
@@ -58,4 +67,3 @@ shopt -s autocd
 
 complete -o nospace -F _cd j
 export AUTOJUMP_IGNORE_CASE=1
-
