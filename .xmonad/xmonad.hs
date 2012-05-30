@@ -51,7 +51,7 @@ import Data.Monoid
 role = (stringProperty "WM_WINDOW_ROLE")
 
 myTerminal      = "urxvt"
-myWorkspaces = map show [1..9] --myWorkspaces    = ["web","dev","gtr","vbox","admin","im"] ++ map show [7,8,9]
+myWorkspaces = map show [0..9] --myWorkspaces    = ["web","dev","gtr","vbox","admin","im"] ++ map show [7,8,9]
 
 {--
 scratchpads = [
@@ -75,7 +75,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 		, ((modm, xK_p), spawn "/home/prvak/bin/run_yeganesh")
 		, ((modm .|. shiftMask,xK_w ), spawn "urxvt -e wicd-curses")
 		, ((modm .|. shiftMask,xK_f ), spawn "firefox")
-		, ((modm .|. shiftMask,xK_g ), spawn "gnucash")
+	--	, ((modm .|. shiftMask,xK_g ), spawn "gnucash")
 		, ((modm .|. shiftMask,xK_v ), spawn "VirtualBox")
 		, ((modm .|. shiftMask,xK_p ), spawn "/home/prvak/bin/change_wallpaper")
 		, ((modm .|. shiftMask,xK_c ), kill)
@@ -116,7 +116,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-[1..9], Switch to workspace N
     -- mod-shift-[1..9], Move client to workspace N
     [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+        | (i, k) <- zip (XMonad.workspaces conf) [xK_0 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 		++
 	-- mod-{u,i,o} - switch to Xine screen #{1..3}
@@ -163,7 +163,8 @@ myManageHook = {--namedScratchpadManageHook scratchpads <+>--} manageDocks <+> c
 
 myEventHook = mempty
 
-myLogHook = dynamicLog >> updatePointer (Relative 0.5 0.5) -- Nearest
+--myLogHook = dynamicLog >> updatePointer (Relative 0.5 0.5) -- Nearest
+myLogHook = updatePointer (Relative 0.5 0.5) -- Nearest
 {--WithPP $ xmobarPP {
   ppTitle=xmobarColor "green" "" . shorten 40,
   ppCurrent=xmobarColor "white" "",
