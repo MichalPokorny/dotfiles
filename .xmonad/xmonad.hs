@@ -66,6 +66,9 @@ scratchpads = [
             NS "F10" "gvim --role 7" (role =? "7") nonFloating
             ]
 --}
+
+xosdutilCommand cmd = spawn ("/home/prvak/bin/xosdutilctl " ++ cmd)
+
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     [--	  ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
@@ -104,9 +107,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 		, ((modm .|. shiftMask, xK_q), io (exitWith ExitSuccess))
 		, ((modm, xK_f), goToSelected $ buildDefaultGSConfig defaultColorizer)
 		, ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
-		, ((modm, xK_c), spawn "/home/prvak/bin/xosdutilctl time")
-		, ((modm, xK_u), spawn "/home/prvak/bin/xosdutilctl uptime")
-		, ((modm, xK_a), spawn "/home/prvak/bin/xosdutilctl acpi")
+		, ((modm, xK_c), xosdutilCommand "time")
+		, ((modm, xK_u), xosdutilCommand "uptime")
+		, ((modm, xK_a), xosdutilCommand "acpi")
+		, ((modm, xK_b), xosdutilCommand "bitcoins")
     ]
 		++
 {--map
