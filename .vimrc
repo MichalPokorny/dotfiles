@@ -36,14 +36,14 @@ autocmd BufNewFile	*.spec	call SKEL_spec()
 filetype plugin on
 filetype indent on
 
-set tabstop=4
+set tabstop=8
 
 set nowrap
 set cindent
 set smartindent
 set autoindent
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=8
+set softtabstop=8
 set encoding=utf8
 set wildmenu
 set hidden
@@ -52,6 +52,7 @@ set hlsearch
 set background=dark
 set mouse=a
 set noexpandtab
+set foldmethod=syntax " todo: default fold open
 
 " all lowercase -> case insensitive search
 " anything uppercase -> case sensitive
@@ -63,18 +64,18 @@ set scrolloff=5
 syntax on
 
 filetype plugin on
-set ofu=syntaxcomplete#Complete
+" set ofu=syntaxcomplete#Complete
 
-noremap <S-C> :botright cope<CR>
-noremap <S-N> :cn<CR>
-noremap <S-P> :cp<CR>
+noremap <C-C> :botright cope<CR>
+noremap <C-N> :cn<CR>
+noremap <C-P> :cp<CR>
 noremap <S-M> :make<CR>
 
 noremap <C-l> :noh<CR>
 
-noremap <S-b> :LustyBufferExplorer<CR>
-noremap <S-f> :LustyFilesystemExplorerFromHere<CR>
-noremap <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .
+" noremap <S-b> :LustyBufferExplorer<CR>
+" noremap <S-f> :LustyFilesystemExplorerFromHere<CR>
+" noremap <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .
 
 noremap <S-w>t :tabnew<CR>
 noremap <S-w>c :tabclose<CR>

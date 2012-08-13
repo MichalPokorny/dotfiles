@@ -37,7 +37,7 @@
 # set content_type = 'text/plain'
 set copy = yes
 # set crypt_autoencrypt = no
-# set crypt_autopgp = yes
+set crypt_autopgp = yes
 # set crypt_autosign = no
 # set crypt_autosmime = yes
 # set crypt_replyencrypt = yes

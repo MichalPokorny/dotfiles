@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.14 for prvak on Tue Sep 20 19:06:01 2011.
+# Written by xscreensaver-demo 5.18 for prvak on Sun Jul 29 11:22:02 2012.
 # http://www.jwz.org/xscreensaver/
 
 timeout:	0:15:00
@@ -40,7 +40,7 @@ selected:	-1
 textMode:	program
 textLiteral:	XScreenSaver
 textFile:	/etc/gentoo-release
-textProgram:	/bin/hostname ; uptime ; df ; fortune
+textProgram:	uname -a ; uptime ; df ; fortune
 textURL:	http://planet.gentoo.org/rss20.xml
 
 programs:								      \
@@ -58,13 +58,13 @@ programs:								      \
 -				pyro -root				    \n\
 -				qix -root				    \n\
 -				rocks -root				    \n\
-				rorschach -root -iterations 9292 -offset      \
+-				rorschach -root -iterations 9292 -offset      \
 				  25 -delay 6				    \n\
 -				decayscreen -root			    \n\
 -				flame -root -delay2 4690797 -iterations	      \
 				  27 -points 56666			    \n\
 -				halo -root				    \n\
-				slidescreen -root			    \n\
+-				slidescreen -root			    \n\
 -				pedal -root				    \n\
 				bouboule -root -ncolors 161		    \n\
 				braid -root -ncolors 121		    \n\
@@ -83,7 +83,7 @@ programs:								      \
 -				moire -root				    \n\
 - GL: 				morph3d -root				    \n\
 -				mountain -root -count 30		    \n\
-				munch -root				    \n\
+-				munch -root				    \n\
 -				penrose -root				    \n\
 - GL: 				pipes -root				    \n\
 -				rd-bomb -root				    \n\
@@ -100,7 +100,7 @@ programs:								      \
 - GL: 				atlantis -root				    \n\
 				bsod -root -delay 19 -atari -bsd	      \
 				  -sparclinux				    \n\
-  GL: 				bubble3d -root				    \n\
+- GL: 				bubble3d -root				    \n\
 - GL: 				cage -root				    \n\
 -				crystal -root				    \n\
 -				cynosure -root				    \n\
@@ -119,7 +119,7 @@ programs:								      \
 -				vidwhacker -root			    \n\
 -				blaster -root				    \n\
 -				bumps -root				    \n\
-				ccurve -root -delay 6 -pause 0.3704	      \
+-				ccurve -root -delay 6 -pause 0.3704	      \
 				  -limit 286667				    \n\
 				compass -root				    \n\
 -				deluxe -root				    \n\
@@ -139,16 +139,16 @@ programs:								      \
 				wander -root				    \n\
 -				webcollage -root			    \n\
 -				xflame -root				    \n\
-				xmatrix -root				    \n\
+				xmatrix -root -small			    \n\
 - GL: 				gflux -root				    \n\
 				nerverot -root				    \n\
-				xrayswarm -root				    \n\
+-				xrayswarm -root				    \n\
 -				xspirograph -root			    \n\
 - GL: 				circuit -root -parts 14			    \n\
 - GL: 				dangerball -root			    \n\
 - GL: 				dnalogo -root				    \n\
 - GL: 				engine -root				    \n\
-  GL: 				flipscreen3d -root			    \n\
+- GL: 				flipscreen3d -root			    \n\
 - GL: 				gltext -root				    \n\
 - GL: 				menger -root				    \n\
   GL: 				molecule -root				    \n\
@@ -171,9 +171,9 @@ programs:								      \
   GL: 				flurry -root				    \n\
 - GL: 				glblur -root				    \n\
 - GL: 				glsnake -root				    \n\
-				halftone -root				    \n\
+-				halftone -root				    \n\
 - GL: 				juggler3d -root				    \n\
-  GL: 				lavalite -root -speed 0.0067 -count 6	      \
+- GL: 				lavalite -root -speed 0.0067 -count 6	      \
 				  -resolution 27 -impatient -wander	    \n\
 -				polyominoes -root			    \n\
 - GL: 				queens -root				    \n\
@@ -182,13 +182,13 @@ programs:								      \
 -				thornbird -root				    \n\
 -				twang -root				    \n\
 - GL: 				antspotlight -root			    \n\
-				apple2 -root -mode text			    \n\
+-				apple2 -root -mode text			    \n\
 - GL: 				atunnel -root				    \n\
 				barcode -root				    \n\
 - GL: 				blinkbox -root				    \n\
 - GL: 				blocktube -root				    \n\
 - GL: 				bouncingcow -root			    \n\
-				cloudlife -root -max-age 255		      \
+-				cloudlife -root -max-age 255		      \
 				  -initial-density 39 -cell-size 2	    \n\
 - GL: 				cubestorm -root				    \n\
 -				eruption -root				    \n\
@@ -198,7 +198,7 @@ programs:								      \
 				  2.6407				    \n\
 - GL: 				gleidescope -root			    \n\
 - GL: 				glknots -root				    \n\
-- GL: 				glmatrix -root -delay 30370 -density 40	      \
+  GL: 				glmatrix -root -delay 30370 -density 40	      \
 				  -speed 2.5578				    \n\
   GL: 				glslideshow -root			    \n\
 - GL: 				hypertorus -root			    \n\
@@ -217,7 +217,7 @@ programs:								      \
 - GL: 				antinspect -root			    \n\
 -				fireworkx -root				    \n\
 				fuzzyflakes -root			    \n\
-				interaggregate -root			    \n\
+-				interaggregate -root			    \n\
 				intermomentary -root -num-discs 400	    \n\
 -				memscroller -root			    \n\
 - GL: 				noof -root				    \n\
@@ -249,7 +249,7 @@ programs:								      \
 				  -blinkidle-min 2571 -blinkdwell-min 230   \n\
 -				m6502 -root -displaytime 22		    \n\
 - GL: 				moebiusgears -root			    \n\
-  GL: 				voronoi -root -points 49 -point-size 16	      \
+- GL: 				voronoi -root -points 49 -point-size 16	      \
 				  -zoom-delay 18			    \n\
 - GL: 				hypnowheel -root			    \n\
 - GL: 				klein -root				    \n\
@@ -257,7 +257,10 @@ programs:								      \
 - GL: 				photopile -root				    \n\
 - GL: 				skytentacles -root -cel -no-smooth	    \n\
 - GL: 				rubikblocks -root			    \n\
-				electricsheep --root 1			    \n\
+-				electricsheep --root 1			    \n\
+  GL: 				companioncube -root			    \n\
+- GL: 				hilbert -root				    \n\
+- GL: 				tronbit -root				    \n\
 
 
 pointerPollTime:    0:00:05

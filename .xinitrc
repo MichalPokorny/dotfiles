@@ -16,4 +16,4 @@
 # exec startxfce4
 # exec xmonad
 
-source .xsession
+source ~/.xsession

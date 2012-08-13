@@ -3,3 +3,5 @@ URxvt*scrollBar: false
 URxvt*background: Black
 URxvt*foreground: White
 URxvt*font: xft:Terminus:pixelsize=5:antialias=false
+
+URxvt*saveLines: 65000
