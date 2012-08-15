@@ -1,2 +1,23 @@
 Xcursor.size: 16
 Xcursor.theme: Vanilla-DMZ-AA
+
+*background: #000000
+*foreground: #ffffff
+
+xterm*loginShell: true
+xterm*utf8: True
+! trochu vetsi: pixelsize=14
+xterm*faceName: terminus:pixelsize=6
+xterm*saveLines: 2000
+xterm*fastScroll: True
+xterm*termName: xterm-256color
+
+uxterm*termName: xterm-256color
+
+URxvt*scrollstyle: plain
+URxvt*scrollBar: false
+URxvt*background: Black
+URxvt*foreground: White
+URxvt*font: xft:Terminus:pixelsize=5:antialias=false
+
+URxvt*saveLines: 65000

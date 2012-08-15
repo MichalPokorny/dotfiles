@@ -3,4 +3,4 @@
 subfont-text-scale=2.5
 subpos="95"
 stop-xscreensaver="yes"
-font="/usr/share/fonts/TTF/DejaVuSans.ttf"
+#font="/usr/share/fonts/TTF/DejaVuSans.ttf"

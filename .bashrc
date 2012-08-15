@@ -9,8 +9,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 export PATH=$PATH.":/home/prvak/bin:/usr/lib/surfraw:/opt/naturaldocs"
-export LANG="cs_CZ.UTF-8"
-export LC_MESSAGES="POSIX"
 export EDITOR=`which vim`
 
 if [[ $- != *i* ]]; then

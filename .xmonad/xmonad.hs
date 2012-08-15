@@ -50,14 +50,14 @@ xpConfig = amberXPConfig {
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [--	  ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
-		  ((modm .|. shiftMask, xK_Return), randomBg $ RGB 0 10)
-		, ((modm .|. controlMask .|. shiftMask, xK_Return), spawn "/home/prvak/bin/urxvtbig")
-		--, ((modm, xK_Return), spawn $ "urxvt")
+		  ((modm, xK_Return), randomBg $ RGB 0 10)
+		, ((modm .|. controlMask, xK_Return), spawn "/home/prvak/bin/terminal_big")
+		--, ((modm, xK_Return), spawn $ "xterm")
 		--, ((modm, xK_p), spawn "/home/prvak/bin/run_yeganesh")
-		, ((modm .|. shiftMask,xK_w ), spawn "urxvt -e wicd-curses")
-		, ((modm, xK_n ), spawn "urxvt -e ncmpcpp")
-		, ((modm, xK_a ), spawn "urxvt -e alsamixer")
-		, ((modm, xK_m ), spawn "urxvt -e 'mutt'")
+		, ((modm .|. shiftMask,xK_w ), spawn "xterm -e wicd-curses")
+		, ((modm, xK_n ), spawn "xterm -e ncmpcpp")
+		, ((modm, xK_a ), spawn "xterm -e alsamixer")
+		, ((modm, xK_m ), spawn "xterm -e 'mutt'")
 		, ((modm .|. shiftMask,xK_f ), spawn "firefox")
 		, ((modm .|. shiftMask,xK_v ), spawn "VirtualBox")
 		, ((modm .|. shiftMask,xK_p ), spawn "/home/prvak/bin/change_wallpaper")
@@ -70,7 +70,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 		, ((modm, xK_h), sendMessage $ Go L)
 		, ((modm, xK_l), sendMessage $ Go R)
 		--, ((modm,xK_m), windows W.focusMaster  )
-		, ((modm,xK_Return), windows W.swapMaster)
+		--, ((modm,xK_Return), windows W.swapMaster)
 		, ((modm .|. controlMask, xK_j), windows W.swapDown  )
 		, ((modm .|. controlMask, xK_k), windows W.swapUp    )
 		, ((modm .|. shiftMask, xK_h), sendMessage Expand)
@@ -143,7 +143,7 @@ main = do
       --xmproc <- spawnPipe "/usr/bin/xmobar /home/prvak/.xmobarrc"
       
       xmonad $ defaultConfig {
-        terminal           = "urxvt",
+        terminal           = "xterm",
         focusFollowsMouse  = True,
         borderWidth        = 1,
         modMask            = mod4Mask,
