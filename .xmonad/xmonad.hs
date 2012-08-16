@@ -48,16 +48,19 @@ xpConfig = amberXPConfig {
 --	, autoComplete = Just 0
 }
 
+myTerminal = "urxvt" 
+spawnInTerminal app = spawn (myTerminal ++ " -e " ++ app)
+
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [--	  ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 		  ((modm, xK_Return), randomBg $ RGB 0 10)
 		, ((modm .|. controlMask, xK_Return), spawn "/home/prvak/bin/terminal_big")
 		--, ((modm, xK_Return), spawn $ "xterm")
 		--, ((modm, xK_p), spawn "/home/prvak/bin/run_yeganesh")
-		, ((modm .|. shiftMask,xK_w ), spawn "xterm -e wicd-curses")
-		, ((modm, xK_n ), spawn "xterm -e ncmpcpp")
-		, ((modm, xK_a ), spawn "xterm -e alsamixer")
-		, ((modm, xK_m ), spawn "xterm -e 'mutt'")
+		, ((modm .|. shiftMask,xK_w ), spawnInTerminal "wicd-curses")
+		, ((modm, xK_n ), spawnInTerminal "ncmpcpp")
+		, ((modm, xK_a ), spawnInTerminal "alsamixer")
+		, ((modm, xK_m ), spawnInTerminal "mutt")
 		, ((modm .|. shiftMask,xK_f ), spawn "firefox")
 		, ((modm .|. shiftMask,xK_v ), spawn "VirtualBox")
 		, ((modm .|. shiftMask,xK_p ), spawn "/home/prvak/bin/change_wallpaper")
@@ -143,7 +146,7 @@ main = do
       --xmproc <- spawnPipe "/usr/bin/xmobar /home/prvak/.xmobarrc"
       
       xmonad $ defaultConfig {
-        terminal           = "xterm",
+        terminal           = myTerminal,
         focusFollowsMouse  = True,
         borderWidth        = 1,
         modMask            = mod4Mask,
