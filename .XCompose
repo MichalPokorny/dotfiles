@@ -1,1 +1,219 @@
 include "%L"
+
+
+
+# ,										<comma>
+# .										<period>
+# :										<colon>
+# ;										<semicolon>
+# a-z,A-Z,0-9							<a>-<z>,<A>-<Z>,<0>-<9>
+# NumPad 0-9							<KP_0>-<KP_9>
+# NumPad +								<KP_Add>
+# NumPad -								<KP_Subtract>
+# NumPad *								<KP_Multiply>
+# NumPad /								<KP_Divide>
+# NumPad .								<KP_Decimal>
+
+# ARROW KEYS: ←→↑↓						<Left> <Right> <Up> <Down>
+
+## Russian letters:
+# Cyrillic_a, Cyrillic_be, Cyrillic_ve, Cyrillic_ghe, Cyrillic_de, Cyrillic_ie, Cyrillic_io, Cyrillic_zhe, Cyrillic_ze, Cyrillic_i, Cyrillic_shorti, Cyrillic_ka, Cyrillic_el, Cyrillic_em, Cyrillic_en, Cyrillic_o, Cyrillic_pe, Cyrillic_er, Cyrillic_es, Cyrillic_te, Cyrillic_u, Cyrillic_ef, Cyrillic_ha, Cyrillic_tse, Cyrillic_che, Cyrillic_sha, Cyrillic_shcha, Cyrillic_hardsign, Cyrillic_yeru, Cyrillic_softsign, Cyrillic_e, Cyrillic_yu, Cyrillic_ya
+# Cyrillic_A, Cyrillic_BE, Cyrillic_VE, Cyrillic_GHE, Cyrillic_DE, Cyrillic_IE, Cyrillic_IO, Cyrillic_ZHE, Cyrillic_ZE, Cyrillic_I, Cyrillic_SHORTI, Cyrillic_KA, Cyrillic_EL, Cyrillic_EM, Cyrillic_EN, Cyrillic_O, Cyrillic_PE, Cyrillic_ER, Cyrillic_ES, Cyrillic_TE, Cyrillic_U, Cyrillic_EF, Cyrillic_HA, Cyrillic_TSE, Cyrillic_CHE, Cyrillic_SHA, Cyrillic_SHCHA, Cyrillic_HARDSIGN, Cyrillic_YERU, Cyrillic_SOFTSIGN, Cyrillic_E, Cyrillic_YU, Cyrillic_YA
+
+
+#====================[   MY KEYS   ]====================#
+
+<Multi_key> <slash> <slash>							: "〃" U3003 # DITTO MARK
+
+<Multi_key> <comma> <comma>							: "„" U201E # DOUBLE LOW-9 QUOATATION MARK
+<Multi_key> <apostrophe> <apostrophe>						: "“" U201C # LEFT DOUBLE QUOTATION MARK
+
+#====== Common symbols
+<Multi_key> <equal> <0>									: "✘"	U2718 # HEAVY BALLOT X
+<Multi_key> <equal> <1>									: "✔"	U2714 # HEAVY CHECK MARK
+
+<Multi_key> <equal> <o>									: "•"	U2022 # BULLET
+<Multi_key> <equal> <greater>							: "‣"	U2023 # TRIANGULAR BULLET
+<Multi_key> <equal> <asterisk>							: "★"	U2605 # BLACK STAR
+
+<Multi_key> <O> <C>										: "©"	U00A9 # COPYRIGHT SIGN
+<Multi_key> <O> <R>										: "®"	U00AE # REGISTERED SIGN
+<Multi_key> <T> <M>										: "™"	U2122 # TRADE MARK SIGN
+
+<Multi_key> <o> <x>										: "¤"	U00A4 # CURRENCY SIGN
+<Multi_key> <e> <equal>          						: "€"	U20AC # EURO SIGN
+<Multi_key> <slash> <c>									: "¢"	U00A2 # CENT SIGN
+
+<Multi_key> <percent> <percent>							: "‰"	U2030 # PER MILLE SIGN
+<Multi_key> <o> <o>										: "°"	U00B0 # DEGREE SIGN
+<Multi_key> <o> <C>										: "℃"	U2103 # DEGREE CELSIUS
+<Multi_key> <o> <F>										: "℉"	U2109 # DEGREE FARENHEIT
+
+<Multi_key> <s> <s>										: "§"	U00A7 # SECTION SIGN
+<Multi_key> <less> <less>								: "«"	U00AB # LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
+<Multi_key> <greater> <greater>							: "»"	U00BB # RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+<Multi_key> <less> <greater>							: "«»"	      # LEFT-RIGHT PAIR OF POINTING DOUBLE ANGLE QUOTATION MARK
+<Multi_key> <period> <period> <period>					: "…"	U2026 # HORIZONTAL ELLIPSIS
+
+<Multi_key> <minus> <minus> <period>					: "–"	U2013 # EN DASH: for numbers: 1–2
+<Multi_key> <minus> <minus> <minus> 					: "—"	U2014 # EM DASH: for text: "What?" — he said.
+
+<Multi_key> <tab> <tab>									: "	"	U0009 # HORIZONTAL TABULATION
+
+#====== Smileys & Co
+<Multi_key> <less> <3>									: "♥"	U2665 # BLACK HEART SUIT
+
+#====== Modifying symbols
+<Multi_key> <backslash> <Left>							: ""	U0202E # RightLeftOverride: TEXT REVERSAL! :)
+<Multi_key> <backslash> <Right>							: "‭"	U0202D # LeftRightOverride: Back to normal
+
+#====== Combining Diacritical Marks: [ \ ↑ punctuation ], [ \ punctuation ], [ \ ↓ punctuation ],
+# ABOVE
+<Multi_key> <backslash> <Up> <grave>					: "̀"	U0340 # GRAVE TONE: ̀
+<Multi_key> <backslash> <Up> <apostrophe>				: "́"	U0341 # ACUTE TONE: ́
+<Multi_key> <backslash> <Up> <asciicircum>				: "̂"	U0302 # CIRCUMFLEX: ̂
+<Multi_key> <backslash> <Up> <o>						: "̊"	U030A # CIRCLE: ̊
+<Multi_key> <backslash> <Up> <asterisk>					: "⃰"	U20F0 # ASTERISK: ⃰
+<Multi_key> <backslash> <Up> <asciitilde>				: "̃"	U0303 # TILDE: ̃
+<Multi_key> <backslash> <Up> <Right>					: "⃗"	U20D7 # VECTOR: ⃗
+<Multi_key> <backslash> <Up> <minus>					: "̅"	U0305 # OVERLINE: ̅
+<Multi_key> <backslash> <Up> <2> <minus>				: "̿"	U033F # 2xOVERLINE: ̿
+<Multi_key> <backslash> <Up> <u>						: "̆"	U0306 # BREVE: ̆
+<Multi_key> <backslash> <Up> <period>					: "̇"	U0307 # DOT: ̇
+<Multi_key> <backslash> <Up> <2> <period>				: "̈"	U0308 # 2xDOT: ̈
+<Multi_key> <backslash> <Up> <3> <period>				: "⃛"	U20DB # 3xDOT: ⃛
+<Multi_key> <backslash> <Up> <4> <period>				: "⃜"	U20DC # 4xDOT: ⃜
+# MIDDLE
+<Multi_key> <backslash> <minus>							: "̶"	U0336 # STROKE (STRIKE): ̶
+<Multi_key> <backslash> <slash>							: "̸"	U0338 # OVERLAY (MISTAKE):  ̸
+<Multi_key> <backslash> <2> <slash>						: "⃫"	U20EB # DOUBLE OVERLAY (MISTAKE):  ⃫
+# BELOW
+<Multi_key> <backslash> <Down> <asciitilde>				: "̰"	U0330 # TILDE: ̰
+<Multi_key> <backslash> <Down> <minus>					: "̲"	U0332 # UNDERLINE: ̲
+<Multi_key> <backslash> <Down> <2> <minus>				: "̳"	U0333 # 2xUNDERLINE: ̳
+<Multi_key> <backslash> <Down> <Up>						: "͎"	U034E # POINTING ARROW: ͎
+
+#====== Single arrows: [ - arrow arrow ]
+<Multi_key> <minus> <Right> <Right>						: "→"
+<Multi_key> <minus> <Left> <Left>						: "←"
+<Multi_key> <minus> <Up> <Up>							: "↑"
+<Multi_key> <minus> <Down> <Down>						: "↓"
+
+<Multi_key> <minus> <Left> <Right>						: "↔"
+<Multi_key> <minus> <Up> <Down>							: "↕"
+
+#====== Double arrows: [ = arrow arrow ]
+<Multi_key> <equal> <Right> <Right>						: "⇒"
+<Multi_key> <equal> <Left> <Left>						: "⇐"
+<Multi_key> <equal> <Up> <Up>							: "⇑"
+<Multi_key> <equal> <Down> <Down>						: "⇓"
+
+<Multi_key> <equal> <Left> <Right>						: "⇔"
+<Multi_key> <equal> <Up> <Down>							: "⇕"
+
+#====== Arithmetic Operators
+<Multi_key> <period> <asterisk>							: "·"	U00B7 # MIDDLE DOT
+
+<Multi_key> <plus> <minus>								: "±"	U00B1 # PLUS-MINUS SIGN
+
+<Multi_key> <less> <equal>								: "≤"	U2264 # LESS-THAN OR EQUAL
+<Multi_key> <greater> <equal>							: "≥"	U2265 # GREATER-THAN OR EQUAL
+<Multi_key> <equal> <equal> <equal>						: "≡"	U2261 # IDENTICAL TO
+
+<Multi_key> <slash> <equal>								: "≠"	U2260 # NOT EQUAL TO
+<Multi_key> <exclam> <equal>							: "≠"	U2260 # NOT EQUAL TO
+
+<Multi_key> <equal> <asciitilde>						: "≈"	U2248 # ALMOST EQUAL TO
+<Multi_key> <equal> <slash> <asciitilde>				: "≈"	U2249 # NOT ALMOST EQUAL TO
+
+<Multi_key> <Up> <slash> <2>							: "√"	U221A # SQUARE ROOT
+
+#====== Set Operators: [ { keys ]
+<Multi_key> <braceleft> <slash> <o>						: "∅"	# EMPTY SET
+
+<Multi_key> <braceleft> <i> <n>							: "∈"	# ELEMENT OF
+
+<Multi_key> <braceleft> <plus>							: "∪"	# UNION
+<Multi_key> <braceleft> <asterisk>						: "∩"	# INTERSECTION
+
+#====== Logical Operators
+<Multi_key> <E> <E>										: "∃"	# THERE EXISTS
+
+<Multi_key> <exclam> <exclam>							: "¬"	# LOGICAL NOT
+<Multi_key> <ampersand> <ampersand>						: "∧"	# LOGICAL AND
+<Multi_key> <bar> <bar>									: "∨"	# LOGICAL OR
+
+#====== Mathematical Operators & Symbols
+<Multi_key> <d> <x>										: "∆"	U2206 # INCREMENT
+
+#====== Math Symbols
+<Multi_key> <8> <8>										: "∞"	# INFINITY
+
+#====== Greek Letters (MathCad compatible): [ g char ] , [ g CHAR ]
+<Multi_key> <g> <a>						: "α"	# GREEK SMALL LETTER ALPHA
+<Multi_key> <g> <b>						: "β"	# GREEK SMALL LETTER BETA
+<Multi_key> <g> <g>						: "γ"	# GREEK SMALL LETTER GAMMA
+<Multi_key> <g> <d>						: "δ"	# GREEK SMALL LETTER DELTA
+<Multi_key> <g> <e>						: "ε"	# GREEK SMALL LETTER EPSILON
+<Multi_key> <g> <z>						: "ζ"	# GREEK SMALL LETTER ZETA
+<Multi_key> <g> <h>						: "η"	# GREEK SMALL LETTER ΕΤΑ
+<Multi_key> <g> <q>						: "θ"	# GREEK SMALL LETTER THETA
+<Multi_key> <g> <i>						: "ι"	# GREEK SMALL LETTER ΙΟΤΑ
+<Multi_key> <g> <k>						: "κ"	# GREEK SMALL LETTER KAPPA
+<Multi_key> <g> <l>						: "λ"	# GREEK SMALL LETTER LAMBDA
+<Multi_key> <g> <m>						: "μ"	# GREEK SMALL LETTER MU
+<Multi_key> <g> <n>						: "ν"	# GREEK SMALL LETTER NU
+<Multi_key> <g> <x>						: "ξ"	# GREEK SMALL LETTER XI
+<Multi_key> <g> <o>						: "ο"	# GREEK SMALL LETTER OMICRON
+<Multi_key> <g> <p>						: "π"	# GREEK SMALL LETTER PI
+<Multi_key> <g> <v>						: "ϖ"	# GREEK PI SYMBOL
+<Multi_key> <g> <r>						: "ρ"	# GREEK SMALL LETTER RHO
+#<Multi_key> <g> <>						: "ς"	# GREEK SMALL LETTER FINAL SIGMA
+<Multi_key> <g> <s>						: "σ"	# GREEK SMALL LETTER SIGMA
+<Multi_key> <g> <t>						: "τ"	# GREEK SMALL LETTER TAU
+<Multi_key> <g> <u>						: "υ"	# GREEK SMALL LETTER UPSILON
+<Multi_key> <g> <f>						: "φ"	# GREEK SMALL LETTER PHI
+<Multi_key> <g> <j>						: "ϕ"	# GREEK SMALL PHI SYMBOL
+<Multi_key> <g> <c>						: "χ"	# GREEK SMALL LETTER CHI
+<Multi_key> <g> <y>						: "ψ"	# GREEK SMALL LETTER PSI
+<Multi_key> <g> <w>						: "ω"	# GREEK SMALL LETTER OMEGA
+
+<Multi_key> <G> <A>						: "Α"	# GREEK CAPITAL LETTER ALPHA
+<Multi_key> <G> <B>						: "Β"	# GREEK CAPITAL LETTER BETA
+<Multi_key> <G> <G>						: "Γ"	# GREEK CAPITAL LETTER GAMMA
+<Multi_key> <G> <D>						: "Δ"	# GREEK CAPITAL LETTER DELTA
+<Multi_key> <G> <E>						: "Ε"	# GREEK CAPITAL LETTER EPSILON
+<Multi_key> <G> <Z>						: "Ζ"	# GREEK CAPITAL LETTER ZETA
+<Multi_key> <G> <H>						: "Η"	# GREEK CAPITAL LETTER ΕΤΑ
+<Multi_key> <G> <Q>						: "Θ"	# GREEK CAPITAL LETTER THETA
+<Multi_key> <G> <I>						: "Ι"	# GREEK CAPITAL LETTER ΙΟΤΑ
+<Multi_key> <G> <K>						: "Κ"	# GREEK CAPITAL LETTER KAPPA
+<Multi_key> <G> <L>						: "Λ"	# GREEK CAPITAL LETTER LAMBDA
+<Multi_key> <G> <M>						: "Μ"	# GREEK CAPITAL LETTER MU
+<Multi_key> <G> <N>						: "Ν"	# GREEK CAPITAL LETTER NU
+<Multi_key> <G> <X>						: "Ξ"	# GREEK CAPITAL LETTER XI
+<Multi_key> <G> <O>						: "Ο"	# GREEK CAPITAL LETTER OMICRON
+<Multi_key> <G> <P>						: "Π"	# GREEK CAPITAL LETTER PI
+<Multi_key> <G> <V>						: "Π"	# GREEK PI SYMBOL
+<Multi_key> <G> <R>						: "Ρ"	# GREEK CAPITAL LETTER RHO
+#<Multi_key> <G> <>						: "Σ"	# GREEK CAPITAL LETTER FINAL SIGMA
+<Multi_key> <G> <S>						: "Σ"	# GREEK CAPITAL LETTER SIGMA
+<Multi_key> <G> <T>						: "Τ"	# GREEK CAPITAL LETTER TAU
+<Multi_key> <G> <U>						: "Υ"	# GREEK CAPITAL LETTER UPSILON
+<Multi_key> <G> <F>						: "Φ"	# GREEK CAPITAL LETTER PHI
+<Multi_key> <G> <J>						: "Φ"	# GREEK CAPITAL PHI SYMBOL
+<Multi_key> <G> <C>						: "Χ"	# GREEK CAPITAL LETTER CHI
+<Multi_key> <G> <Y>						: "Ψ"	# GREEK CAPITAL LETTER PSI
+<Multi_key> <G> <W>						: "Ω"	# GREEK CAPITAL LETTER OMEGA
+
+
+#====== Fractions: [ number / number ]
+<Multi_key> <1> <slash> <2>				: "½"
+<Multi_key> <1> <slash> <4>				: "¼"
+<Multi_key> <3> <slash> <4>				: "¾"
+
+#====== Powers: Superscript numbers: [ ↑ number ]
+<Multi_key> <Up> <1>					: "¹"
+<Multi_key> <Up> <2>					: "²"
+<Multi_key> <Up> <3>					: "³"
+<Multi_key> <Up> <n>					: "ⁿ"
