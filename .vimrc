@@ -1,49 +1,18 @@
-" ~/.vimrc (configuration file for vim only)
-" skeletons
-function! SKEL_spec()
-	0r /usr/share/vim/current/skeletons/skeleton.spec
-	language time en_US
-	if $USER != ''
-	    let login = $USER
-	elseif $LOGNAME != ''
-	    let login = $LOGNAME
-	else
-	    let login = 'unknown'
-	endif
-	let newline = stridx(login, "\n")
-	if newline != -1
-	    let login = strpart(login, 0, newline)
-	endif
-	if $HOSTNAME != ''
-	    let hostname = $HOSTNAME
-	else
-	    let hostname = system('hostname -f')
-	    if v:shell_error
-		let hostname = 'localhost'
-	    endif
-	endif
-	let newline = stridx(hostname, "\n")
-	if newline != -1
-	    let hostname = strpart(hostname, 0, newline)
-	endif
-	exe "%s/specRPM_CREATION_DATE/" . strftime("%a\ %b\ %d\ %Y") . "/ge"
-	exe "%s/specRPM_CREATION_AUTHOR_MAIL/" . login . "@" . hostname . "/ge"
-	exe "%s/specRPM_CREATION_NAME/" . expand("%:t:r") . "/ge"
-	setf spec
-endfunction
-autocmd BufNewFile	*.spec	call SKEL_spec()
 " filetypes
 filetype plugin on
 filetype indent on
 
+" tab width = 8
 set tabstop=8
+set shiftwidth=8
+set softtabstop=8
 
+" no line wrap
 set nowrap
+
 set cindent
 set smartindent
 set autoindent
-set shiftwidth=8
-set softtabstop=8
 set encoding=utf8
 set wildmenu
 set hidden
@@ -52,7 +21,10 @@ set hlsearch
 set background=dark
 set mouse=a
 set noexpandtab
+
+" fold by syntax, open all by default
 set foldmethod=syntax " todo: default fold open
+set foldlevelstart=20
 
 " all lowercase -> case insensitive search
 " anything uppercase -> case sensitive
@@ -73,8 +45,6 @@ noremap <S-M> :make<CR>
 
 noremap <C-l> :noh<CR>
 
-" noremap <S-b> :LustyBufferExplorer<CR>
-" noremap <S-f> :LustyFilesystemExplorerFromHere<CR>
 " noremap <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .
 
 noremap <S-w>t :tabnew<CR>
@@ -84,11 +54,22 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
-"       ~/.vimrc ends here
 
+" Nette templaty jsou vlastne PHP.
 au BufNewFile,BufRead *.phpt set filetype=php
+
 au BufNewFile,BufRead,BufEnter *.cpp,*.h set omnifunc=omni#cpp#complete#Main
 
 " no mistyped :w or :q...
 :command W w
 :command Q q
+
+" for learning vim direction keys
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+
+" navigace mezi okny: krome Ctrl-W ... taky Ctrl-h,j,k,l,w
+" zR: open all folds
+
