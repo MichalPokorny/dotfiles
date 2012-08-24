@@ -26,7 +26,13 @@ my_git_ps1 ()
 	fi
 }
 
-PS1='\[\033[01;32m\]\w \[\033[01;34m\]$(my_git_ps1)\$\[\033[00m\] '
+PROMPT_COLOR='\[\033[01;32m\]'
+
+if [[ $EUID -ne 0 ]]; then
+	PROMPT_COLOR='\[\033[01;31m\]'
+fi
+
+PS1=$PROMPT_COLOR'\w \[\033[01;34m\]$(my_git_ps1)\$\[\033[00m\] '
 
 #fortune
 ## fortune cs
