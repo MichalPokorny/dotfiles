@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.18 for prvak on Sun Jul 29 11:22:02 2012.
+# Written by xscreensaver-demo 5.19 for prvak on Sat Aug 25 00:04:09 2012.
 # http://www.jwz.org/xscreensaver/
 
 timeout:	0:15:00
@@ -113,7 +113,7 @@ programs:								      \
 				kumppa -root				    \n\
 - GL: 				lament -root				    \n\
 -				moire2 -root				    \n\
-  GL: 				sonar -root -ping subnet/24 -font-size 1    \n\
+- GL: 				sonar -root -ping subnet/24 -font-size 1    \n\
 - GL: 				stairs -root				    \n\
 -				truchet -root				    \n\
 -				vidwhacker -root			    \n\

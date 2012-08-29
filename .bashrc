@@ -4,8 +4,12 @@
 
 . /etc/profile
 
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
+if [ -f /usr/share/bash-completion/bash_completion ] && ! shopt -oq posix; then
+    . /usr/share/bash-completion/bash_completion
+fi
+
+if [ -f /home/prvak/bin/git-prompt.sh ]; then
+	. /home/prvak/bin/git-prompt.sh
 fi
 
 export PATH=$PATH.":/home/prvak/bin:/usr/lib/surfraw:/opt/naturaldocs"
@@ -28,7 +32,7 @@ my_git_ps1 ()
 
 PROMPT_COLOR='\[\033[01;32m\]'
 
-if [[ $EUID -ne 0 ]]; then
+if [[ $EUID -eq 0 ]]; then
 	PROMPT_COLOR='\[\033[01;31m\]'
 fi
 
