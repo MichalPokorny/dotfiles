@@ -18,3 +18,4 @@ noremap < :tabprevious<CR>
 noremap > :tabnext<CR>
 noremap , :tabprevious<CR>
 noremap . :tabnext<CR>
+noremap <C-l> :nohlsearch<CR>

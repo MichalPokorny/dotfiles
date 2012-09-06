@@ -39,7 +39,8 @@ import Data.Monoid
 
 role = (stringProperty "WM_WINDOW_ROLE")
 
-myWorkspaces = map show [0..9]
+myWorkspaces = (map show [0..9]) ++ [ "-", "=" ]
+workspaceKeys = ([xK_0 .. xK_9] ++ [xK_minus, xK_equal])
 
 xosdutilCommand cmd = spawn ("/home/prvak/bin/xosdutilctl " ++ cmd)
 
@@ -99,8 +100,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-[1..9], Switch to workspace N
     -- mod-shift-[1..9], Move client to workspace N
     [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_0 .. xK_9]
-        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+        | (i, k) <- zip (XMonad.workspaces conf) workspaceKeys
+	, (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 		++
 	-- mod-{u,i,o} - switch to Xine screen #{1..3}
 	-- mod-shift-{u,i,o} - move Xine screen #{1..3}

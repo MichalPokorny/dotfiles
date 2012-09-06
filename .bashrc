@@ -36,6 +36,9 @@ if [[ $EUID -eq 0 ]]; then
 	PROMPT_COLOR='\[\033[01;31m\]'
 fi
 
+# For servers:
+#PS1=$PROMPT_COLOR'\u@\h \w \[\033[01;34m\]$(my_git_ps1)\$\[\033[00m\] '
+
 PS1=$PROMPT_COLOR'\w \[\033[01;34m\]$(my_git_ps1)\$\[\033[00m\] '
 
 #fortune
