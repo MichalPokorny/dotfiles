@@ -10,20 +10,26 @@ set softtabstop=8
 " no line wrap
 set nowrap
 
+" indenting
 set cindent
 set smartindent
 set autoindent
+
 set encoding=utf8
 set wildmenu
 set hidden
 set number
 set hlsearch
 set background=dark
+
+" mouse in every mode
 set mouse=a
+
+" tabs, not spaces
 set noexpandtab
 
 " fold by syntax, open all by default
-set foldmethod=syntax " todo: default fold open
+set foldmethod=syntax
 set foldlevelstart=20
 
 " all lowercase -> case insensitive search
@@ -58,7 +64,7 @@ let g:miniBufExplModSelTarget = 1
 " Nette templaty jsou vlastne PHP.
 au BufNewFile,BufRead *.phpt set filetype=php
 
-au BufNewFile,BufRead,BufEnter *.cpp,*.h set omnifunc=omni#cpp#complete#Main
+" au BufNewFile,BufRead,BufEnter *.cpp,*.h set omnifunc=omni#cpp#complete#Main
 
 " no mistyped :w or :q...
 :command W w
@@ -72,4 +78,6 @@ nnoremap <right> <nop>
 
 " navigace mezi okny: krome Ctrl-W ... taky Ctrl-h,j,k,l,w
 " zR: open all folds
+
+set showcmd
 

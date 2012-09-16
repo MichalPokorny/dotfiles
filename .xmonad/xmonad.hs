@@ -11,6 +11,7 @@ import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Util.WindowProperties
 import System.Exit
 import XMonad.Actions.RandomBackground
+import Graphics.X11.ExtraTypes.XF86
 
 import XMonad.Actions.CycleWS
 import XMonad.Actions.WindowGo
@@ -36,6 +37,8 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
 import Data.Monoid
+
+xK_Battery = 0x1008FF93
 
 role = (stringProperty "WM_WINDOW_ROLE")
 
@@ -87,14 +90,26 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 		, ((modm, xK_comma), sendMessage (IncMasterN 1))
 		, ((modm, xK_period), sendMessage (IncMasterN (-1)))
 		, ((modm, xK_z), spawn "xscreensaver-command -lock")
+		, ((0, xF86XK_ScreenSaver), spawn "xscreensaver-command -lock")
 		, ((modm .|. shiftMask, xK_q), io (exitWith ExitSuccess))
 		, ((modm, xK_f), goToSelected $ buildDefaultGSConfig defaultColorizer)
 		, ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
 		, ((modm, xK_c), xosdutilCommand "time")
 		, ((modm, xK_u), xosdutilCommand "uptime")
 		, ((modm, xK_a), xosdutilCommand "acpi")
+		, ((0, xK_Battery), xosdutilCommand "acpi")
 		, ((modm, xK_b), xosdutilCommand "bitcoins")
 		, ((modm, xK_s), shellPrompt xpConfig)
+		, ((0, xK_Print), spawn "/home/prvak/bin/take-screenshot")
+		, ((0, xF86XK_HomePage), spawn "xosdutilctl echo Ahoj") -- TODO
+		, ((0, xF86XK_AudioPlay), spawn "mpc pause") -- TODO: odpauzne taky?
+		, ((0, xF86XK_AudioPrev), spawn "mpc prev")
+		, ((0, xF86XK_AudioNext), spawn "mpc next")
+		, ((0, xF86XK_AudioMute), spawn "xosdutilctl echo Ahoj") -- TODO
+		, ((0, xF86XK_AudioLowerVolume), spawn "xosdutilctl echo Ahoj") -- TODO
+		, ((0, xF86XK_AudioRaiseVolume), spawn "xosdutilctl echo Ahoj") -- TODO
+		, ((0, xF86XK_MonBrightnessUp), spawn "xbacklight -inc 20")
+		, ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 20")
     ]
 		++
     -- mod-[1..9], Switch to workspace N

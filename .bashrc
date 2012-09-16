@@ -12,7 +12,7 @@ if [ -f /home/prvak/bin/git-prompt.sh ]; then
 	. /home/prvak/bin/git-prompt.sh
 fi
 
-export PATH=$PATH.":/home/prvak/bin:/usr/lib/surfraw:/opt/naturaldocs"
+export PATH="$PATH:/home/prvak/bin:/usr/lib/surfraw:/opt/naturaldocs"
 export EDITOR=`which vim`
 
 if [[ $- != *i* ]]; then
