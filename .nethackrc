@@ -1,2 +1,2 @@
 # toptenwin
-OPTIONS=color, DECgraphics, autoquiver, menucolors, showexp, showrace, time, hilite_pet, pickup_types:$, showexp
+OPTIONS=color, DECgraphics, autoquiver, showexp, showrace, time, hilite_pet, pickup_types:$

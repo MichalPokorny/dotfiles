@@ -102,7 +102,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 		, ((modm, xK_s), shellPrompt xpConfig)
 		, ((0, xK_Print), spawn "/home/prvak/bin/take-screenshot")
 		, ((0, xF86XK_HomePage), spawn "xosdutilctl echo Ahoj") -- TODO
-		, ((0, xF86XK_AudioPlay), spawn "mpc pause") -- TODO: odpauzne taky?
+		, ((0, xF86XK_AudioPlay), spawn "/home/prvak/bin/mpc-toggle")
 		, ((0, xF86XK_AudioPrev), spawn "mpc prev")
 		, ((0, xF86XK_AudioNext), spawn "mpc next")
 		, ((0, xF86XK_AudioMute), spawn "xosdutilctl echo Ahoj") -- TODO
@@ -110,6 +110,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 		, ((0, xF86XK_AudioRaiseVolume), spawn "xosdutilctl echo Ahoj") -- TODO
 		, ((0, xF86XK_MonBrightnessUp), spawn "xbacklight -inc 20")
 		, ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 20")
+		, ((0, xF86XK_Sleep), spawn "sudo pm-suspend")
     ]
 		++
     -- mod-[1..9], Switch to workspace N
