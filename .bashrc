@@ -1,7 +1,6 @@
 #
 # ~/.bashrc
 #
-
 . /etc/profile
 
 if [ -f /usr/share/bash-completion/bash_completion ] && ! shopt -oq posix; then
@@ -12,7 +11,7 @@ if [ -f /home/prvak/bin/git-prompt.sh ]; then
 	. /home/prvak/bin/git-prompt.sh
 fi
 
-export PATH="$PATH:/home/prvak/bin:/usr/lib/surfraw:/opt/naturaldocs"
+export PATH="$PATH:/home/prvak/bin:/usr/lib/surfraw:/opt/naturaldocs:/home/prvak/.gem/ruby/1.9.1/bin"
 export EDITOR=`which vim`
 
 if [[ $- != *i* ]]; then
@@ -25,7 +24,7 @@ my_git_ps1 ()
 		return
 	fi
 	local GITROOT="$(git rev-parse --show-toplevel)"
-	if [ "$GITROOT" != "/home/prvak" ]; then
+	if [ "$GITROOT" != "$HOME" ]; then
 		__git_ps1 "\033[00m%s \033[01;34m"
 	fi
 }
@@ -78,3 +77,17 @@ shopt -s autocd
 
 complete -o nospace -F _cd j
 export AUTOJUMP_IGNORE_CASE=1
+
+# Colored manpage hack
+man() {
+	env \
+		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+		LESS_TERMCAP_md=$(printf "\e[1;31m") \
+		LESS_TERMCAP_me=$(printf "\e[0m") \
+		LESS_TERMCAP_se=$(printf "\e[0m") \
+		LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+		LESS_TERMCAP_ue=$(printf "\e[0m") \
+		LESS_TERMCAP_us=$(printf "\e[1;32m") \
+			man "$@"
+}
+
