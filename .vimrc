@@ -15,7 +15,7 @@ set cindent
 set smartindent
 set autoindent
 
-set encoding=utf8
+set encoding=utf-8
 set wildmenu
 set hidden
 set number
@@ -80,4 +80,6 @@ nnoremap <right> <nop>
 " zR: open all folds
 
 set showcmd
+set laststatus=2
 
+call pathogen#infect()
