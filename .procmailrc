@@ -3,4 +3,4 @@ DEFAULT=$MAILDIR/
 LOGFILE=$HOME/procmail.log
 
 :0 hc
-| (/home/prvak/bin/incoming_mail)
+| /home/prvak/bin/incoming-mail
