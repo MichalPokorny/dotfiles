@@ -24,6 +24,7 @@ my_git_ps1 ()
 		return
 	fi
 	local GITROOT="$(git rev-parse --show-toplevel)"
+	# TODO: chtel bych, aby se neukazoval git status kazdeho adresare, ve kterem nekdo bydli
 	if [ "$GITROOT" != "$HOME" ]; then
 		__git_ps1 "\033[00m%s \033[01;34m"
 	fi
@@ -63,6 +64,7 @@ alias ls='ls --color=auto'
 alias phpc='php -a'
 alias su='sux'
 alias ..='cd ..'
+alias suspend='sudo pm-suspend'
 
 # Kompletuj prikazy po techto vecech...
 complete -cf sudo

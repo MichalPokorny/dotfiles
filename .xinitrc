@@ -8,7 +8,7 @@
 xmonad & wmpid=$!
 urxvtd -f -o &
 xscreensaver -nosplash &
-/home/prvak/bin/change_wallpaper not_a_computer.png &
+/home/prvak/bin/change-wallpaper not_a_computer.png &
 /home/prvak/bin/xosdutil &
 setxkbmap -option grp:switch,grp:alt_shift_toggle,compose:caps us,cz -variant ,qwerty &
 xrdb -merge ~/.Xresources
