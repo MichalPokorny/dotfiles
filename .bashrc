@@ -11,7 +11,7 @@ if [ -f /home/prvak/bin/git-prompt.sh ]; then
 	. /home/prvak/bin/git-prompt.sh
 fi
 
-export PATH="$PATH:/home/prvak/bin:/usr/lib/surfraw:/opt/naturaldocs:/home/prvak/.gem/ruby/1.9.1/bin"
+export PATH="$PATH:/home/prvak/bin:/usr/lib/surfraw:/opt/naturaldocs:~/.gem/ruby/1.9.1/bin:~/.cabal/bin"
 export EDITOR=`which vim`
 
 if [[ $- != *i* ]]; then
@@ -64,7 +64,7 @@ alias ls='ls --color=auto'
 alias phpc='php -a'
 alias su='sux'
 alias ..='cd ..'
-alias suspend='sudo pm-suspend'
+alias suspend='sudo systemctl suspend'
 
 # Kompletuj prikazy po techto vecech...
 complete -cf sudo
@@ -93,3 +93,6 @@ man() {
 			man "$@"
 }
 
+# Force old GNOME / QT applications to use XFT.
+export GDK_USE_XFT=1
+export QT_XFT=true
