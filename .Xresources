@@ -21,3 +21,4 @@ URxvt*foreground: White
 URxvt*font: xft:Terminus:pixelsize=12
 
 URxvt*saveLines: 65000
+URxvt*termName: rxvt-256color
