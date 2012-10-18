@@ -1,3 +1,4 @@
 external_editor = "/usr/bin/gvim"
 centered_cursor = "yes"
 mpd_music_dir = "/home/prvak/music"
+mpd_crossfade_time = 0
