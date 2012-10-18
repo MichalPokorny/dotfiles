@@ -42,10 +42,10 @@ xK_Battery = 0x1008FF93
 
 role = (stringProperty "WM_WINDOW_ROLE")
 
-myWorkspaces = (map show [0..9]) ++ [ "-", "=" ]
-workspaceKeys = ([xK_0 .. xK_9] ++ [xK_minus, xK_equal])
+myWorkspaces = (map show [1..9]) ++ [ "0", "-", "=" ]
+workspaceKeys = ([xK_1 .. xK_9] ++ [xK_0, xK_minus, xK_equal])
 
-xosdutilCommand cmd = spawn ("/home/prvak/bin/xosdutilctl " ++ cmd)
+xosdutilCommand cmd = spawn ("xosdutilctl " ++ cmd)
 
 xpConfig = amberXPConfig {
 	showCompletionOnTab = True
@@ -56,11 +56,13 @@ myTerminal = "urxvt"
 spawnInTerminal app = spawn (myTerminal ++ " -e " ++ app)
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
-    [--	  ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
-		  ((modm, xK_Return), randomBg $ RGB 0 10)
-		, ((modm .|. controlMask, xK_Return), spawn "/home/prvak/bin/terminal-big")
-		--, ((modm, xK_Return), spawn $ "xterm")
-		--, ((modm, xK_p), spawn "/home/prvak/bin/run_yeganesh")
+    [
+--		  ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+--		  ((modm, xK_Return), randomBg $ RGB 0 10)
+--		  ((modm, xK_Return), spawn $ "xterm")
+		  ((0, xK_Menu), randomBg $ RGB 0 10) -- The useless right-click-key shall spawn a terminal.
+		, ((shiftMask, xK_Menu), spawn "/home/prvak/bin/terminal-big") -- +shift - make it big.
+		, ((controlMask, xK_Menu), spawnInTerminal "su")
 		, ((modm .|. shiftMask,xK_w ), spawnInTerminal "wicd-curses")
 		, ((modm, xK_n ), spawnInTerminal "ncmpcpp")
 		, ((modm, xK_a ), spawnInTerminal "alsamixer")
@@ -68,6 +70,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 		, ((modm .|. shiftMask,xK_f ), spawn "firefox")
 		, ((modm .|. shiftMask,xK_v ), spawn "VirtualBox")
 		, ((modm .|. shiftMask,xK_p ), spawn "/home/prvak/bin/change-wallpaper")
+		, ((modm .|. shiftMask,xK_z ), spawn "zim")
 		, ((modm .|. shiftMask,xK_c ), kill)
 		, ((modm, xK_space ), sendMessage NextLayout)
 		, ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
@@ -93,6 +96,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 		, ((0, xF86XK_ScreenSaver), spawn "xscreensaver-command -lock")
 		, ((modm .|. shiftMask, xK_q), io (exitWith ExitSuccess))
 		, ((modm, xK_f), goToSelected $ buildDefaultGSConfig defaultColorizer)
+		, ((modm, xK_d), bringSelected $ buildDefaultGSConfig defaultColorizer)
 		, ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
 		, ((modm, xK_c), xosdutilCommand "time")
 		, ((modm, xK_u), xosdutilCommand "uptime")
