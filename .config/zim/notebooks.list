@@ -5,5 +5,5 @@ Default=
 [Notebook]
 uri=~/zim
 name=Notes
-interwiki=None
+interwiki=
 icon=None
