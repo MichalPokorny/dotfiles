@@ -1,10 +1,6 @@
 #!/bin/sh
 
-# exec gnome-session
-# exec startkde
-# exec startxfce4
-# exec .xsession
-
+eval $(gpg-agent --daemon)
 xmonad & wmpid=$!
 urxvtd -f -o &
 xscreensaver -nosplash &

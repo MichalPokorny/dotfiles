@@ -3,6 +3,10 @@
 #
 . /etc/profile
 
+# gpg-agent
+GPG_TTY=$(tty)
+export GPG_TTY
+
 if [ -f /usr/share/bash-completion/bash_completion ] && ! shopt -oq posix; then
     . /usr/share/bash-completion/bash_completion
 fi
@@ -96,3 +100,10 @@ man() {
 # Force old GNOME / QT applications to use XFT.
 export GDK_USE_XFT=1
 export QT_XFT=true
+
+# gpg-agent
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+	. "${HOME}/.gpg-agent-info"
+	export GPG_AGENT_INFO
+	export SSH_AUTH_SOCK
+fi
