@@ -1,1 +1,2 @@
 --type-set=latte=.latte,.phtml
+--type-set=thtml=.thtml
