@@ -15,6 +15,7 @@ import XMonad.Actions.RandomBackground
 import XMonad.Actions.GridSelect
 import XMonad.Actions.UpdatePointer(updatePointer, PointerPosition(Relative))
 
+import XMonad.Layout.ShowWName(showWName)
 import XMonad.Layout.Named
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.WindowNavigation(Navigate(Go), windowNavigation)
@@ -177,8 +178,8 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = Map.fromList $
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
     ]
 
--- TODO: noBorders (?), avoidStruts (?)
-myLayout = windowNavigation $ smartBorders $ wmii shrinkText defaultTheme
+-- TODO: avoidStruts (?)
+myLayout = showWName $ windowNavigation $ noBorders $ wmii shrinkText defaultTheme
 
 myManageHook = manageDocks <+> composeAll
     [ className =? "MPlayer"        --> doFloat
