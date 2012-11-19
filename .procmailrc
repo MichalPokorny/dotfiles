@@ -1,0 +1,6 @@
+MAILDIR=$HOME/.maildir/
+DEFAULT=$MAILDIR/
+LOGFILE=$HOME/procmail.log
+
+:0 hc
+| (cat > /tmp/hlavicky; /home/prvak/bin/cti_hlavicky_mailu)

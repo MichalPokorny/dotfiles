@@ -1,0 +1,1 @@
+OPTIONS=color, DECgraphics, autoquiver, menucolors, showexp, showrace, toptenwin, time, hilite_pet, pickup_types:$
