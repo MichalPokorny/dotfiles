@@ -51,6 +51,7 @@ PS1=$PROMPT_COLOR'\w \[\033[01;34m\]$(my_git_ps1)\$\[\033[00m\] '
 #LINE=`expr $RANDOM % $LINES + 1`
 #head -$LINE /home/prvak/NOTES | tail -1
 
+alias M='mutt'
 alias Gs='git status'
 alias Gd='git diff'
 alias Gc='git commit -a'
