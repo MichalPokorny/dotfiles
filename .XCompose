@@ -23,10 +23,13 @@ include "%L"
 
 #====================[   MY KEYS   ]====================#
 
+
 <Multi_key> <slash> <slash>							: "〃" U3003 # DITTO MARK
 
 <Multi_key> <comma> <comma>							: "„" U201E # DOUBLE LOW-9 QUOATATION MARK
 <Multi_key> <apostrophe> <apostrophe>						: "“" U201C # LEFT DOUBLE QUOTATION MARK
+# Pro ceskou klavesnici
+<Multi_key> <section> <section>							: "“" U201C # LEFT DOUBLE QUOTATION MARK
 
 #====== Common symbols
 <Multi_key> <equal> <0>									: "✘"	U2718 # HEAVY BALLOT X
