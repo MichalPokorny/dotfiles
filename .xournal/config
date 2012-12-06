@@ -114,7 +114,7 @@ btn2_linked=true
 # button 2 brush color (for pen or highlighter only)
 btn2_color=white
 # button 2 brush thickness (pen, eraser, or highlighter only)
-btn2_thickness=2
+btn2_thickness=3
 # button 2 ruler mode (true/false) (for pen or highlighter only)
 btn2_ruler=false
 # button 2 shape recognizer mode (true/false) (pen or highlighter only)
