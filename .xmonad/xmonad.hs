@@ -6,7 +6,7 @@ import Graphics.X11.ExtraTypes.XF86
 
 import XMonad hiding ((|||))
 
-import XMonad.Hooks.ManageDocks(manageDocks, Direction2D(D, U, L, R))
+import XMonad.Hooks.ManageDocks(docksEventHook, avoidStruts, manageDocks, Direction2D(D, U, L, R))
 import XMonad.Hooks.ManageHelpers(isDialog)
 
 import qualified XMonad.StackSet as StackSet
@@ -178,8 +178,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = Map.fromList $
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
     ]
 
--- TODO: avoidStruts (?)
-myLayout = showWName $ windowNavigation $ noBorders $ wmii shrinkText defaultTheme
+myLayout = avoidStruts $ showWName $ windowNavigation $ noBorders $ wmii shrinkText defaultTheme
 
 myManageHook = manageDocks <+> composeAll
     [ className =? "MPlayer"        --> doFloat
@@ -191,7 +190,7 @@ myManageHook = manageDocks <+> composeAll
 	, className =? "gnuplot"		--> doFloat
     , isDialog --> doFloat]
 
-myEventHook = mempty
+myEventHook = docksEventHook
 
 myLogHook = updatePointer (Relative 0.5 0.5)
 
