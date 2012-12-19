@@ -140,6 +140,7 @@ include "%L"
 <Multi_key> <braceleft> <asterisk>						: "∩"	# INTERSECTION
 
 #====== Logical Operators
+<Multi_key> <a> <l> <l>								: "∀" # FOR ALL
 <Multi_key> <E> <E>										: "∃"	# THERE EXISTS
 
 <Multi_key> <exclam> <exclam>							: "¬"	# LOGICAL NOT
