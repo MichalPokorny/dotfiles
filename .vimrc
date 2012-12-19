@@ -22,6 +22,9 @@ set number
 set hlsearch
 set background=dark
 
+" ukazuj prvni match
+set incsearch
+
 " mouse in every mode
 set mouse=a
 
