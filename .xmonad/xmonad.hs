@@ -83,7 +83,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
 -- Terminal spawn shortcuts
 	, ((modm .|. shiftMask, xK_w), spawnInTerminal "wicd-curses")
 	, ((modm, xK_n), spawnInTerminal "ncmpcpp")
-	, ((modm, xK_a), spawnInTerminal "alsamixer")
+	, ((modm .|. shiftMask, xK_a), spawnInTerminal "alsamixer")
 	, ((modm, xK_m), spawnInTerminal "mutt")
 
 -- Program spawn shortcuts
