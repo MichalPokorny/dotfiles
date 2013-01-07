@@ -109,3 +109,5 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
 	export GPG_AGENT_INFO
 	export SSH_AUTH_SOCK
 fi
+
+export KSP_WEB_ROOT=/home/prvak/ksp/web/build
