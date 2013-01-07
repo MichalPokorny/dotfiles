@@ -74,9 +74,17 @@ au BufNewFile,BufRead *.phpt set filetype=php
 :command Q q
 
 " for learning vim direction keys
+inoremap <up> <nop>
+vnoremap <up> <nop>
 nnoremap <up> <nop>
+inoremap <down> <nop>
+vnoremap <down> <nop>
 nnoremap <down> <nop>
+inoremap <left> <nop>
+vnoremap <left> <nop>
 nnoremap <left> <nop>
+inoremap <right> <nop>
+vnoremap <right> <nop>
 nnoremap <right> <nop>
 
 " navigace mezi okny: krome Ctrl-W ... taky Ctrl-h,j,k,l,w
