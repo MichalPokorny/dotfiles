@@ -94,3 +94,7 @@ set showcmd
 set laststatus=2
 
 call pathogen#infect()
+
+" mensi tabulatory v Ruby a ERB templatech
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
