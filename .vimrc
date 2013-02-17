@@ -87,6 +87,12 @@ inoremap <right> <nop>
 vnoremap <right> <nop>
 nnoremap <right> <nop>
 
+" unlearn moving by single characters
+vnoremap h <nop>
+nnoremap h <nop>
+vnoremap l <nop>
+nnoremap l <nop>
+
 " navigace mezi okny: krome Ctrl-W ... taky Ctrl-h,j,k,l,w
 " zR: open all folds
 
@@ -95,6 +101,7 @@ set laststatus=2
 
 call pathogen#infect()
 
-" mensi tabulatory v Ruby a ERB templatech
+" mensi tabulatory v Ruby a Railsovych templatech
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype haml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
