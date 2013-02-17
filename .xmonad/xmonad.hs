@@ -87,7 +87,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
 	, ((modm, xK_m), spawnInTerminal "mutt")
 
 -- Program spawn shortcuts
-	, ((modm .|. shiftMask, xK_f), spawn "firefox")
+	, ((modm .|. shiftMask, xK_f), spawn "dwb")
 	, ((modm .|. shiftMask, xK_v), spawn "VirtualBox")
 	, ((modm .|. shiftMask, xK_p), spawn "/home/prvak/bin/change-wallpaper")
 	, ((modm .|. shiftMask, xK_z), spawn "zim")
