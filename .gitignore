@@ -104,6 +104,11 @@
 .config/bless/history.xml
 .config/bless/last.session
 
+# Volatile
+.config/evince/print-settings
+
+.config/menus
+
 # obsahuje asi jenom sockety
 .dbus
 
@@ -439,3 +444,21 @@
 # drobnosti s Octave
 .octaverc
 .octave_packages
+
+# Easytag nema co ukladat
+.easytag
+
+# Q3A nema co ukladat
+.q3a
+
+# MyPaint nema co ukladat
+.mypaint
+
+# Bundler ma jenom lokalni data
+.bundler
+
+# zsh completion
+.zcompdump
+.zshrc.zni
+
+.local
