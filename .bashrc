@@ -15,7 +15,7 @@ if [ -f /home/prvak/bin/git-prompt.sh ]; then
 	. /home/prvak/bin/git-prompt.sh
 fi
 
-export PATH="$PATH:/home/prvak/bin:/usr/lib/surfraw:/opt/naturaldocs:$HOME/.gem/ruby/1.9.1/bin:$HOME/.cabal/bin"
+export PATH="$PATH:/home/prvak/bin:/usr/lib/surfraw:/opt/naturaldocs:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin"
 export EDITOR=`which vim`
 
 if [[ $- != *i* ]]; then
@@ -111,3 +111,4 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
 fi
 
 export KSP_WEB_ROOT=/home/prvak/ksp/web/build
+export LONG_RUNNING_COMMAND_SOUND_PLAYER=mplayer
