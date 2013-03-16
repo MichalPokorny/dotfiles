@@ -1,4 +1,6 @@
-external_editor = "/usr/bin/gvim"
+external_editor = "/usr/bin/vim"
+use_console_editor = "yes"
 centered_cursor = "yes"
 mpd_music_dir = "/home/prvak/music"
 mpd_crossfade_time = 0
+volume_color = "cyan"
