@@ -68,7 +68,12 @@ alias Wc='wicd-curses'
 alias diff='colordiff'
 alias ls='ls --color=auto'
 alias phpc='php -a'
-alias su='sux'
+
+which sux &> /dev/null
+if [ $? ]; then
+	alias su='sux'
+fi
+
 alias ..='cd ..'
 alias suspend='sudo systemctl suspend'
 
@@ -112,3 +117,7 @@ fi
 
 export KSP_WEB_ROOT=/home/prvak/ksp/web/build
 export LONG_RUNNING_COMMAND_SOUND_PLAYER=mplayer
+export PYLEARN2_VIEWER_COMMAND="eog --new-instance"
+
+# No flow control (Ctrl-S / Q) - this is pretty much useless.
+stty -ixon
