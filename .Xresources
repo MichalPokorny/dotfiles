@@ -17,8 +17,10 @@ URxvt*scrollstyle: plain
 URxvt*scrollBar: false
 URxvt*background: Black
 URxvt*foreground: White
-! URxvt*font: xft:Terminus:pixelsize=12:antialias=false
-URxvt*font: xft:Terminus:pixelsize=12
+! URxvt*font: xft:Terminus:pixelsize=12
+URxvt*font: xft:Terminus:pixelsize=14:antialias=false
+! A more readable dark blue
+URxvt*color12: #1A85FF
 
 URxvt*saveLines: 65000
 URxvt*termName: rxvt-256color
