@@ -6,12 +6,12 @@ Xcursor.theme: Vanilla-DMZ-AA
 
 xterm*loginShell: true
 xterm*utf8: True
-xterm*faceName: terminus:pixelsize=16
-xterm*saveLines: 2000
+xterm*font: -*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-1
+xterm*saveLines: 30000
 xterm*fastScroll: True
 xterm*termName: xterm-256color
-
-uxterm*termName: xterm-256color
+! A more readable dark blue
+xterm*color12: #1A85FF
 
 URxvt*scrollstyle: plain
 URxvt*scrollBar: false
@@ -21,6 +21,8 @@ URxvt*foreground: White
 URxvt*font: xft:Terminus:pixelsize=14:antialias=false
 ! A more readable dark blue
 URxvt*color12: #1A85FF
-
-URxvt*saveLines: 65000
+URxvt*saveLines: 30000
 URxvt*termName: rxvt-256color
+
+! needed for undistract-me
+!URxvt*loginShell: true
