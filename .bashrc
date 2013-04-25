@@ -15,7 +15,7 @@ if [ -f /home/prvak/bin/git-prompt.sh ]; then
 	. /home/prvak/bin/git-prompt.sh
 fi
 
-export PATH="$PATH:/home/prvak/bin:/usr/lib/surfraw:/opt/naturaldocs:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin"
+export PATH="$PATH:/home/prvak/bin:/home/prvak/bin/btckit:/usr/lib/surfraw:/opt/naturaldocs:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin"
 export EDITOR=`which vim`
 
 if [[ $- != *i* ]]; then
@@ -68,6 +68,7 @@ alias Wc='wicd-curses'
 alias diff='colordiff'
 alias ls='ls --color=auto'
 alias phpc='php -a'
+alias vi='vim'
 
 which sux &> /dev/null
 if [ $? ]; then
@@ -75,7 +76,7 @@ if [ $? ]; then
 fi
 
 alias ..='cd ..'
-alias suspend='sudo systemctl suspend'
+alias suspend='systemctl suspend'
 
 # Kompletuj prikazy po techto vecech...
 complete -cf sudo
