@@ -4,3 +4,4 @@ centered_cursor = "yes"
 mpd_music_dir = "/home/prvak/music"
 mpd_crossfade_time = 0
 volume_color = "cyan"
+follow_now_playing_lyrics = "yes"
