@@ -465,5 +465,6 @@
 .icons
 
 .xournal/config
+.config/gtk-3.0/settings.ini
 .gtkrc-2.0
 .gnuplot-wxt
