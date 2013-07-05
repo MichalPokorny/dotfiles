@@ -463,3 +463,7 @@
 .vnc
 
 .icons
+
+.xournal/config
+.gtkrc-2.0
+.gnuplot-wxt
