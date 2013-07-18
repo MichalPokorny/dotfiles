@@ -30,6 +30,8 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.MessageControl(escape, unEscape, ignore)
 
+import XMonad.Hooks.EwmhDesktops
+
 import XMonad.Prompt(amberXPConfig, showCompletionOnTab)
 import XMonad.Prompt.Shell(shellPrompt)
 import XMonad.Prompt.AppendFile(appendFilePrompt)
@@ -191,12 +193,12 @@ myManageHook = manageDocks <+> composeAll
 	, className =? "gnuplot"		--> doFloat
     , isDialog --> doFloat]
 
-myEventHook = docksEventHook
+myEventHook = docksEventHook <+> fullscreenEventHook
 
 myLogHook = updatePointer (Relative 0.5 0.5)
 
 main = do
-      xmonad $ defaultConfig {
+      xmonad $ ewmh defaultConfig {
         terminal           = myTerminal,
         focusFollowsMouse  = True,
         borderWidth        = 1,
