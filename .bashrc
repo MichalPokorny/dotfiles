@@ -15,7 +15,7 @@ if [ -f /home/prvak/bin/git-prompt.sh ]; then
 	. /home/prvak/bin/git-prompt.sh
 fi
 
-export PATH="$PATH:/home/prvak/bin:/home/prvak/bin/btckit:/usr/lib/surfraw:/opt/naturaldocs:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin"
+export PATH="$PATH:/home/prvak/bin:/home/prvak/bin/btckit:/usr/lib/surfraw:/opt/naturaldocs:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin:/opt/android-sdk/platform-tools"
 export EDITOR=`which vim`
 
 if [[ $- != *i* ]]; then
