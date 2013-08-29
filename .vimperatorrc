@@ -17,7 +17,7 @@ noremap , :tabprevious<CR>
 noremap . :tabnext<CR>
 noremap <C-l> :nohlsearch<CR>
 
-set hintchars=fjghdksla
+set hintchars=fjghdkslaqwertyuiopzxcvbnm
 set newtab=all
 
 " complete search engine suggestions, too
