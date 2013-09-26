@@ -145,7 +145,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
 	, ((modm, xK_c), xosdutilCommand "time")
 	, ((modm, xK_u), xosdutilCommand "uptime")
 	, ((modm, xK_a), xosdutilCommand "acpi")
-	, ((modm, xK_b), spawn "/home/prvak/bin/btcreport/btcreport-xosd")
+	, ((modm, xK_b), spawn "/home/prvak/bin/btckit/btc-wallet-price --xosd")
 
 -- Special key miscellany
 	, ((0, xK_Battery), xosdutilCommand "acpi")
