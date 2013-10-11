@@ -44,10 +44,10 @@ import Data.Monoid(mempty)
 
 xK_Battery = 0x1008FF93
 
-role = (stringProperty "WM_WINDOW_ROLE")
+role = stringProperty "WM_WINDOW_ROLE"
 
-myWorkspaces = (map show [1..9]) ++ [ "0", "-", "=" ]
-workspaceKeys = ([xK_1 .. xK_9] ++ [xK_0, xK_minus, xK_equal])
+myWorkspaces = map show [1..9] ++ [ "0", "-", "=" ]
+workspaceKeys = [xK_1 .. xK_9] ++ [xK_0, xK_minus, xK_equal]
 
 xosdutilCommand cmd = spawn ("xosdutilctl " ++ cmd)
 
@@ -65,7 +65,7 @@ spawnInTerminal app = spawn (myTerminal ++ " -e " ++ app)
 wmii s t = group innerLayout zoomRowG
     where column = Mirror zoomRow
           tabs = Simplest
-          innerLayout = (column ||| (addTabs s t $ tabs) ||| Full)
+          innerLayout = column ||| addTabs s t $ tabs ||| Full
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
 	[
@@ -73,7 +73,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
 	-- Kill current window
 	  ((modm .|. shiftMask,xK_c ), kill)
 	-- Quit XMonad
-	, ((modm .|. shiftMask, xK_q), io (exitWith ExitSuccess))
+	, ((modm .|. shiftMask, xK_q), io exitSuccess)
 	-- Recompile and restart
 	, ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
 
@@ -123,6 +123,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
 -- Prompts
 	-- Write a quick note
 	, ((modm .|. shiftMask, xK_n), appendFilePrompt xpConfig "/home/prvak/NOTES")
+	-- Spawn note file
+	, ((modm .|. controlMask, xK_n), spawnInTerminal "vim /home/prvak/NOTES")
 	-- Browse a man page
 	, ((modm .|. shiftMask, xK_m), manPrompt xpConfig)
 	-- Spawn a program
@@ -145,7 +147,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
 	, ((modm, xK_c), xosdutilCommand "time")
 	, ((modm, xK_u), xosdutilCommand "uptime")
 	, ((modm, xK_a), xosdutilCommand "acpi")
-	, ((modm, xK_b), spawn "/home/prvak/bin/btckit/btc-wallet-price --xosd")
+	, ((modm .|. controlMask, xK_f), xosdutilCommand "fetchmail-wakeup")
 
 -- Special key miscellany
 	, ((0, xK_Battery), xosdutilCommand "acpi")
@@ -174,10 +176,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
         , (f, m) <- [(StackSet.view, 0), (StackSet.shift, shiftMask)]]
 
 -- Mouse bindings: default actions bound to mouse events
-myMouseBindings (XConfig {XMonad.modMask = modm}) = Map.fromList $
-    [ ((modm, button1), (\w -> focus w >> mouseMoveWindow w >> windows StackSet.shiftMaster))
-    , ((modm, button2), (\w -> focus w >> windows StackSet.shiftMaster))
-    , ((modm, button3), (\w -> focus w >> mouseResizeWindow w >> windows StackSet.shiftMaster))
+myMousBindings (XConfig {XMonad.modMask = modm}) = Map.fromList
+    [ (modm, button1), \w -> focus w >> mouseMoveWindow w >> windows StackSet.shiftMaster
+    , (modm, button2), \w -> focus w >> windows StackSet.shiftMaster
+    , (modm, button3), \w -> focus w >> mouseResizeWindow w >> windows StackSet.shiftMaster
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
     ]
 
@@ -188,8 +190,6 @@ myManageHook = manageDocks <+> composeAll
 --  , className =? "VirtualBox"     --> doShift "4"
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore
-	, className =? "git-gui"        --> doFloat
-	, className =? "Git-gui"        --> doFloat
 	, className =? "gnuplot"		--> doFloat
     , isDialog --> doFloat]
 
@@ -197,8 +197,7 @@ myEventHook = docksEventHook <+> fullscreenEventHook
 
 myLogHook = updatePointer (Relative 0.5 0.5)
 
-main = do
-      xmonad $ ewmh defaultConfig {
+main = xmonad $ ewmh defaultConfig {
         terminal           = myTerminal,
         focusFollowsMouse  = True,
         borderWidth        = 1,
