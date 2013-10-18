@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.21 for prvak on Sun Jun 30 21:58:03 2013.
+# Written by xscreensaver-demo 5.22 for prvak on Mon Sep 30 23:30:09 2013.
 # http://www.jwz.org/xscreensaver/
 
 timeout:	0:15:00
@@ -39,8 +39,7 @@ selected:	-1
 
 textMode:	program
 textLiteral:	XScreenSaver
-textFile:	/etc/gentoo-release
-textProgram:	uname -a ; uptime ; df ; fortune
+textProgram:	/home/prvak/bin/screensaver-message
 textURL:	http://planet.gentoo.org/rss20.xml
 
 programs:								      \
@@ -129,7 +128,7 @@ programs:								      \
 -				loop -root				    \n\
 -				penetrate -root				    \n\
 -				petri -root				    \n\
-				phosphor -root -ticks 17		    \n\
+				phosphor -root -scale 1 -ticks 17	    \n\
 - GL: 				pulsar -root				    \n\
 -				ripples -root				    \n\
 -				shadebobs -root				    \n\
@@ -261,6 +260,10 @@ programs:								      \
   GL: 				companioncube -root			    \n\
 - GL: 				hilbert -root				    \n\
 - GL: 				tronbit -root				    \n\
+				hexadrop -root				    \n\
+  GL: 				kaleidocycle -root			    \n\
+  GL: 				quasicrystal -root			    \n\
+  GL: 				unknownpleasures -root			    \n\
 
 
 pointerPollTime:    0:00:05
