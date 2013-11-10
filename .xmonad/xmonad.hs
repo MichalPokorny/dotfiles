@@ -51,6 +51,8 @@ xpConfig = amberXPConfig {
 --	, autoComplete = Just 0
 }
 
+xK_Battery = 0x1008FF93
+
 myTerminal = "xterm" 
 spawnInTerminal app = spawn (myTerminal ++ " -e " ++ app)
 
@@ -82,7 +84,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
 	, ((modm, xK_n), spawnInTerminal "ncmpcpp")
 	, ((modm .|. shiftMask, xK_a), spawnInTerminal "alsamixer")
 	, ((modm, xK_m), spawnInTerminal "mutt")
-	, ((modm .|. altMask, xK_h), spawnInTerminal "htop")
+	, ((modm .|. mod1Mask, xK_h), spawnInTerminal "htop") -- mod1Mask = alt
 
 -- Program spawn shortcuts
 	, ((modm .|. shiftMask, xK_f), spawn "firefox")
@@ -145,7 +147,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
 	, ((modm .|. controlMask, xK_f), xosdutilCommand "fetchmail-wakeup")
 
 -- Special key miscellany
-	, ((0, xK_Battery), xosdutilCommand "acpi") where xK_Battery = 0x1008FF93
+	, ((0, xK_Battery), xosdutilCommand "acpi")
 	, ((0, xK_Print), spawn "/home/prvak/bin/take-screenshot")
 	, ((0, xF86XK_HomePage), spawn "xosdutilctl echo Ahoj") -- TODO
 	, ((0, xF86XK_AudioPlay), spawn "/home/prvak/bin/mpc-toggle")
@@ -175,7 +177,6 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = Map.fromList
     [ ((modm, button1), \w -> focus w >> mouseMoveWindow w >> windows StackSet.shiftMaster)
     , ((modm, button2), \w -> focus w >> windows StackSet.shiftMaster)
     , ((modm, button3), \w -> focus w >> mouseResizeWindow w >> windows StackSet.shiftMaster)
-    , ((modm, button4), \_ -> 
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
     ]
 
