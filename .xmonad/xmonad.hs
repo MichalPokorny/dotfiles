@@ -82,6 +82,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
 	, ((modm, xK_n), spawnInTerminal "ncmpcpp")
 	, ((modm .|. shiftMask, xK_a), spawnInTerminal "alsamixer")
 	, ((modm, xK_m), spawnInTerminal "mutt")
+	, ((modm .|. altMask, xK_h), spawnInTerminal "htop")
 
 -- Program spawn shortcuts
 	, ((modm .|. shiftMask, xK_f), spawn "firefox")
