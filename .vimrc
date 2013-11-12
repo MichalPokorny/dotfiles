@@ -102,6 +102,7 @@ set showcmd
 set laststatus=2
 
 set statusline+=%{SyntasticStatuslineFlag()}
+let g:syntastic_enable_signs=1
 let g:syntastic_check_on_open=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_auto_loc_list=1
@@ -139,3 +140,5 @@ let g:netrw_list_hide='.*\.swp$'
 " o: overwrite message
 " I: intro
 set shortmess=filmnrxtToOI
+
+let g:matchparen_insert_timeout=5
