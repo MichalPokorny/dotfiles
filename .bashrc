@@ -71,8 +71,7 @@ alias phpc='php -a'
 alias vi='vim'
 alias notes='vim ~/NOTES'
 
-which sux &> /dev/null
-if [ $? ]; then
+if (which sux &> /dev/null); then
 	alias su='sux'
 fi
 
@@ -91,7 +90,8 @@ shopt -s histappend
 shopt -s autocd
 
 complete -o nospace -F _cd j
-export AUTOJUMP_IGNORE_CASE=1
+# Autojump:
+# export AUTOJUMP_IGNORE_CASE=1
 
 # Colored manpage hack
 man() {

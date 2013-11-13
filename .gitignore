@@ -472,3 +472,18 @@
 .config/evince/accels
 
 .vim/doc/tags
+
+.litecoin
+.bitcoin
+
+# Secrets
+.sis-credentials.yml
+
+.adom.data
+
+*/lastopenedfiles.*
+
+.config/Pencil # not needed
+
+.watched-sites.yml
+.watched-sites-contents

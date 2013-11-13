@@ -72,15 +72,15 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
 	, ((modm .|. shiftMask, xK_q), io exitSuccess)
 	-- Recompile and restart
 	, ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
-
--- Terminal spawning keys
-	, ((0, xK_Menu), randomBg $ RGB 0 15) -- The useless right-click-key shall spawn a terminal.
-	, ((controlMask .|. shiftMask, xK_Menu), spawn "/home/prvak/bin/terminal-big 20") -- +ctrl+shift - make it medium.
-	, ((shiftMask, xK_Menu), spawn "/home/prvak/bin/terminal-big") -- +shift - make it big.
-	, ((controlMask, xK_Menu), spawnInTerminal "su")
-
+	] ++ foldl (++) [] (map (\key -> [
+	-- Terminal spawning keys
+		  ((0, key), randomBg $ RGB 0 15) -- The useless right-click-key shall spawn a terminal.
+		, ((controlMask .|. shiftMask, key), spawn "/home/prvak/bin/terminal-big 20") -- +ctrl+shift - make it medium.
+		, ((shiftMask, key), spawn "/home/prvak/bin/terminal-big") -- +shift - make it big.
+		, ((controlMask, key), spawnInTerminal "su")
+	]) [xK_Menu, xK_Print]) ++ [
 -- Terminal spawn shortcuts
-	, ((modm .|. shiftMask, xK_w), spawnInTerminal "wicd-curses")
+	  ((modm .|. shiftMask, xK_w), spawnInTerminal "wicd-curses")
 	, ((modm, xK_n), spawnInTerminal "ncmpcpp")
 	, ((modm .|. shiftMask, xK_a), spawnInTerminal "alsamixer")
 	, ((modm, xK_m), spawnInTerminal "mutt")
@@ -148,7 +148,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
 
 -- Special key miscellany
 	, ((0, xK_Battery), xosdutilCommand "acpi")
-	, ((0, xK_Print), spawn "/home/prvak/bin/take-screenshot")
+	-- ThinkPad X230 has no Menu key, so I use the Print key instead
+	-- , ((0, xK_Print), spawn "/home/prvak/bin/take-screenshot")
 	, ((0, xF86XK_HomePage), spawn "xosdutilctl echo Ahoj") -- TODO
 	, ((0, xF86XK_AudioPlay), spawn "/home/prvak/bin/mpc-toggle")
 	, ((0, xF86XK_AudioPrev), spawn "mpc prev")
