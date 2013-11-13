@@ -85,7 +85,7 @@
 .adobe
 
 # obsahuje jenom "lokalni nastaveni": autojump, geeqie, ...
-.local/share/MonoDevelop-3.0
+.local/share/MonoDevelop-*
 .local/share/Trash
 .local/share/autojump
 .local/share/gegl-0.2
@@ -180,7 +180,7 @@
 # obsahuje pozice okna Homebank
 .config/homebank/preferences
 # je volatilni
-.config/homebank/lastopenedfiles
+.config/homebank/lastopenedfiles*
 
 # obsahuje zbytecnosti
 .LuminanceHDR
@@ -303,6 +303,7 @@
 
 # obsahuje runtime veci
 .pulse
+.config/pulse
 
 # obsahuje historii, ...
 .elinks
@@ -468,6 +469,7 @@
 .config/gtk-3.0/settings.ini
 .gtkrc-2.0
 .gnuplot-wxt
+.config/gnuplot/qtterminal.conf
 
 .config/evince/accels
 
@@ -475,6 +477,13 @@
 
 .litecoin
 .bitcoin
+.mining-bitcoin-cz-token
+
+.config/Bitcoin
+.config/Litecoin
+
+# Intelligent battery monitor data
+.ibam
 
 # Secrets
 .sis-credentials.yml
@@ -487,3 +496,17 @@
 
 .watched-sites.yml
 .watched-sites-contents
+
+.btckit
+.iks-portfolio.yml
+
+.frictionalgames
+
+# Yard docs
+.yard
+
+# Zenmap
+.zenmap
+
+# Bro pages config
+.bro
