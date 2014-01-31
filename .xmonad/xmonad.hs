@@ -154,9 +154,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
 	, ((0, xF86XK_AudioPlay), spawn "/home/prvak/bin/mpc-toggle")
 	, ((0, xF86XK_AudioPrev), spawn "mpc prev")
 	, ((0, xF86XK_AudioNext), spawn "mpc next")
-	, ((0, xF86XK_AudioMute), spawn "xosdutilctl echo Ahoj") -- TODO
-	, ((0, xF86XK_AudioLowerVolume), spawn "xosdutilctl echo Ahoj") -- TODO
-	, ((0, xF86XK_AudioRaiseVolume), spawn "xosdutilctl echo Ahoj") -- TODO
+	, ((0, xF86XK_AudioMute), spawn "amixer --quiet set Master toggle") -- TOOD: show volume in xosdutil?
+	, ((0, xF86XK_AudioLowerVolume), spawn "amixer --quiet set PCM 10-")
+	, ((0, xF86XK_AudioRaiseVolume), spawn "amixer --quiet set PCM 10+")
 	, ((0, xF86XK_MonBrightnessUp), spawn "xbacklight -inc 20")
 	, ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 20")
 	, ((0, xF86XK_Sleep), spawn "sudo pm-suspend")

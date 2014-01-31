@@ -6,3 +6,9 @@ stop-xscreensaver="yes"
 #font="/usr/share/fonts/TTF/DejaVuSans.ttf"
 
 ao=alsa
+
+# Disable xscreensaver
+heartbeat-cmd="xscreensaver-command -deactivate &>- 2>&- &"
+
+# Scale tempo by speed
+af=scaletempo
