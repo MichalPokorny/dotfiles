@@ -8,13 +8,11 @@
 .recently-used
 .pulse-cookie
 .Xauthority
-.ICEauthority
 .lesshst
 .maildir*
 .*history
 .*_hist
 .~lock*
-.qt
 .netbeans
 .viminfo
 .java
@@ -29,9 +27,6 @@
 .*~
 .*.pid
 
-# ???
-.apvlvinfo
-
 # obsahuje penezenku
 .bitcoin*
 .electrum
@@ -40,11 +35,6 @@
 
 .*_cache
 .*_auth
-
-# asi od fetchmailu?
-.fetchids
-
-.hwid
 
 *.log
 *xosdutilctl
