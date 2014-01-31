@@ -50,7 +50,9 @@ filetype plugin on
 noremap <C-C> :botright cope<CR>
 noremap <C-N> :cn<CR>
 noremap <C-P> :cp<CR>
-noremap <S-M> :make<CR>
+
+" to byvalo <S-M>, ale to koliduje s 'vyber prostredni radku'
+noremap <Leader>m :make<CR>
 
 noremap <C-l> :noh<CR>
 
@@ -88,10 +90,10 @@ vnoremap <right> <nop>
 nnoremap <right> <nop>
 
 " unlearn moving by single characters
-vnoremap h <nop>
-nnoremap h <nop>
-vnoremap l <nop>
-nnoremap l <nop>
+"vnoremap h <nop>
+"nnoremap h <nop>
+"vnoremap l <nop>
+"nnoremap l <nop>
 
 " navigace mezi okny: krome Ctrl-W ... taky Ctrl-h,j,k,l,w
 " zR: open all folds
@@ -99,9 +101,41 @@ nnoremap l <nop>
 set showcmd
 set laststatus=2
 
+set statusline+=%{SyntasticStatuslineFlag()}
+let g:syntastic_check_on_open=1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_auto_loc_list=1
+" Passive Python, because Syntastic cries about print statements in Python 2.
+let g:syntastic_mode_map = { 'mode': 'active',
+\ 'active_filetypes': [ 'ruby', 'php', 'c' ],
+\ 'passive_filetypes': [ 'python' ]
+\ }
+
+" Bundly: Powerline, Syntastic
+
 call pathogen#infect()
 
 " mensi tabulatory v Ruby a Railsovych templatech
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
-autocmd Filetype haml setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 textwidth=80
+autocmd Filetype python setlocal ts=2 sts=2 sw=2 textwidth=80
+autocmd Filetype haml setlocal ts=2 sts=2 sw=2 expandtab textwidth=80
+autocmd Filetype eruby setlocal ts=2 sts=2 sw=2 textwidth=80
+autocmd Filetype coffee setlocal ts=2 sts=2 sw=2 textwidth=80
+autocmd Filetype tex setlocal textwidth=80 
+
+" skryj swapfily v NetRW
+let g:netrw_list_hide='.*\.swp$'
+
+" nechci intro
+" f: (3 of 5) misto (file 3 of 5)
+" i: [noeol]
+" l: 999L, 888C misto 999 lines, 888 characters
+" m: [+] misto modified
+" n: [New] misto [New File]
+" r: [RO]
+" x: [dos], [unix], [mac]
+" t: truncate file message zleva jestli je moc dlouha
+" T: truncate uprostred jestli je moc dlouha
+" o: overwrite message
+" I: intro
+set shortmess=filmnrxtToOI

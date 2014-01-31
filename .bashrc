@@ -69,6 +69,7 @@ alias diff='colordiff'
 alias ls='ls --color=auto'
 alias phpc='php -a'
 alias vi='vim'
+alias notes='vim ~/NOTES'
 
 which sux &> /dev/null
 if [ $? ]; then

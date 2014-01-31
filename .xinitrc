@@ -2,11 +2,14 @@
 
 eval $(gpg-agent --daemon)
 xmonad & wmpid=$!
-urxvtd -f -o &
 xscreensaver -nosplash &
 xosdutil &
-setxkbmap -option grp:switch,grp:alt_shift_toggle,compose:caps us,cz -variant ,qwerty &
 xrdb -merge ~/.Xresources
+/usr/lib/notification-daemon-*/notification-daemon &
+setxkbmap -option grp:switch,grp:alt_shift_toggle,compose:caps us,cz -variant ,qwerty
+xmodmap ~/.Xmodmap
+xset +fp /usr/share/fonts/local/
+redshift -l 50:14 &
 
 wait $wmpid
 

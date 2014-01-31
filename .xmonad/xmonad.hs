@@ -55,7 +55,7 @@ xpConfig = amberXPConfig {
 --	, autoComplete = Just 0
 }
 
-myTerminal = "urxvt" 
+myTerminal = "xterm" 
 spawnInTerminal app = spawn (myTerminal ++ " -e " ++ app)
 
 -- | A layout inspired by wmii
@@ -76,7 +76,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
 	, ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
 
 -- Terminal spawning keys
-	, ((0, xK_Menu), randomBg $ RGB 0 10) -- The useless right-click-key shall spawn a terminal.
+	, ((0, xK_Menu), randomBg $ RGB 0 15) -- The useless right-click-key shall spawn a terminal.
+	, ((controlMask .|. shiftMask, xK_Menu), spawn "/home/prvak/bin/terminal-big 20") -- +ctrl+shift - make it medium.
 	, ((shiftMask, xK_Menu), spawn "/home/prvak/bin/terminal-big") -- +shift - make it big.
 	, ((controlMask, xK_Menu), spawnInTerminal "su")
 
@@ -87,7 +88,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
 	, ((modm, xK_m), spawnInTerminal "mutt")
 
 -- Program spawn shortcuts
-	, ((modm .|. shiftMask, xK_f), spawn "dwb")
+	, ((modm .|. shiftMask, xK_f), spawn "firefox")
 	, ((modm .|. shiftMask, xK_v), spawn "VirtualBox")
 	, ((modm .|. shiftMask, xK_p), spawn "/home/prvak/bin/change-wallpaper")
 	, ((modm .|. shiftMask, xK_z), spawn "zim")
@@ -142,10 +143,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
 	, ((modm, xK_c), xosdutilCommand "time")
 	, ((modm, xK_u), xosdutilCommand "uptime")
 	, ((modm, xK_a), xosdutilCommand "acpi")
+	, ((modm, xK_b), spawn "/home/prvak/bin/btcreport/btcreport-xosd")
 
 -- Special key miscellany
 	, ((0, xK_Battery), xosdutilCommand "acpi")
-	, ((modm, xK_b), xosdutilCommand "bitcoins")
 	, ((0, xK_Print), spawn "/home/prvak/bin/take-screenshot")
 	, ((0, xF86XK_HomePage), spawn "xosdutilctl echo Ahoj") -- TODO
 	, ((0, xF86XK_AudioPlay), spawn "/home/prvak/bin/mpc-toggle")
