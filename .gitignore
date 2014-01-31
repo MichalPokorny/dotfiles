@@ -127,13 +127,7 @@
 # obsahuje pozici okna
 .config/gtk-2.0/gtkfilechooser.ini
 
-# obsahuje cache fontu
-.config/libreoffice/3/user/psprint/
-.config/libreoffice/3/user/uno_packages/cache
-
-# obsahuje volatilni veci
-.config/libreoffice/3/user/extensions/*/buildid
-.config/libreoffice/3/user/extensions/*/extensions.db
+.config/libreoffice/
 
 # obsahuje volatilni veci
 .config/dconf/user
@@ -467,3 +461,5 @@
 
 .remmina
 .vnc
+
+.icons
