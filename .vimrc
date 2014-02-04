@@ -142,3 +142,10 @@ let g:netrw_list_hide='.*\.swp$'
 set shortmess=filmnrxtToOI
 
 let g:matchparen_insert_timeout=5
+
+" Highlight end of line whitespace and mixed spaces and tabs
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$\| \+\ze\t/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$\| \+\ze\t/
+au InsertLeave * match ExtraWhitespace /\s\+$\| \+\ze\t/
