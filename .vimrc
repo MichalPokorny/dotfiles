@@ -117,12 +117,15 @@ let g:syntastic_mode_map = { 'mode': 'active',
 call pathogen#infect()
 
 " mensi tabulatory v Ruby a Railsovych templatech
+
+" moje: chci tabulatory
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 textwidth=80
+
 autocmd Filetype python setlocal ts=2 sts=2 sw=2 textwidth=80
 autocmd Filetype haml setlocal ts=2 sts=2 sw=2 noexpandtab textwidth=80
 autocmd Filetype eruby setlocal ts=2 sts=2 sw=2 textwidth=80
 autocmd Filetype coffee setlocal ts=2 sts=2 sw=2 textwidth=80
-autocmd Filetype tex setlocal textwidth=80 
+autocmd Filetype tex setlocal textwidth=80
 
 " skryj swapfily v NetRW
 let g:netrw_list_hide='.*\.swp$'
