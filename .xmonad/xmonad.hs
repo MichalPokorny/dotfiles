@@ -38,6 +38,8 @@ import XMonad.Prompt.AppendFile(appendFilePrompt)
 import XMonad.Prompt.Man(manPrompt)
 import XMonad.Prompt.XMonad(xmonadPrompt)
 
+import XMonad.Hooks.SetWMName
+
 import qualified Data.Map as Map
 
 myWorkspaces = map show [1..9] ++ [ "0", "-", "=" ]
@@ -79,8 +81,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
 		, ((shiftMask, key), spawn "/home/prvak/bin/terminal-big") -- +shift - make it big.
 		, ((controlMask, key), spawnInTerminal "su")
 	]) [xK_Menu, xK_Print]) ++ [
+	  ((modm, xK_w), randomBg $ RGB 0 15) -- Prizeo
 -- Terminal spawn shortcuts
-	  ((modm .|. shiftMask, xK_w), spawnInTerminal "wicd-curses")
+	, ((modm .|. shiftMask, xK_w), spawnInTerminal "wicd-curses")
 	, ((modm, xK_n), spawnInTerminal "ncmpcpp")
 	, ((modm .|. shiftMask, xK_a), spawnInTerminal "alsamixer")
 	, ((modm, xK_m), spawnInTerminal "mutt")
@@ -206,5 +209,6 @@ main = xmonad $ ewmh defaultConfig {
         layoutHook         = myLayout,
         manageHook         = myManageHook,
         handleEventHook    = docksEventHook <+> fullscreenEventHook,
-        logHook            = updatePointer (Relative 0.5 0.5)
+        logHook            = updatePointer (Relative 0.5 0.5),
+	startupHook        = setWMName "LG3D" -- Java GUIs
     }
