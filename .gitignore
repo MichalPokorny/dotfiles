@@ -500,3 +500,15 @@
 
 # Bro pages config
 .bro
+
+.vim-keylog
+
+.isko-cache
+
+# maven
+.m2
+
+# PhantomJS
+.qws/share/data/Ofi Labs/PhantomJS
+
+.googleearth/Temp
