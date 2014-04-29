@@ -4,3 +4,7 @@
 html=.haml
 --type-add
 css=.sass,.scss
+--ignore-dir=is:public
+--ignore-dir=is:vendor
+--ignore-dir=is:tmp
+--ignore-dir=is:coverage
