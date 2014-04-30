@@ -535,3 +535,5 @@
 .freeciv*
 
 .config/QtProject.conf # file open dialog config
+
+.netrc # Heroku passwd
