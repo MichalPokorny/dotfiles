@@ -1,66 +1,130 @@
-# The following lines were added by compinstall
-zstyle ':completion:*' completer _complete _ignored _approximate
-zstyle :compinstall filename '/home/prvak/.zshrc'
+#
+# ~/.zshrc
+#
+. /etc/profile
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="evan" ## very minimalistic
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to disable command auto-correction.
+DISABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+HIST_STAMPS="yyyy-mm-dd"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+#
+# gitfast
+# git: gc, gca, gs, ...
+# plugins=(rails git sudo rake gpg-agent gem colored-man)
+plugins=(rails git sudo rake gpg-agent gem colored-man)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+#
+# ============================================================
+#
+# The following lines were added by compinstall
+
+# Nechci completion automaticky kdyz je to ambiguous
+unsetopt menu_complete
+unsetopt auto_menu
+
+zstyle ':completion:*' completer _complete _ignored
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' matcher-list ''
+zstyle :compinstall filename '/home/prvak/.zshrc'
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
+#autoload -Uz compinit
+#compinit
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-setopt autocd extendedglob
-bindkey -v
+
+setopt autocd
+
+# vi mode
+#bindkey -v
+
+# emacs mode
+bindkey -e
+
 # End of lines configured by zsh-newuser-install
+# --------------------------
+# My modifications
 
-export PATH="$PATH:/home/prvak/bin:/usr/lib/surfraw:/opt/naturaldocs:~/.gem/ruby/1.9.1/bin:~/.cabal/bin"
-export EDITOR=`which vim`
-
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git # no svn.
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git*' formats " %b"
-setopt prompt_subst
-
-precmd() {
-	if [ -z "$(git symbolic-ref HEAD 2> /dev/null)" ]; then
-		return
-	fi
-	local GITROOT="$(git rev-parse --show-toplevel)"
-	# TODO: chtel bych, aby se neukazoval git status kazdeho adresare, ve kterem nekdo bydli
-	if [ "$GITROOT" != "$HOME" ]; then
-		PROMPT='${fg_lgreen}%~${fg_white}${vcs_info_msg_0_}${fg_blue} $ ${fg_white}'
-	else
-		PROMPT='${fg_lgreen}%~${fg_white}${fg_blue} $ ${fg_white}'
-	fi
-
-	vcs_info
-}
-
-fg_lgreen=%{$'\e[1;32m'%}
-fg_blue=%{$'\e[1;34m'%}
-fg_white=%{$'\e[1;37m'%}
-# PROMPT='${fg_lgreen}%~${fg_white}${vcs_info_msg_0_}${fg_blue}$ ${fg_white}'
-
-alias Gs='git status'
-alias Gd='git diff'
-alias Gc='git commit -a'
-alias GC='git commit'
-alias Gp='git push'
-alias Ga='git add'
-alias Gco='git checkout'
-alias Gcl='git clone'
-alias Gb='git branch'
-alias GP='git pull'
+alias M='mutt'
 alias Am='alsamixer'
 alias Wc='wicd-curses'
 alias diff='colordiff'
-alias ls='ls --color=auto'
 alias phpc='php -a'
-alias su='sux'
-alias ..='cd ..'
-alias suspend='sudo systemctl suspend'
+alias notes='vim ~/NOTES'
+alias vim='vim -w ~/.vim-keylog "$@"'
+alias suspend='systemctl suspend'
 
-# Force old GNOME / QT applications to use XFT.
-export GDK_USE_XFT=1
-export QT_XFT=true
+if (which sux &> /dev/null); then
+	alias su='sux'
+fi
+
+# No flow control (Ctrl-S / Q) - this is pretty much useless.
+stty -ixon
+
+if [ $UID -eq 0 ]; then
+	NCOLOR="red";
+	THE_PROMPT="#";
+else
+	NCOLOR="green";
+	THE_PROMPT="λ";
+	# THE_PROMPT="»";
+	# THE_PROMPT="→";
+fi
+
+PROMPT='%{$fg_bold[$NCOLOR]%}%~ %{$fg_bold[blue]%}%{$THE_PROMPT%} %{$reset_color%} '
+RPROMPT='%{$fg[$NCOLOR]%}%p $(git_prompt_info)%{$reset_color%} %*'
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[white]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}±"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+export PATH="$PATH:/home/prvak/bin:/home/prvak/bin/btckit:/home/prvak/bin/private-scripts:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin:/opt/android-sdk/platform-tools"
