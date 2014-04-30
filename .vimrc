@@ -101,20 +101,28 @@ nnoremap <right> <nop>
 set showcmd
 set laststatus=2
 
-set statusline+=%{SyntasticStatuslineFlag()}
-let g:syntastic_enable_signs=1
-let g:syntastic_check_on_open=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_auto_loc_list=1
-" Passive Python, because Syntastic cries about print statements in Python 2.
-let g:syntastic_mode_map = { 'mode': 'active',
-\ 'active_filetypes': [ 'ruby', 'php', 'c' ],
-\ 'passive_filetypes': [ 'python' ]
-\ }
+" set statusline+=%{SyntasticStatuslineFlag()}
+" let g:syntastic_enable_signs=1
+" let g:syntastic_check_on_open=1
+" let g:syntastic_error_symbol='✗'
+" let g:syntastic_auto_loc_list=1
+" " Passive Python, because Syntastic cries about print statements in Python 2.
+" let g:syntastic_mode_map = { 'mode': 'active',
+" \ 'active_filetypes': [ 'ruby', 'php', 'c' ],
+" \ 'passive_filetypes': [ 'python' ]
+" \ }
 
-" Bundly: Powerline, Syntastic
-
+" Bundly: Airline, (uz ne) Syntastic
 call pathogen#infect()
+
+let g:airline_left_sep='' " was '>'
+let g:airline_right_sep='' " was '<'
+if !exists('g:airline_symbols')
+	let g:airline_symbols={}
+endif
+let g:airline_symbols.readonly='RO'
+
+" let g:airline#extensions#tabline#enabled = 1
 
 " mensi tabulatory v Ruby a Railsovych templatech
 
