@@ -14,6 +14,7 @@
 .*_hist
 .~lock*
 .netbeans
+.netbeans-derby
 .viminfo
 .java
 .wine
@@ -431,7 +432,7 @@
 .octave_packages
 
 # Easytag nema co ukladat
-.easytag
+.config/easytag
 
 # Q3A nema co ukladat
 .q3a
@@ -512,3 +513,25 @@
 .qws/share/data/Ofi Labs/PhantomJS
 
 .googleearth/Temp
+
+# ZSH completion dumps
+.zcompdump*
+
+.sane
+.ut2004
+.vuescan
+.yardoc
+.602filler
+
+.config/Google/GoogleEarthPlus.conf
+.googleearth
+.config/Atlassian/HipChat.conf
+
+.zsh-update
+
+.heroku
+
+.gfx.js
+.freeciv*
+
+.config/QtProject.conf # file open dialog config
