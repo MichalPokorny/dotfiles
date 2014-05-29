@@ -534,6 +534,10 @@
 .gfx.js
 .freeciv*
 
-.config/QtProject.conf # file open dialog config
+# file open dialog config
+.config/QtProject.conf
 
-.netrc # Heroku passwd
+# Heroku passwd
+.netrc
+
+.magick/ImagemagickOpenCLDeviceProfile
