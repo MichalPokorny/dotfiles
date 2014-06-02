@@ -52,7 +52,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # gitfast
 # git: gc, gca, gs, ...
 # plugins=(rails git sudo rake gpg-agent gem colored-man)
-plugins=(rails git sudo rake gpg-agent gem colored-man)
+plugins=(git gpg-agent gem colored-man)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -70,9 +70,6 @@ zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list ''
-zstyle :compinstall filename '/home/prvak/.zshrc'
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
 
 #autoload -Uz compinit
 #compinit
@@ -93,38 +90,49 @@ bindkey -e
 # --------------------------
 # My modifications
 
+alias gs='git status' # I don't want GhostScript.
 alias M='mutt'
 alias Am='alsamixer'
 alias Wc='wicd-curses'
 alias diff='colordiff'
 alias phpc='php -a'
 alias notes='vim ~/NOTES'
-alias vim='vim -w ~/.vim-keylog "$@"'
+
+# Record keystrokes
+# alias vim='vim -w ~/.vim-keylog "$@"'
+
 alias suspend='systemctl suspend'
 
 if (which sux &> /dev/null); then
 	alias su='sux'
 fi
 
-# No flow control (Ctrl-S / Q) - this is pretty much useless.
-stty -ixon
-
 if [ $UID -eq 0 ]; then
-	NCOLOR="red";
+	DIR_COLOR="%F{160}"; # dark red
+	PROMPT_COLOR="%F{001}"; # red
 	THE_PROMPT="#";
 else
-	NCOLOR="green";
-	THE_PROMPT="λ";
-	# THE_PROMPT="»";
-	# THE_PROMPT="→";
+	DIR_COLOR="%F{155}"; # medium green
+	PROMPT_COLOR="%F{033}"; # medium blue
+	THE_PROMPT="λ"; # lambda
+	# THE_PROMPT="»"; # dvojsipka
+	# THE_PROMPT="→"; # sipka
 fi
 
-PROMPT='%{$fg_bold[$NCOLOR]%}%~ %{$fg_bold[blue]%}%{$THE_PROMPT%} %{$reset_color%} '
-RPROMPT='%{$fg[$NCOLOR]%}%p $(git_prompt_info)%{$reset_color%} %*'
+PROMPT='%{$DIR_COLOR%}%~ %{$PROMPT_COLOR%}%{$THE_PROMPT%} %{$reset_color%} '
+RPROMPT='%p $(git_prompt_info)%F{248} %*' # light gray
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[white]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="(behind)"
+ZSH_THEME_GIT_PROMPT_BEHIND_AHEAD="(ahead)"
+ZSH_THEME_GIT_PROMPT_BEHIND_DIVERGED="(diverged)"
+ZSH_THEME_GIT_PROMPT_AHEAD="(ahead-commits)"
+ZSH_THEME_GIT_PROMPT_PREFIX="%F{252}" # light gray
+ZSH_THEME_GIT_PROMPT_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}±"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 export PATH="$PATH:/home/prvak/bin:/home/prvak/bin/btckit:/home/prvak/bin/private-scripts:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin:/opt/android-sdk/platform-tools"
+
+ZSH_THEME_TERM_TITLE_IDLE="%n: %~ $"
+
+unsetopt share_history # Don't share command history between zsh's
