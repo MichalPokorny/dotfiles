@@ -541,3 +541,10 @@
 .netrc
 
 .magick/ImagemagickOpenCLDeviceProfile
+
+# Fetchmail ids
+.fetchids
+
+.config/MonoDevelop-4.0/
+.fltk
+.ivy2
