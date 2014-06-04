@@ -548,3 +548,6 @@
 .config/MonoDevelop-4.0/
 .fltk
 .ivy2
+
+# htop conf is easy to restore
+.config/htop/htoprc
