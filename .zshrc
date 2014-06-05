@@ -120,18 +120,20 @@ else
 fi
 
 PROMPT='%{$DIR_COLOR%}%~ %{$PROMPT_COLOR%}%{$THE_PROMPT%} %{$reset_color%} '
-RPROMPT='%p $(git_prompt_info)%F{248} %*' # light gray
+RPROMPT='%p $(git_prompt_info) %F{247}%* %{$reset_color%}' # light gray
 
 ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="(behind)"
 ZSH_THEME_GIT_PROMPT_BEHIND_AHEAD="(ahead)"
 ZSH_THEME_GIT_PROMPT_BEHIND_DIVERGED="(diverged)"
 ZSH_THEME_GIT_PROMPT_AHEAD="(ahead-commits)"
-ZSH_THEME_GIT_PROMPT_PREFIX="%F{252}" # light gray
+# ZSH_THEME_GIT_PROMPT_PREFIX="%F{252}" # light gray
+ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}±"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}±%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 export PATH="$PATH:/home/prvak/bin:/home/prvak/bin/btckit:/home/prvak/bin/private-scripts:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin:/opt/android-sdk/platform-tools"
+export BROWSER="firefox"
 
 ZSH_THEME_TERM_TITLE_IDLE="%n: %~ $"
 
