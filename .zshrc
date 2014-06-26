@@ -119,8 +119,8 @@ else
 	# THE_PROMPT="→"; # sipka
 fi
 
-PROMPT='%{$DIR_COLOR%}%~ %{$PROMPT_COLOR%}%{$THE_PROMPT%} %{$reset_color%} '
-RPROMPT='%p $(git_prompt_info) %F{247}%* %{$reset_color%}' # light gray
+PROMPT='$DIR_COLOR%~ $PROMPT_COLOR$THE_PROMPT %k'
+RPROMPT='%p $(git_prompt_info) %F{247}%* %k' # light gray
 
 ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="(behind)"
 ZSH_THEME_GIT_PROMPT_BEHIND_AHEAD="(ahead)"
