@@ -45,6 +45,7 @@ set scrolloff=5
 syntax on
 
 filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 " set ofu=syntaxcomplete#Complete
 
 noremap <C-C> :botright cope<CR>
@@ -160,3 +161,19 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$\| \+\ze\t/
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$\| \+\ze\t/
 au InsertLeave * match ExtraWhitespace /\s\+$\| \+\ze\t/
+
+" u mad bro?
+inoremap <Left> ←
+inoremap <Right> →
+inoremap <Up> ↑
+inoremap <Down> ↓
+inoremap <S-Left> ⇐
+inoremap <S-Right> ⇒
+inoremap <S-Up> ⇑
+inoremap <S-Down> ⇓
+
+set colorcolumn=80,120,+0
+
+"let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized

@@ -10,7 +10,8 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="evan" ## very minimalistic
+ZSH_THEME="blinks" # works with Solarized
+# "evan" ## very minimalistic
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -120,17 +121,17 @@ else
 fi
 
 PROMPT='$DIR_COLOR%~ $PROMPT_COLOR$THE_PROMPT %k'
-RPROMPT='%p $(git_prompt_info) %F{247}%* %k' # light gray
-
-ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="(behind)"
-ZSH_THEME_GIT_PROMPT_BEHIND_AHEAD="(ahead)"
-ZSH_THEME_GIT_PROMPT_BEHIND_DIVERGED="(diverged)"
-ZSH_THEME_GIT_PROMPT_AHEAD="(ahead-commits)"
-# ZSH_THEME_GIT_PROMPT_PREFIX="%F{252}" # light gray
-ZSH_THEME_GIT_PROMPT_PREFIX=""
-ZSH_THEME_GIT_PROMPT_SUFFIX=""
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}±%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
+RPROMPT='%p $(git_prompt_info) %F{247}%*%k' # light gray
+#### 
+#### ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="(behind)"
+#### ZSH_THEME_GIT_PROMPT_BEHIND_AHEAD="(ahead)"
+#### ZSH_THEME_GIT_PROMPT_BEHIND_DIVERGED="(diverged)"
+#### ZSH_THEME_GIT_PROMPT_AHEAD="(ahead-commits)"
+#### # ZSH_THEME_GIT_PROMPT_PREFIX="%F{252}" # light gray
+#### ZSH_THEME_GIT_PROMPT_PREFIX=""
+#### ZSH_THEME_GIT_PROMPT_SUFFIX=""
+#### ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}±%{$reset_color%}"
+#### ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 export PATH="$PATH:/home/prvak/bin:/home/prvak/bin/btckit:/home/prvak/bin/private-scripts:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin:/opt/android-sdk/platform-tools"
 export BROWSER="firefox"
@@ -138,3 +139,6 @@ export BROWSER="firefox"
 ZSH_THEME_TERM_TITLE_IDLE="%n: %~ $"
 
 unsetopt share_history # Don't share command history between zsh's
+
+eval `dircolors ~/.dircolors-solarized/dircolors.ansi-dark`
+export MC_SKIN=~/.config/mc/solarized.ini
