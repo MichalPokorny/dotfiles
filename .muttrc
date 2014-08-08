@@ -331,4 +331,4 @@ color body brightred default "^-.*"
 color body brightgreen default "^\\+.*"
 
 # Solarized color scheme
-source .mutt-colors/mutt-colors-solarized-dark-16.muttrc
+source ~/.mutt-colors/mutt-colors-solarized-dark-16.muttrc
