@@ -13,6 +13,8 @@ xset +fp /usr/share/fonts/local/
 xset fp rehash
 redshift -l 50:14 &
 xdg-user-dirs-update &
+wmname LG3D & # Make Java GUIs work
+
+start-pulseaudio-x11
 
 wait $wmpid
-

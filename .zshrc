@@ -10,7 +10,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="blinks" # works with Solarized
+#ZSH_THEME="blinks" # works with Solarized
 # "evan" ## very minimalistic
 
 # Uncomment the following line to use case-sensitive completion.
@@ -108,30 +108,43 @@ if (which sux &> /dev/null); then
 	alias su='sux'
 fi
 
-if [ $UID -eq 0 ]; then
-	DIR_COLOR="%F{160}"; # dark red
-	PROMPT_COLOR="%F{001}"; # red
-	THE_PROMPT="#";
-else
-	DIR_COLOR="%F{155}"; # medium green
-	PROMPT_COLOR="%F{033}"; # medium blue
-	THE_PROMPT="λ"; # lambda
-	# THE_PROMPT="»"; # dvojsipka
-	# THE_PROMPT="→"; # sipka
-fi
+function set_custom_prompt {
+	if [ $UID -eq 0 ]; then
+		#DIR_COLOR="%F{160}"; # dark red
+		#PROMPT_COLOR="%F{001}"; # red
+		THE_PROMPT="#";
+	else
+		#DIR_COLOR="%F{155}"; # medium green
+		#PROMPT_COLOR="%F{033}"; # medium blue
+		THE_PROMPT="λ"; # lambda
+		# THE_PROMPT="»"; # dvojsipka
+		# THE_PROMPT="→"; # sipka
+	fi
 
-PROMPT='$DIR_COLOR%~ $PROMPT_COLOR$THE_PROMPT %k'
-RPROMPT='%p $(git_prompt_info) %F{247}%*%k' # light gray
-#### 
-#### ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="(behind)"
-#### ZSH_THEME_GIT_PROMPT_BEHIND_AHEAD="(ahead)"
-#### ZSH_THEME_GIT_PROMPT_BEHIND_DIVERGED="(diverged)"
-#### ZSH_THEME_GIT_PROMPT_AHEAD="(ahead-commits)"
-#### # ZSH_THEME_GIT_PROMPT_PREFIX="%F{252}" # light gray
-#### ZSH_THEME_GIT_PROMPT_PREFIX=""
-#### ZSH_THEME_GIT_PROMPT_SUFFIX=""
-#### ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}±%{$reset_color%}"
-#### ZSH_THEME_GIT_PROMPT_CLEAN=""
+	#PROMPT='$DIR_COLOR%~ $PROMPT_COLOR$THE_PROMPT %k'
+	PROMPT='%~ $THE_PROMPT '
+	#RPROMPT='%p $(git_prompt_info) %F{247}%*%k' # light gray
+	RPROMPT='$(git_prompt_info) %*'
+
+	#### ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="(behind)"
+	#### ZSH_THEME_GIT_PROMPT_BEHIND_AHEAD="(ahead)"
+	#### ZSH_THEME_GIT_PROMPT_BEHIND_DIVERGED="(diverged)"
+	#### ZSH_THEME_GIT_PROMPT_AHEAD="(ahead-commits)"
+	#### # ZSH_THEME_GIT_PROMPT_PREFIX="%F{252}" # light gray
+	#### ZSH_THEME_GIT_PROMPT_PREFIX=""
+	#### ZSH_THEME_GIT_PROMPT_SUFFIX=""
+	#### ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}±%{$reset_color%}"
+	#### ZSH_THEME_GIT_PROMPT_CLEAN=""
+}
+
+function set_agnoster {
+	ZSH_THEME="agnoster" # works with Solarized
+	RPROMPT='%*'
+	DEFAULT_USER='prvak'
+}
+
+#set_custom_prompt
+set_agnoster
 
 export PATH="$PATH:/home/prvak/bin:/home/prvak/bin/btckit:/home/prvak/bin/private-scripts:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin:/opt/android-sdk/platform-tools"
 export BROWSER="firefox"

@@ -42,6 +42,8 @@ import XMonad.Hooks.SetWMName
 
 import qualified Data.Map as Map
 
+import XMonad.Layout.HintedTile
+
 myWorkspaces = map show [1..9] ++ [ "0", "-", "=" ]
 workspaceKeys = [xK_1 .. xK_9] ++ [xK_0, xK_minus, xK_equal]
 
@@ -55,7 +57,7 @@ xpConfig = amberXPConfig {
 
 xK_Battery = 0x1008FF93
 
-myTerminal = "xterm" 
+myTerminal = "xterm"
 spawnInTerminal app = spawn (myTerminal ++ " -e " ++ app)
 
 -- | A layout inspired by wmii
@@ -76,12 +78,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
 	, ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
 	] ++ foldl (++) [] (map (\key -> [
 	-- Terminal spawning keys
-		  ((0, key), randomBg $ RGB 0 15) -- The useless right-click-key shall spawn a terminal.
+		  ((0, key), spawn "xterm") -- The useless right-click-key shall spawn a terminal.
+		--  ((0, key), randomBg $ RGB 0 15) -- The useless right-click-key shall spawn a terminal.
 		, ((controlMask .|. shiftMask, key), spawn "/home/prvak/bin/terminal-big 20") -- +ctrl+shift - make it medium.
 		, ((shiftMask, key), spawn "/home/prvak/bin/terminal-big") -- +shift - make it big.
 		, ((controlMask, key), spawnInTerminal "su")
 	]) [xK_Menu, xK_Print]) ++ [
-	  ((modm, xK_w), randomBg $ RGB 0 15) -- Prizeo
+	  -- ((modm, xK_w), randomBg $ RGB 0 15) -- Prizeo
+	  ((modm, xK_w), spawn "xterm") -- Prizeo
 -- Terminal spawn shortcuts
 	, ((modm .|. shiftMask, xK_w), spawnInTerminal "wicd-curses")
 	, ((modm, xK_n), spawnInTerminal "ncmpcpp")
