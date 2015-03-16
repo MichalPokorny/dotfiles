@@ -1,46 +1,12 @@
-# *
-/*
-!.*
-.pentadactyl/info/safe/*
-.xsession-errors
-.thumbnails
-*.sw*
-.recently-used
-.pulse-cookie
-.Xauthority
-.lesshst
-.maildir*
-.*history
-.*_hist
-.~lock*
-.netbeans
-.netbeans-derby
-.viminfo
-.java
-.wine
-
 # obsahuje GitHub token
 .gitconfig
 
 # obsahuje hesla
 .fetchmailrc*
 
-.*~
-.*.pid
-
 # obsahuje penezenku
 .bitcoin*
 .electrum
-
-.*.log
-
-.*_cache
-.*_auth
-
-*.log
-*xosdutilctl
-
-.vim/.netrwhist
 
 .gitk
 .tuxguitar-1.2
@@ -74,29 +40,6 @@
 # z flashe nezalohuju
 .macromedia
 .adobe
-
-# obsahuje jenom "lokalni nastaveni": autojump, geeqie, ...
-.local/share/MonoDevelop-*
-.local/share/Trash
-.local/share/autojump
-.local/share/gegl-0.2
-.local/share/gnome-settings-daemon
-.local/share/icc
-.local/share/mc
-.local/share/telepathy
-.local/share/vlc
-.local/share/webkit
-.local/share/recently-used.xbel
-.local/share/orage
-
-.config/stetic/library-cache
-.config/geeqie/history
-.config/chromium
-.config/bless/history.xml
-.config/bless/last.session
-
-# Volatile
-.config/evince/print-settings
 
 .config/menus
 
