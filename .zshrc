@@ -98,6 +98,7 @@ alias Wc='wicd-curses'
 alias diff='colordiff'
 alias phpc='php -a'
 alias notes='vim ~/NOTES'
+alias perlc='perl -d -e 1'
 
 # Record keystrokes
 # alias vim='vim -w ~/.vim-keylog "$@"'
@@ -137,16 +138,19 @@ function set_custom_prompt {
 	#### ZSH_THEME_GIT_PROMPT_CLEAN=""
 }
 
+# Sets the 'agnoster' theme. It works with Solarized.
+# Unfortunately, it assumes custom patched fonts.
 function set_agnoster {
 	ZSH_THEME="agnoster" # works with Solarized
 	RPROMPT='%*'
 	DEFAULT_USER='prvak'
 }
 
-#set_custom_prompt
-set_agnoster
+# set_agnoster
+set_custom_prompt
 
-export PATH="$PATH:/home/prvak/bin:/home/prvak/bin/btckit:/home/prvak/bin/private-scripts:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin:/opt/android-sdk/platform-tools"
+export GOBIN=~/bin/gobin
+export PATH="$PATH:/home/prvak/bin:/home/prvak/bin/btckit:/home/prvak/bin/private-scripts:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin:/opt/android-sdk/platform-tools:$GOBIN"
 export BROWSER="firefox"
 
 ZSH_THEME_TERM_TITLE_IDLE="%n: %~ $"
