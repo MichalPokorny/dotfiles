@@ -100,8 +100,17 @@ nnoremap <right> <nop>
 set showcmd
 set laststatus=2
 
-" Bundly: Airline, (uz ne)
-call pathogen#infect()
+" Vundle plugins
+" To install: vim +PluginInstall +qall, or run :PluginInstall
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'bling/vim-airline'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'altercation/vim-colors-solarized'
+
+call vundle#end()
 
 let g:airline_left_sep='' " was '>'
 let g:airline_right_sep='' " was '<'
