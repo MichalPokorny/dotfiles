@@ -1,5 +1,5 @@
 [submodule ".oh-my-zsh"]
-	path = .oh-my-zsh
+	path = oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
 [submodule ".vim/bundle/vim-airline"]
 	path = .vim/bundle/vim-airline
@@ -11,10 +11,10 @@
 	path = .vim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized
 [submodule ".mutt-colors"]
-	path = .mutt-colors
+	path = mutt-colors
 	url = https://github.com/altercation/mutt-colors-solarized
 [submodule ".dircolors-solarized"]
-	path = .dircolors-solarized
+	path = dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized
 [submodule ".vim/bundle/vim-scala"]
 	path = .vim/bundle/vim-scala
