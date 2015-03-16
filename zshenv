@@ -1,4 +1,5 @@
-export EDITOR=`which vim`
+export EDITOR='vim'
+export BROWSER='firefox'
 
 # Force old GNOME / QT applications to use XFT.
 export GDK_USE_XFT=1

@@ -1,6 +1,4 @@
-#
 # ~/.zshrc
-#
 . /etc/profile
 
 # Path to your oh-my-zsh installation.
@@ -13,55 +11,41 @@ export ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="blinks" # works with Solarized
 # "evan" ## very minimalistic
 
-# Uncomment the following line to use case-sensitive completion.
+# Uncomment to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
+# Uncomment to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-# Uncomment the following line to change how often to auto-update (in days).
+# Uncomment to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
 
-# Uncomment the following line to disable colors in ls.
+# Uncomment to disable colors in ls.
 # DISABLE_LS_COLORS="true"
 
-# Uncomment the following line to disable auto-setting terminal title.
+# Uncomment to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment the following line to disable command auto-correction.
+# Disable command auto-correction.
 DISABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
+# Disable marking untracked files under VCS as dirty.
+# This makes repository status check for large repositories much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
+# Change the command execution time stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="yyyy-mm-dd"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-#
 # gitfast
 # git: gc, gca, gs, ...
-# plugins=(rails git sudo rake gpg-agent gem colored-man)
-plugins=(git gpg-agent gem colored-man)
+# interesting plugins: 'z'
+plugins=(git gpg-agent gem web-search colored-man)
 
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
-#
-# ============================================================
-#
-# The following lines were added by compinstall
 
 # Nechci completion automaticky kdyz je to ambiguous
 unsetopt menu_complete
@@ -86,10 +70,6 @@ setopt autocd
 
 # emacs mode
 bindkey -e
-
-# End of lines configured by zsh-newuser-install
-# --------------------------
-# My modifications
 
 alias gs='git status' # I don't want GhostScript.
 alias M='mutt'
@@ -118,24 +98,12 @@ function set_custom_prompt {
 		#DIR_COLOR="%F{155}"; # medium green
 		#PROMPT_COLOR="%F{033}"; # medium blue
 		THE_PROMPT="λ"; # lambda
-		# THE_PROMPT="»"; # dvojsipka
-		# THE_PROMPT="→"; # sipka
+		# » (dvojsipka), → (sipka)
 	fi
 
 	#PROMPT='$DIR_COLOR%~ $PROMPT_COLOR$THE_PROMPT %k'
 	PROMPT='%~ $THE_PROMPT '
-	#RPROMPT='%p $(git_prompt_info) %F{247}%*%k' # light gray
 	RPROMPT='$(git_prompt_info) %*'
-
-	#### ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="(behind)"
-	#### ZSH_THEME_GIT_PROMPT_BEHIND_AHEAD="(ahead)"
-	#### ZSH_THEME_GIT_PROMPT_BEHIND_DIVERGED="(diverged)"
-	#### ZSH_THEME_GIT_PROMPT_AHEAD="(ahead-commits)"
-	#### # ZSH_THEME_GIT_PROMPT_PREFIX="%F{252}" # light gray
-	#### ZSH_THEME_GIT_PROMPT_PREFIX=""
-	#### ZSH_THEME_GIT_PROMPT_SUFFIX=""
-	#### ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}±%{$reset_color%}"
-	#### ZSH_THEME_GIT_PROMPT_CLEAN=""
 }
 
 # Sets the 'agnoster' theme. It works with Solarized.
@@ -151,7 +119,6 @@ set_custom_prompt
 
 export GOBIN=~/bin/gobin
 export PATH="$PATH:/home/prvak/bin:/home/prvak/bin/btckit:/home/prvak/bin/private-scripts:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin:/opt/android-sdk/platform-tools:$GOBIN"
-export BROWSER="firefox"
 
 ZSH_THEME_TERM_TITLE_IDLE="%n: %~ $"
 
