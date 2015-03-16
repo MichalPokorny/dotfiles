@@ -23,6 +23,10 @@ xterm*termName: xterm-256color
 ! xterm*color12: #1A85FF
 xterm*locale: true
 
+! Do not scroll to bottom on output - only on keypresses.
+xterm*scrollTtyOutput: false
+xterm*scrollKey: true
+
 URxvt*scrollstyle: plain
 URxvt*scrollBar: false
 URxvt*background: Black
