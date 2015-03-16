@@ -11,9 +11,7 @@ set softtabstop=8
 set nowrap
 
 " indenting
-set cindent
 set smartindent
-set autoindent
 
 set encoding=utf-8
 set wildmenu
@@ -102,18 +100,7 @@ nnoremap <right> <nop>
 set showcmd
 set laststatus=2
 
-" set statusline+=%{SyntasticStatuslineFlag()}
-" let g:syntastic_enable_signs=1
-" let g:syntastic_check_on_open=1
-" let g:syntastic_error_symbol='✗'
-" let g:syntastic_auto_loc_list=1
-" " Passive Python, because Syntastic cries about print statements in Python 2.
-" let g:syntastic_mode_map = { 'mode': 'active',
-" \ 'active_filetypes': [ 'ruby', 'php', 'c' ],
-" \ 'passive_filetypes': [ 'python' ]
-" \ }
-
-" Bundly: Airline, (uz ne) Syntastic
+" Bundly: Airline, (uz ne)
 call pathogen#infect()
 
 let g:airline_left_sep='' " was '>'
@@ -125,16 +112,19 @@ let g:airline_symbols.readonly='RO'
 
 " let g:airline#extensions#tabline#enabled = 1
 
-" mensi tabulatory v Ruby a Railsovych templatech
+set textwidth=80
+autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
-" moje: chci tabulatory
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 textwidth=80
+autocmd Filetype python setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype haml setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
+autocmd Filetype eruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype coffee setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
-autocmd Filetype python setlocal ts=2 sts=2 sw=2 textwidth=80
-autocmd Filetype haml setlocal ts=2 sts=2 sw=2 noexpandtab textwidth=80
-autocmd Filetype eruby setlocal ts=2 sts=2 sw=2 textwidth=80
-autocmd Filetype coffee setlocal ts=2 sts=2 sw=2 textwidth=80
-autocmd Filetype tex setlocal textwidth=80
+" Haskell: 2-space tabs, expand them
+autocmd Filetype haskell setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
+autocmd Filetype c setlocal cindent nosmartindent
+autocmd Filetype cpp setlocal cindent nosmartindent
 
 " skryj swapfily v NetRW
 let g:netrw_list_hide='.*\.swp$'
@@ -172,8 +162,8 @@ inoremap <S-Right> ⇒
 inoremap <S-Up> ⇑
 inoremap <S-Down> ⇓
 
-set colorcolumn=80,120,+0
+" Highlight column 80
+set colorcolumn=80,+0
 
-"let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
