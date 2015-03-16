@@ -551,3 +551,8 @@
 
 # htop conf is easy to restore
 .config/htop/htoprc
+
+.cpan
+.sbt
+
+.stock-portfolio.yml
