@@ -43,9 +43,10 @@ import XMonad.Hooks.SetWMName
 import qualified Data.Map as Map
 
 import XMonad.Layout.HintedTile
+import XMonad.Actions.PhysicalScreens
 
-myWorkspaces = map show [1..9] ++ [ "0", "-", "=" ]
-workspaceKeys = [xK_1 .. xK_9] ++ [xK_0, xK_minus, xK_equal]
+myWorkspaces = map show [1..9] ++ ["0", "-", "="]
+workspaceKeys = [xK_1..xK_9] ++ [xK_0, xK_minus, xK_equal]
 
 xosdutilCommand cmd = spawn ("xosdutilctl " ++ cmd)
 
@@ -175,10 +176,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
 	, (f, m) <- [(StackSet.greedyView, 0), (StackSet.shift, shiftMask)]]
 	++
 
--- Screen switching (U, I, O, +Shift = move)
-	[((modm .|. m, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_u, xK_i, xK_o] [0..]
-        , (f, m) <- [(StackSet.view, 0), (StackSet.shift, shiftMask)]]
+-- Switching to physical screens in left-to-right order (U, I, O, +Shift = move)
+  [((modm .|. mask, key), f sc)
+      | (key, sc) <- zip [xK_u, xK_i, xK_o] [0..]
+      , (f, mask) <- [(viewScreen, 0), (sendToScreen, shiftMask)]]
 
 -- Mouse bindings: default actions bound to mouse events
 myMouseBindings (XConfig {XMonad.modMask = modm}) = Map.fromList
@@ -214,5 +215,5 @@ main = xmonad $ ewmh defaultConfig {
         manageHook         = myManageHook,
         handleEventHook    = docksEventHook <+> fullscreenEventHook,
         logHook            = updatePointer (Relative 0.5 0.5),
-	startupHook        = setWMName "LG3D" -- Java GUIs
+        startupHook        = setWMName "LG3D" -- Java GUIs
     }
