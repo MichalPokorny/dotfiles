@@ -118,7 +118,7 @@ function set_agnoster {
 set_custom_prompt
 
 export GOBIN=~/bin/gobin
-export PATH="$PATH:/home/prvak/bin:/home/prvak/bin/btckit:/home/prvak/bin/private-scripts:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin:/opt/android-sdk/platform-tools:$GOBIN"
+export PATH="$PATH:/home/prvak/bin:/home/prvak/bin/private-scripts:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin:/opt/android-sdk/platform-tools:$GOBIN"
 
 ZSH_THEME_TERM_TITLE_IDLE="%n: %~ $"
 
