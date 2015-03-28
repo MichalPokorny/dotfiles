@@ -50,15 +50,23 @@ workspaceKeys = [xK_1..xK_9] ++ [xK_0, xK_minus, xK_equal]
 
 xosdutilCommand cmd = spawn ("xosdutilctl " ++ cmd)
 
-xpTheme = amberXPConfig
 xpConfig = amberXPConfig {
-	showCompletionOnTab = True
---	, autoComplete = Just 0
+  showCompletionOnTab = True
+  -- , autoComplete = Just 0
 }
 
 xK_Battery = 0x1008FF93
 
-myTerminal = "xterm"
+notesFile = "/home/prvak/NOTES"
+
+-- Other terminals I used in the past: xterm, urxvt
+myTerminal = "gnome-terminal"
+
+-- To spawn a terminal with random dark background, uncomment this:
+--    spawnTerminal = randomBg $ RGB 0 15
+-- It doesn't work for me anymore. No idea why.
+spawnTerminal = spawn myTerminal
+
 spawnInTerminal app = spawn (myTerminal ++ " -e " ++ app)
 
 -- | A layout inspired by wmii
@@ -68,152 +76,131 @@ wmii s t = group innerLayout zoomRowG
           tabs = Simplest
           innerLayout = column ||| addTabs s t tabs ||| Full
 
-myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $
-	[
+myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $ [
 -- XMonad system shortcuts
-	-- Kill current window
-	  ((modm .|. shiftMask,xK_c ), kill)
-	-- Quit XMonad
-	, ((modm .|. shiftMask, xK_q), io exitSuccess)
-	-- Recompile and restart
-	, ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
-	] ++ foldl (++) [] (map (\key -> [
-	-- Terminal spawning keys
-		  ((0, key), spawn "xterm") -- The useless right-click-key shall spawn a terminal.
-		--  ((0, key), randomBg $ RGB 0 15) -- The useless right-click-key shall spawn a terminal.
-		, ((controlMask .|. shiftMask, key), spawn "/home/prvak/bin/terminal-big 20") -- +ctrl+shift - make it medium.
-		, ((shiftMask, key), spawn "/home/prvak/bin/terminal-big") -- +shift - make it big.
-		, ((controlMask, key), spawnInTerminal "su")
-	]) [xK_Menu, xK_Print]) ++ [
-	  -- ((modm, xK_w), randomBg $ RGB 0 15) -- Prizeo
-	  ((modm, xK_w), spawn "xterm") -- Prizeo
+  -- Kill current window
+    ((modm .|. shiftMask,xK_c ), kill)
+  -- Quit XMonad
+  , ((modm .|. shiftMask, xK_q), io exitSuccess)
+  -- Recompile and restart
+  , ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
+  ] ++
+-- Terminal spawning keys: useless PrtSc and Menu keys
+  concatMap (\key -> [((0, xK_Print), spawnTerminal),
+                    ((controlMask, xK_Print), spawnInTerminal "su")])
+            [xK_Menu, xK_Print] ++ [
 -- Terminal spawn shortcuts
-	, ((modm .|. shiftMask, xK_w), spawnInTerminal "wicd-curses")
-	, ((modm, xK_n), spawnInTerminal "ncmpcpp")
-	, ((modm .|. shiftMask, xK_a), spawnInTerminal "alsamixer")
-	, ((modm, xK_m), spawnInTerminal "mutt")
-	, ((modm .|. mod1Mask, xK_h), spawnInTerminal "htop") -- mod1Mask = alt
+    ((modm, xK_w), spawnTerminal) -- Alternative terminal spawn
+  , ((modm .|. shiftMask, xK_w), spawnInTerminal "wicd-curses")
+  , ((modm, xK_n), spawnInTerminal "ncmpcpp")
+  , ((modm .|. shiftMask, xK_a), spawnInTerminal "alsamixer")
+  , ((modm, xK_m), spawnInTerminal "mutt")
+  , ((modm .|. mod1Mask, xK_h), spawnInTerminal "htop") -- mod1Mask = alt
 
 -- Program spawn shortcuts
-	, ((modm .|. shiftMask, xK_f), spawn "firefox")
-	, ((modm .|. shiftMask, xK_v), spawn "VirtualBox")
-	, ((modm .|. shiftMask, xK_p), spawn "/home/prvak/bin/change-wallpaper")
-	, ((modm .|. shiftMask, xK_z), spawn "zim")
+  , ((modm .|. shiftMask, xK_f), spawn "firefox")
+  , ((modm .|. shiftMask, xK_v), spawn "VirtualBox")
+  , ((modm .|. shiftMask, xK_p), spawn "/home/prvak/bin/change-wallpaper")
+  , ((modm .|. shiftMask, xK_z), spawn "zim")
 
 -- Cycle through windows
-	, ((modm, xK_Tab), windows StackSet.focusDown)
-	, ((modm .|. shiftMask, xK_Tab), windows StackSet.focusUp)
-
+  , ((modm, xK_Tab), windows StackSet.focusDown)
+  , ((modm .|. shiftMask, xK_Tab), windows StackSet.focusUp)
+  ] ++
 -- Window navigation (Vim keys)
-	, ((modm, xK_j), sendMessage $ Go D)
-	, ((modm, xK_k), sendMessage $ Go U)
-	, ((modm, xK_h), sendMessage $ Go L)
-	, ((modm, xK_l), sendMessage $ Go R)
-
+    map (\(key, direction) -> ((modm, key), sendMessage $ Go direction))
+        [(xK_j, D), (xK_k, U), (xK_h, L), (xK_l, R)] ++ [
 -- Column / window resizing (Vim keys)
-	, ((modm .|. shiftMask, xK_h), zoomColumnOut)
-	, ((modm .|. shiftMask, xK_j), sendMessage zoomIn)
-	, ((modm .|. shiftMask, xK_k), sendMessage zoomOut)
-	, ((modm .|. shiftMask, xK_l), zoomColumnIn)
+    ((modm .|. shiftMask, xK_h), zoomColumnOut)
+  , ((modm .|. shiftMask, xK_j), sendMessage zoomIn)
+  , ((modm .|. shiftMask, xK_k), sendMessage zoomOut)
+  , ((modm .|. shiftMask, xK_l), zoomColumnIn)
 
 -- Window moving (Vim keys)
-	, ((modm .|. controlMask, xK_h), moveToGroupUp False)
-	, ((modm .|. controlMask, xK_j), swapDown)
-	, ((modm .|. controlMask, xK_k), swapUp)
-	, ((modm .|. controlMask, xK_l), moveToGroupDown False)
+  , ((modm .|. controlMask, xK_h), moveToGroupUp False)
+  , ((modm .|. controlMask, xK_j), swapDown)
+  , ((modm .|. controlMask, xK_k), swapUp)
+  , ((modm .|. controlMask, xK_l), moveToGroupDown False)
 
 -- Column layout changes
-	, ((modm, xK_space), sendMessage NextLayout)
+  , ((modm, xK_space), sendMessage NextLayout)
 
 -- Prompts
-	-- Write a quick note
-	, ((modm .|. shiftMask, xK_n), appendFilePrompt xpConfig "/home/prvak/NOTES")
-	-- Spawn note file
-	, ((modm .|. controlMask, xK_n), spawnInTerminal "vim /home/prvak/NOTES")
-	-- Browse a man page
-	, ((modm .|. shiftMask, xK_m), manPrompt xpConfig)
-	-- Spawn a program
-	, ((modm, xK_s), shellPrompt xpConfig)
-	-- XMonad prompt
-	, ((modm, xK_x), xmonadPrompt xpConfig)
+  -- Write a quick note
+  , ((modm .|. shiftMask, xK_n), appendFilePrompt xpConfig notesFile)
+  -- Spawn notes file
+  , ((modm .|. controlMask, xK_n), spawnInTerminal ("vim " ++ notesFile))
+  -- Spawn a program
+  , ((modm, xK_s), shellPrompt xpConfig)
+  -- XMonad prompt
+  , ((modm, xK_x), xmonadPrompt xpConfig)
 
 -- Unfloat a window
-	, ((modm, xK_t), withFocused $ windows . StackSet.sink)
-
+  , ((modm, xK_t), withFocused $ windows . StackSet.sink)
+  ] ++
 -- xscreensaver
-	, ((modm, xK_z), spawn "xscreensaver-command -lock")
-	, ((0, xF86XK_ScreenSaver), spawn "xscreensaver-command -lock")
-
+  map (\shortcut -> (shortcut, spawn "xscreensaver-command -lock"))
+      [(modm, xK_z), (0, xF86XK_ScreenSaver)] ++ [
 -- Window bringing
-	, ((modm, xK_f), goToSelected $ buildDefaultGSConfig defaultColorizer)
-	, ((modm, xK_d), bringSelected $ buildDefaultGSConfig defaultColorizer)
+    ((modm, xK_f), goToSelected $ buildDefaultGSConfig defaultColorizer)
+  , ((modm, xK_d), bringSelected $ buildDefaultGSConfig defaultColorizer)
 
 -- xosdutil
-	, ((modm, xK_c), xosdutilCommand "time")
-	, ((modm, xK_u), xosdutilCommand "uptime")
-	, ((modm, xK_a), xosdutilCommand "acpi")
-	, ((modm .|. controlMask, xK_f), xosdutilCommand "fetchmail-wakeup")
+  , ((modm, xK_c), xosdutilCommand "time")
+  , ((modm, xK_u), xosdutilCommand "uptime")
+  , ((modm, xK_a), xosdutilCommand "acpi")
+  , ((modm .|. controlMask, xK_f), xosdutilCommand "fetchmail-wakeup")
 
 -- Special key miscellany
-	, ((0, xK_Battery), xosdutilCommand "acpi")
-	-- ThinkPad X230 has no Menu key, so I use the Print key instead
-	-- , ((0, xK_Print), spawn "/home/prvak/bin/take-screenshot")
-	, ((0, xF86XK_HomePage), spawn "xosdutilctl echo Ahoj") -- TODO
-	, ((0, xF86XK_AudioPlay), spawn "/home/prvak/bin/mpc-toggle")
-	, ((0, xF86XK_AudioPrev), spawn "mpc prev")
-	, ((0, xF86XK_AudioNext), spawn "mpc next")
-	, ((0, xF86XK_AudioMute), spawn "amixer --quiet set Master toggle") -- TOOD: show volume in xosdutil?
-	, ((0, xF86XK_AudioLowerVolume), spawn "amixer --quiet set PCM 10-")
-	, ((0, xF86XK_AudioRaiseVolume), spawn "amixer --quiet set PCM 10+")
-	, ((0, xF86XK_MonBrightnessUp), spawn "xbacklight -inc 20")
-	, ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 20")
-	, ((0, xF86XK_Sleep), spawn "sudo pm-suspend")
-	]
-	++
+  , ((0, xK_Battery), xosdutilCommand "acpi")
+  -- , ((0, xK_Print), spawn "/home/prvak/bin/take-screenshot")
+  , ((0, xF86XK_HomePage), spawn "xosdutilctl echo Ahoj") -- TODO
+  , ((0, xF86XK_AudioPlay), spawn "/home/prvak/bin/mpc-toggle")
+  , ((0, xF86XK_AudioPrev), spawn "mpc prev")
+  , ((0, xF86XK_AudioNext), spawn "mpc next")
+  , ((0, xF86XK_AudioMute), spawn "amixer --quiet set Master toggle") -- TOOD: show volume in xosdutil?
+  , ((0, xF86XK_AudioLowerVolume), spawn "amixer --quiet set PCM 10-")
+  , ((0, xF86XK_AudioRaiseVolume), spawn "amixer --quiet set PCM 10+")
+  , ((0, xF86XK_MonBrightnessUp), spawn "xbacklight -inc 10")
+  , ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 10")
+  , ((0, xF86XK_Sleep), spawn "suspend")
+  ] ++
 -- Workspace switching (1...90-=, +Shift = move)
-	[((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) workspaceKeys
-	, (f, m) <- [(StackSet.greedyView, 0), (StackSet.shift, shiftMask)]]
-	++
-
+  [((m .|. modm, key), windows $ f workspace)
+    | (workspace, key) <- zip myWorkspaces workspaceKeys
+    , (f, m) <- [(StackSet.greedyView, 0), (StackSet.shift, shiftMask)]] ++
 -- Switching to physical screens in left-to-right order (U, I, O, +Shift = move)
-  [((modm .|. mask, key), f sc)
-      | (key, sc) <- zip [xK_u, xK_i, xK_o] [0..]
-      , (f, mask) <- [(viewScreen, 0), (sendToScreen, shiftMask)]]
+  [((modm .|. mask, key), f screen)
+    | (screen, key) <- zip [0..] [xK_u, xK_i, xK_o]
+    , (f, mask) <- [(viewScreen, 0), (sendToScreen, shiftMask)]]
 
 -- Mouse bindings: default actions bound to mouse events
 myMouseBindings (XConfig {XMonad.modMask = modm}) = Map.fromList
-    [ ((modm, button1), \w -> focus w >> mouseMoveWindow w >> windows StackSet.shiftMaster)
-    , ((modm, button2), \w -> focus w >> windows StackSet.shiftMaster)
-    , ((modm, button3), \w -> focus w >> mouseResizeWindow w >> windows StackSet.shiftMaster)
-    -- you may also bind events to the mouse scroll wheel (button4 and button5)
+    [ ((modm, button1), \w -> focus w >> mouseMoveWindow w)
+    , ((modm, button2), \w -> focus w)
+    , ((modm, button3), \w -> focus w >> mouseResizeWindow w)
+    -- button4, button5 = scroll wheel
     ]
 
 myLayout = avoidStruts $ showWName $ windowNavigation $ noBorders $ wmii shrinkText defaultTheme
 
 myManageHook = manageDocks <+> composeAll
-    [ className =? "MPlayer"        --> doFloat
---  , className =? "VirtualBox"     --> doShift "4"
-    , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore
-    , className =? "gnuplot"        --> doFloat
-    , isDialog --> doFloat]
+  [className =? "MPlayer" --> doFloat, isDialog --> doFloat]
 
 main = xmonad $ ewmh defaultConfig {
-        terminal           = myTerminal,
-        focusFollowsMouse  = True,
-        borderWidth        = 1,
-        modMask            = mod4Mask,
-        workspaces         = myWorkspaces,
-        normalBorderColor  = "#dddddd",
-        focusedBorderColor = "#ff9900",
+  terminal           = myTerminal,
+  focusFollowsMouse  = True,
+  borderWidth        = 1,
+  modMask            = mod4Mask,
+  workspaces         = myWorkspaces,
+  normalBorderColor  = "#dddddd",
+  focusedBorderColor = "#ff9900",
 
-        keys               = myKeys,
-        mouseBindings      = myMouseBindings,
+  keys               = myKeys,
+  mouseBindings      = myMouseBindings,
 
-        layoutHook         = myLayout,
-        manageHook         = myManageHook,
-        handleEventHook    = docksEventHook <+> fullscreenEventHook,
-        logHook            = updatePointer (Relative 0.5 0.5),
-        startupHook        = setWMName "LG3D" -- Java GUIs
-    }
+  layoutHook         = myLayout,
+  manageHook         = myManageHook,
+  handleEventHook    = docksEventHook <+> fullscreenEventHook,
+  logHook            = updatePointer (Relative 0.5 0.5),
+}
