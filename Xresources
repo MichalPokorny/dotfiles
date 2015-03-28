@@ -14,7 +14,6 @@ Xcursor.theme: Vanilla-DMZ-AA
 xterm*loginShell: true
 xterm*utf8: True
 xterm*font: -*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-1
-! xterm*font: -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1
 xterm*saveLines: 30000
 xterm*fastScroll: True
 xterm*termName: xterm-256color
