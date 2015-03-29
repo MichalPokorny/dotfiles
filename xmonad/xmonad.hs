@@ -202,5 +202,5 @@ main = xmonad $ ewmh defaultConfig {
   layoutHook         = myLayout,
   manageHook         = myManageHook,
   handleEventHook    = docksEventHook <+> fullscreenEventHook,
-  logHook            = updatePointer (Relative 0.5 0.5),
+  logHook            = updatePointer (Relative 0.5 0.5)
 }
