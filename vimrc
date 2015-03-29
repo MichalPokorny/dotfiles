@@ -23,6 +23,8 @@ set background=dark
 " ukazuj prvni match
 set incsearch
 
+set ttyfast
+
 " mouse in every mode
 set mouse=a
 
@@ -44,7 +46,6 @@ syntax on
 
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
-" set ofu=syntaxcomplete#Complete
 
 noremap <C-C> :botright cope<CR>
 noremap <C-N> :cn<CR>
@@ -94,7 +95,6 @@ nnoremap <right> <nop>
 "vnoremap l <nop>
 "nnoremap l <nop>
 
-" navigace mezi okny: krome Ctrl-W ... taky Ctrl-h,j,k,l,w
 " zR: open all folds
 
 set showcmd
@@ -105,19 +105,24 @@ set laststatus=2
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'wincent/command-t'
 
 call vundle#end()
 
-let g:airline_left_sep='' " was '>'
-let g:airline_right_sep='' " was '<'
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
+let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
 	let g:airline_symbols={}
 endif
-let g:airline_symbols.readonly='RO'
+" The default Airline symbol for 'line number' is an annoying Unicode glyph.
+let g:airline_symbols.linenr = ''
 
 " let g:airline#extensions#tabline#enabled = 1
 
@@ -133,6 +138,8 @@ autocmd Filetype coffee setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype haskell setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 autocmd Filetype c setlocal cindent nosmartindent
+" TODO: enable this settings
+" autocmd Filetype cpp setlocal cindent nosmartindent tabstop=2 softtabstop=2 expandtab
 autocmd Filetype cpp setlocal cindent nosmartindent
 
 " skryj swapfily v NetRW
@@ -174,5 +181,14 @@ inoremap <S-Down> ⇓
 " Highlight column 80
 set colorcolumn=80,+0
 
-set background=dark
+set t_Co=256
+" set background=dark
+set background=light
 colorscheme solarized
+
+" Jump to last position on opening files (stolen from Destroy All Software)
+" ('\" == mark when last exiting buffer, g` = go to, jumplist-nondestructive)
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \     exe "normal g`\"" |
+  \ endif
