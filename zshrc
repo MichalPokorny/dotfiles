@@ -4,13 +4,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-#ZSH_THEME="blinks" # works with Solarized
-# "evan" ## very minimalistic
-
 # Uncomment to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -45,6 +38,12 @@ HIST_STAMPS="yyyy-mm-dd"
 # interesting plugins: 'z'
 plugins=(git gpg-agent gem web-search colored-man)
 
+# Agnoster is a ZSH theme assuming Solarized and Powerline-patched fonts.
+# Right prompt: current time
+RPROMPT='%*'
+DEFAULT_USER='prvak'
+ZSH_THEME='agnoster'
+
 source $ZSH/oh-my-zsh.sh
 
 # Nechci completion automaticky kdyz je to ambiguous
@@ -71,7 +70,7 @@ setopt autocd
 # emacs mode
 bindkey -e
 
-alias gs='git status' # I don't want GhostScript.
+alias gs='git status' # I don't really need GhostScript.
 alias M='mutt'
 alias Am='alsamixer'
 alias Wc='wicd-curses'
@@ -95,27 +94,19 @@ function set_custom_prompt {
 		#PROMPT_COLOR="%F{001}"; # red
 		THE_PROMPT="#";
 	else
-		#DIR_COLOR="%F{155}"; # medium green
-		#PROMPT_COLOR="%F{033}"; # medium blue
+		DIR_COLOR="%F{155}"; # medium green
+		PROMPT_COLOR="%F{033}"; # medium blue
 		THE_PROMPT="λ"; # lambda
 		# » (dvojsipka), → (sipka)
 	fi
 
-	#PROMPT='$DIR_COLOR%~ $PROMPT_COLOR$THE_PROMPT %k'
+	PROMPT='$DIR_COLOR%~ $PROMPT_COLOR$THE_PROMPT %k'
 	PROMPT='%~ $THE_PROMPT '
 	RPROMPT='$(git_prompt_info) %*'
 }
 
-# Sets the 'agnoster' theme. It works with Solarized.
-# Unfortunately, it assumes custom patched fonts.
-function set_agnoster {
-	ZSH_THEME="agnoster" # works with Solarized
-	RPROMPT='%*'
-	DEFAULT_USER='prvak'
-}
 
-# set_agnoster
-set_custom_prompt
+# set_custom_prompt
 
 export GOBIN=~/bin/gobin
 export PATH="$PATH:/home/prvak/bin:/home/prvak/bin/private-scripts:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin:/opt/android-sdk/platform-tools:$GOBIN"
@@ -124,5 +115,5 @@ ZSH_THEME_TERM_TITLE_IDLE="%n: %~ $"
 
 unsetopt share_history # Don't share command history between zsh's
 
-eval `dircolors ~/.dircolors-solarized/dircolors.ansi-dark`
+eval `dircolors ~/.dircolors-solarized/dircolors.ansi-light`
 export MC_SKIN=~/.config/mc/solarized.ini
