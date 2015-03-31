@@ -123,6 +123,9 @@ if !exists('g:airline_symbols')
 endif
 " The default Airline symbol for 'line number' is an annoying Unicode glyph.
 let g:airline_symbols.linenr = ''
+" The default is ['indent', 'trailing']. Trailing whitespace are annoying
+" when it's intended.
+let g:airline#extensions#whitespace#checks = ['indent']
 
 " let g:airline#extensions#tabline#enabled = 1
 
