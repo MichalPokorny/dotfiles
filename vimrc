@@ -195,3 +195,7 @@ autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \     exe "normal g`\"" |
   \ endif
+
+" Don't clear screen after exiting Vim.
+" http://www.shallowsky.com/linux/noaltscreen.html
+" set t_ti= t_te=
