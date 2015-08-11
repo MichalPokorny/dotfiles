@@ -81,9 +81,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $ [
   -- Kill current window
     ((modm .|. shiftMask,xK_c ), kill)
   -- Quit XMonad
-  , ((modm .|. shiftMask, xK_q), io exitSuccess)
+  --, ((modm .|. shiftMask, xK_q), io exitSuccess)
   -- Recompile and restart
-  , ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
+  --, ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
   ] ++
 -- Terminal spawning keys: useless PrtSc and Menu keys
   concatMap (\key -> [((0, xK_Print), spawnTerminal),
