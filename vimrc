@@ -110,6 +110,7 @@ Plugin 'bling/vim-airline'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'wincent/command-t'
+Plugin 'hynek/vim-python-pep8-indent'
 
 call vundle#end()
 
@@ -132,7 +133,6 @@ let g:airline#extensions#whitespace#checks = ['indent']
 set textwidth=80
 autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
-autocmd Filetype python setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype haml setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 autocmd Filetype eruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype coffee setlocal tabstop=2 softtabstop=2 shiftwidth=2
