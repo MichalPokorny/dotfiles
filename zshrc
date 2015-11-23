@@ -76,8 +76,9 @@ alias Am='alsamixer'
 alias Wc='wicd-curses'
 alias diff='colordiff'
 alias phpc='php -a'
-alias notes='vim ~/NOTES'
+alias notes='vim ~/zim/NOTES.txt'
 alias perlc='perl -d -e 1'
+alias dbs='dropbox.py status'
 
 # Record keystrokes
 # alias vim='vim -w ~/.vim-keylog "$@"'

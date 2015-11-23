@@ -57,7 +57,7 @@ xpConfig = amberXPConfig {
 
 xK_Battery = 0x1008FF93
 
-notesFile = "/home/prvak/NOTES"
+notesFile = "/home/prvak/Dropbox/zim/NOTES.txt"
 
 -- Other terminals I used in the past: xterm, urxvt
 myTerminal = "gnome-terminal"
@@ -86,8 +86,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $ [
   --, ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
   ] ++
 -- Terminal spawning keys: useless PrtSc and Menu keys
-  concatMap (\key -> [((0, xK_Print), spawnTerminal),
-                    ((controlMask, xK_Print), spawnInTerminal "su")])
+  concatMap (\key -> [((0, key), spawnTerminal),
+                    ((controlMask, key), spawnInTerminal "su")])
             [xK_Menu, xK_Print] ++ [
 -- Terminal spawn shortcuts
     ((modm, xK_w), spawnTerminal) -- Alternative terminal spawn
