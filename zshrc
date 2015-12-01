@@ -79,6 +79,7 @@ alias phpc='php -a'
 alias notes='vim ~/zim/NOTES.txt'
 alias perlc='perl -d -e 1'
 alias dbs='dropbox.py status'
+alias dfs='dropbox.py filestatus'
 
 # Record keystrokes
 # alias vim='vim -w ~/.vim-keylog "$@"'
