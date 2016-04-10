@@ -57,7 +57,7 @@ xpConfig = amberXPConfig {
 
 xK_Battery = 0x1008FF93
 
-notesFile = "/home/prvak/Dropbox/zim/NOTES.txt"
+notesFile = "/home/prvak/zim/NOTES.txt"
 
 -- Other terminals I used in the past: xterm, urxvt
 myTerminal = "gnome-terminal"
@@ -199,6 +199,7 @@ main = xmonad $ ewmh defaultConfig {
   keys               = myKeys,
   mouseBindings      = myMouseBindings,
 
+  startupHook        = setWMName "LG3D",
   layoutHook         = myLayout,
   manageHook         = myManageHook,
   handleEventHook    = docksEventHook <+> fullscreenEventHook,

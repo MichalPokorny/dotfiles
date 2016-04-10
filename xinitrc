@@ -28,5 +28,9 @@ xdg-user-dirs-update &
 wmname LG3D & # Make Java GUIs work
 
 start-pulseaudio-x11 &
+stalonetray &!
+nm-applet &!
+rescuetime &!
+skype &!
 
 wait $wmpid

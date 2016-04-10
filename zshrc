@@ -119,3 +119,7 @@ unsetopt share_history # Don't share command history between zsh's
 
 eval `dircolors ~/.dircolors-solarized/dircolors.ansi-light`
 export MC_SKIN=~/.config/mc/solarized.ini
+export GOPATH=/home/prvak/repos/go
+
+# for enca/enconv
+export DEFAULT_CHARSET=utf8
