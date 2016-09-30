@@ -111,6 +111,7 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'wincent/command-t'
 Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'google/vim-ft-bzl'
 
 call vundle#end()
 
@@ -199,3 +200,7 @@ autocmd BufReadPost *
 " Don't clear screen after exiting Vim.
 " http://www.shallowsky.com/linux/noaltscreen.html
 " set t_ti= t_te=
+
+" HACK: to get syntax highlighting in Scala
+" TODO: There's probably a proper mechanism to get this without autocmd.
+au BufNewFile,BufRead *.scala set filetype=scala
