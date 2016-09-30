@@ -31,6 +31,6 @@ start-pulseaudio-x11 &
 stalonetray &!
 nm-applet &!
 rescuetime &!
-skype &!
+# skype &!
 
 wait $wmpid

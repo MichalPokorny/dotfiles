@@ -110,8 +110,8 @@ function set_custom_prompt {
 
 # set_custom_prompt
 
-export GOBIN=~/bin/gobin
-export PATH="$PATH:/home/prvak/bin:/home/prvak/bin/private-scripts:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin:/opt/android-sdk/platform-tools:$GOBIN"
+export GOPATH=/home/prvak/repos/go
+export PATH="$PATH:/home/prvak/bin:/home/prvak/bin/private-scripts:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin:/opt/android-sdk/platform-tools:$GOPATH/bin"
 
 ZSH_THEME_TERM_TITLE_IDLE="%n: %~ $"
 
@@ -119,7 +119,8 @@ unsetopt share_history # Don't share command history between zsh's
 
 eval `dircolors ~/.dircolors-solarized/dircolors.ansi-light`
 export MC_SKIN=~/.config/mc/solarized.ini
-export GOPATH=/home/prvak/repos/go
 
 # for enca/enconv
 export DEFAULT_CHARSET=utf8
+
+alias gs='git status --short'
