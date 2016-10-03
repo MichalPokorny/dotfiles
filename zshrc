@@ -111,7 +111,7 @@ function set_custom_prompt {
 # set_custom_prompt
 
 export GOPATH=/home/prvak/repos/go
-export PATH="$PATH:/home/prvak/bin:/home/prvak/bin/private-scripts:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin:/opt/android-sdk/platform-tools:$GOPATH/bin"
+export PATH="/home/prvak/bin:/home/prvak/bin/private-scripts:$PATH:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin:/opt/android-sdk/platform-tools:$GOPATH/bin"
 
 ZSH_THEME_TERM_TITLE_IDLE="%n: %~ $"
 
@@ -123,4 +123,4 @@ export MC_SKIN=~/.config/mc/solarized.ini
 # for enca/enconv
 export DEFAULT_CHARSET=utf8
 
-alias gs='git status --short'
+alias gs='git status --short --branch'

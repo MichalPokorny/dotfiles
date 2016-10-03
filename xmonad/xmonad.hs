@@ -57,7 +57,7 @@ xpConfig = amberXPConfig {
 
 xK_Battery = 0x1008FF93
 
-notesFile = "/home/prvak/zim/NOTES.txt"
+notesFile = "/home/prvak/notes/NOTES.txt"
 
 -- Other terminals I used in the past: xterm, urxvt
 myTerminal = "gnome-terminal"
