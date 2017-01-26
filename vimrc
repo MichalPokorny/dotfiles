@@ -50,6 +50,7 @@ set omnifunc=syntaxcomplete#Complete
 noremap <C-C> :botright cope<CR>
 noremap <C-N> :cn<CR>
 noremap <C-P> :cp<CR>
+noremap UU <Esc>:r!uuidgen<CR>kJo
 
 " to byvalo <S-M>, ale to koliduje s 'vyber prostredni radku'
 noremap <Leader>m :make<CR>
@@ -112,6 +113,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'wincent/command-t'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'google/vim-ft-bzl'
+Plugin 'niklasl/vim-rdf'
 
 call vundle#end()
 
@@ -204,3 +206,5 @@ autocmd BufReadPost *
 " HACK: to get syntax highlighting in Scala
 " TODO: There's probably a proper mechanism to get this without autocmd.
 au BufNewFile,BufRead *.scala set filetype=scala
+
+au BufNewFile,BufRead *.ttl set filetype=turtle

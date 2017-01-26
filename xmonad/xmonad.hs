@@ -13,7 +13,7 @@ import qualified XMonad.StackSet as StackSet
 
 import XMonad.Actions.RandomBackground
 import XMonad.Actions.GridSelect
-import XMonad.Actions.UpdatePointer(updatePointer, PointerPosition(Relative))
+import XMonad.Actions.UpdatePointer(updatePointer)
 
 import XMonad.Layout.ShowWName(showWName)
 import XMonad.Layout.Named
@@ -57,7 +57,7 @@ xpConfig = amberXPConfig {
 
 xK_Battery = 0x1008FF93
 
-notesFile = "/home/prvak/notes/NOTES.txt"
+notesFile = "/home/prvak/dropbox/notes/NOTES.txt"
 
 -- Other terminals I used in the past: xterm, urxvt
 myTerminal = "gnome-terminal"
@@ -92,7 +92,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $ [
 -- Terminal spawn shortcuts
     ((modm, xK_w), spawnTerminal) -- Alternative terminal spawn
   , ((modm .|. shiftMask, xK_w), spawnInTerminal "wicd-curses")
-  , ((modm, xK_n), spawnInTerminal "ncmpcpp")
   , ((modm .|. shiftMask, xK_a), spawnInTerminal "alsamixer")
   , ((modm, xK_m), spawnInTerminal "mutt")
   , ((modm .|. mod1Mask, xK_h), spawnInTerminal "htop") -- mod1Mask = alt
@@ -101,7 +100,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $ [
   , ((modm .|. shiftMask, xK_f), spawn "firefox")
   , ((modm .|. shiftMask, xK_v), spawn "VirtualBox")
   , ((modm .|. shiftMask, xK_p), spawn "/home/prvak/bin/change-wallpaper")
-  , ((modm .|. shiftMask, xK_z), spawn "zim")
 
 -- Cycle through windows
   , ((modm, xK_Tab), windows StackSet.focusDown)
@@ -203,5 +201,5 @@ main = xmonad $ ewmh defaultConfig {
   layoutHook         = myLayout,
   manageHook         = myManageHook,
   handleEventHook    = docksEventHook <+> fullscreenEventHook,
-  logHook            = updatePointer (Relative 0.5 0.5)
+  logHook            = updatePointer (0.5, 0.5) (0, 0)  -- exact centre of window
 }

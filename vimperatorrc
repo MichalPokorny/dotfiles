@@ -9,8 +9,13 @@ set wildmode=list:full
 
 " hi -a TabClose display:none !important;
 
+command -nargs=0 PrvakSmartDownload :execute "!/home/prvak/bin/smart-download " + content.location.href
+
 map e :write<CR>
 map E :write<CR>:tabclose<CR>
+
+map x :PrvakSmartDownload<CR>
+
 noremap < :tabprevious<CR>
 noremap > :tabnext<CR>
 noremap , :tabprevious<CR>
