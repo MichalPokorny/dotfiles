@@ -117,7 +117,7 @@ ZSH_THEME_TERM_TITLE_IDLE="%n: %~ $"
 
 unsetopt share_history # Don't share command history between zsh's
 
-eval `dircolors ~/.dircolors-solarized/dircolors.ansi-light`
+eval `dircolors ~/.dir_colors/dircolors`
 export MC_SKIN=~/.config/mc/solarized.ini
 
 # for enca/enconv

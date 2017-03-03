@@ -114,6 +114,7 @@ Plugin 'wincent/command-t'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'google/vim-ft-bzl'
 Plugin 'niklasl/vim-rdf'
+Plugin 'pbrisbin/vim-mkdir' " mkdir needed dirs before writing buffer
 
 call vundle#end()
 
@@ -188,7 +189,6 @@ inoremap <S-Down> ⇓
 set colorcolumn=80,+0
 
 set t_Co=256
-" set background=dark
 set background=light
 colorscheme solarized
 
