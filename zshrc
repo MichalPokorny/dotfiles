@@ -70,16 +70,8 @@ setopt autocd
 # emacs mode
 bindkey -e
 
-alias gs='git status' # I don't really need GhostScript.
-alias M='mutt'
-alias Am='alsamixer'
-alias Wc='wicd-curses'
-alias diff='colordiff'
-alias phpc='php -a'
-alias notes='vim ~/notes/NOTES.txt'
+source $HOME/.aliases
 alias perlc='perl -d -e 1'
-alias dbs='dropbox.py status'
-alias dfs='dropbox.py filestatus'
 
 # Record keystrokes
 # alias vim='vim -w ~/.vim-keylog "$@"'
@@ -109,9 +101,6 @@ function set_custom_prompt {
 
 
 # set_custom_prompt
-
-export GOPATH=/home/prvak/repos/go
-export PATH="/home/prvak/bin:/home/prvak/bin/private-scripts:$PATH:$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$HOME/.cabal/bin:/opt/android-sdk/platform-tools:$GOPATH/bin"
 
 ZSH_THEME_TERM_TITLE_IDLE="%n: %~ $"
 
