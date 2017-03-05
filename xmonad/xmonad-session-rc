@@ -5,7 +5,7 @@ redshift -l 47:8 -m randr &!  # Zurich
 # redshift -l 37:-122 &  # San Francisco
 
 # start-pulseaudio-x11 &
-dropbox &!
+dropbox start &!
 # stalonetray &!
 gnome-panel &!
 nm-applet &!
