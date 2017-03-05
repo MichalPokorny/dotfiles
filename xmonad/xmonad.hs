@@ -48,7 +48,7 @@ import XMonad.Actions.PhysicalScreens
 myWorkspaces = map show [1..9] ++ ["0", "-", "="]
 workspaceKeys = [xK_1..xK_9] ++ [xK_0, xK_minus, xK_equal]
 
-xosdutilCommand cmd = spawn ("xosdutilctl " ++ cmd)
+-- xosdutilCommand cmd = spawn ("xosdutilctl " ++ cmd)
 
 xpConfig = amberXPConfig {
   showCompletionOnTab = True
@@ -93,12 +93,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $ [
     ((modm, xK_w), spawnTerminal) -- Alternative terminal spawn
   , ((modm .|. shiftMask, xK_w), spawnInTerminal "wicd-curses")
   , ((modm .|. shiftMask, xK_a), spawnInTerminal "alsamixer")
-  , ((modm, xK_m), spawnInTerminal "mutt")
+  -- , ((modm, xK_m), spawnInTerminal "mutt")
   , ((modm .|. mod1Mask, xK_h), spawnInTerminal "htop") -- mod1Mask = alt
 
 -- Program spawn shortcuts
   , ((modm .|. shiftMask, xK_f), spawn "firefox")
-  , ((modm .|. shiftMask, xK_v), spawn "VirtualBox")
+  -- , ((modm .|. shiftMask, xK_v), spawn "VirtualBox")
   , ((modm .|. shiftMask, xK_p), spawn "/home/prvak/bin/change-wallpaper")
 
 -- Cycle through windows
@@ -144,15 +144,15 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = Map.fromList $ [
   , ((modm, xK_d), bringSelected $ buildDefaultGSConfig defaultColorizer)
 
 -- xosdutil
-  , ((modm, xK_c), xosdutilCommand "time")
-  , ((modm, xK_u), xosdutilCommand "uptime")
-  , ((modm, xK_a), xosdutilCommand "acpi")
-  , ((modm .|. controlMask, xK_f), xosdutilCommand "fetchmail-wakeup")
+  -- , ((modm, xK_c), xosdutilCommand "time")
+  -- , ((modm, xK_u), xosdutilCommand "uptime")
+  -- , ((modm, xK_a), xosdutilCommand "acpi")
+  -- , ((modm .|. controlMask, xK_f), xosdutilCommand "fetchmail-wakeup")
 
 -- Special key miscellany
-  , ((0, xK_Battery), xosdutilCommand "acpi")
+  -- , ((0, xK_Battery), xosdutilCommand "acpi")
   -- , ((0, xK_Print), spawn "/home/prvak/bin/take-screenshot")
-  , ((0, xF86XK_HomePage), spawn "xosdutilctl echo Ahoj") -- TODO
+  -- , ((0, xF86XK_HomePage), spawn "xosdutilctl echo Ahoj") -- TODO
   , ((0, xF86XK_AudioPlay), spawn "/home/prvak/bin/mpc-toggle")
   , ((0, xF86XK_AudioPrev), spawn "mpc prev")
   , ((0, xF86XK_AudioNext), spawn "mpc next")
