@@ -70,13 +70,8 @@ setopt autocd
 # emacs mode
 bindkey -e
 
-source $HOME/.aliases
-alias perlc='perl -d -e 1'
-
 # Record keystrokes
 # alias vim='vim -w ~/.vim-keylog "$@"'
-
-alias suspend='systemctl suspend'
 
 if (which sux &> /dev/null); then
 	alias su='sux'
@@ -113,3 +108,4 @@ export MC_SKIN=~/.config/mc/solarized.ini
 export DEFAULT_CHARSET=utf8
 
 alias gs='git status --short --branch'
+source $HOME/.aliases

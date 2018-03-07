@@ -1,9 +1,9 @@
 alias ..='cd ..'
 alias suspend='systemctl suspend'
 alias gs='git status' # I don't really need GhostScript.
-alias M='mutt'
 alias Am='alsamixer'
 alias notes='vim ~/notes/NOTES.txt'
 alias dbs='dropbox status'
 alias dfs='dropbox filestatus'
 alias phpc='php -a'
+alias perlc='perl -d -e 1'
