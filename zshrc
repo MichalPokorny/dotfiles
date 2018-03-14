@@ -41,7 +41,7 @@ plugins=(git gpg-agent gem web-search colored-man)
 # Agnoster is a ZSH theme assuming Solarized and Powerline-patched fonts.
 # Right prompt: current time
 RPROMPT='%*'
-DEFAULT_USER='prvak'
+DEFAULT_USER='agentydragon'
 ZSH_THEME='agnoster'
 
 source $ZSH/oh-my-zsh.sh

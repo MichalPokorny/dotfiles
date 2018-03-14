@@ -7,8 +7,5 @@ stop-xscreensaver="yes"
 
 ao=alsa
 
-# Disable xscreensaver
-heartbeat-cmd="xscreensaver-command -deactivate"
-
 # Scale tempo by speed
 af=scaletempo
