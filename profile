@@ -20,12 +20,15 @@ fi
 PATH="$HOME/bin:$HOME/.local/bin:$HOME/bin/private-scripts:$PATH"
 
 # Ruby
-PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+# PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 
 # Haskell
 PATH="$HOME/.cabal/bin:$PATH"
 
 # Go
-GOPATH=$HOME/repos/go
+export GOPATH=$HOME/repos/go
 PATH="$GOPATH/bin:$PATH"
 EDITOR=`which vim`
+
+# Android Studio
+PATH="/opt/android-studio/bin:$PATH"

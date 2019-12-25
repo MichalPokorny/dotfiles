@@ -36,7 +36,8 @@ HIST_STAMPS="yyyy-mm-dd"
 # gitfast
 # git: gc, gca, gs, ...
 # interesting plugins: 'z'
-plugins=(git gpg-agent gem web-search colored-man)
+#plugins=(git gpg-agent gem web-search colored-man)
+plugins=()
 
 # Agnoster is a ZSH theme assuming Solarized and Powerline-patched fonts.
 # Right prompt: current time
@@ -73,10 +74,6 @@ bindkey -e
 # Record keystrokes
 # alias vim='vim -w ~/.vim-keylog "$@"'
 
-if (which sux &> /dev/null); then
-	alias su='sux'
-fi
-
 function set_custom_prompt {
 	if [ $UID -eq 0 ]; then
 		#DIR_COLOR="%F{160}"; # dark red
@@ -109,3 +106,12 @@ export DEFAULT_CHARSET=utf8
 
 alias gs='git status --short --branch'
 source $HOME/.aliases
+
+# The next line updates PATH for the Google Cloud SDK.
+#if [ -f '/home/agentydragon/bin/google-cloud-sdk/path.zsh.inc' ]; then source '/home/agentydragon/bin/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+#if [ -f '/home/agentydragon/bin/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/agentydragon/bin/google-cloud-sdk/completion.zsh.inc'; fi
+#
+# Do not paginate if less than 1 page.
+export LESS="-F -X $LESS"

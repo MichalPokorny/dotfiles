@@ -1,6 +1,6 @@
 [user]
-	name = Michal Pokorný
-	email = prvak.cnx+git@gmail.com
+	name = Michal Pokorný (Rai)
+	email = agentydragon@gmail.com
 [core]
 	autocrlf = false
 [color]
@@ -27,3 +27,5 @@
 	rebase = true
 [rerere]
 	enabled = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/

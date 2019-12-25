@@ -112,11 +112,16 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'wincent/command-t'
 Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'google/vim-ft-bzl'
 Plugin 'niklasl/vim-rdf'
 Plugin 'pbrisbin/vim-mkdir' " mkdir needed dirs before writing buffer
+Plugin 'bazelbuild/vim-ft-bzl'
+Plugin 'google/vim-maktaba'  " dependency of vim-codefmt
+Plugin 'google/vim-codefmt'
+Plugin 'google/vim-glaive'  " used to configure codefmt's maktaba flags
+Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()
+call glaive#Install()
 
 "let g:airline_left_sep = ''
 "let g:airline_left_alt_sep = ''
@@ -208,3 +213,22 @@ autocmd BufReadPost *
 au BufNewFile,BufRead *.scala set filetype=scala
 
 au BufNewFile,BufRead *.ttl set filetype=turtle
+autocmd BufNewFile,BufRead *.ts set filetype=typescript
+
+Glaive codefmt google_java_executable="java -jar /home/agentydragon/bin/google-java-format-1.7-all-deps.jar"
+
+
+" Set autoformatter settings
+augroup autoformat_settings
+  autocmd FileType bzl AutoFormatBuffer buildifier
+  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+  autocmd FileType dart AutoFormatBuffer dartfmt
+  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType gn AutoFormatBuffer gn
+  " autocmd FileType html,css,json AutoFormatBuffer js-beautify
+  "
+  " turned off for anki contributions:
+  " autocmd FileType java AutoFormatBuffer google-java-format
+  " autocmd FileType python AutoFormatBuffer autopep8
+  " Alternative: autocmd FileType python AutoFormatBuffer yapf
+augroup END
