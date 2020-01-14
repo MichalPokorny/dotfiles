@@ -30,5 +30,10 @@ export GOPATH=$HOME/repos/go
 PATH="$GOPATH/bin:$PATH"
 EDITOR=`which vim`
 
+# Flutter
+export PATH="$HOME/.flutter-install/flutter/bin:$PATH"
 # Android Studio
-PATH="/opt/android-studio/bin:$PATH"
+export PATH="/opt/android-studio/bin:$PATH"
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
