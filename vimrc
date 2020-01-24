@@ -121,7 +121,8 @@ Plugin 'google/vim-glaive'  " used to configure codefmt's maktaba flags
 Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()
-call glaive#Install()
+" Ignore error if Glaive not installed.
+silent! call glaive#Install()
 
 "let g:airline_left_sep = ''
 "let g:airline_left_alt_sep = ''
@@ -195,7 +196,9 @@ set colorcolumn=80,+0
 
 set t_Co=256
 set background=light
-colorscheme solarized
+
+" Silence if colorscheme not installed.
+silent! colorscheme solarized
 
 " Jump to last position on opening files (stolen from Destroy All Software)
 " ('\" == mark when last exiting buffer, g` = go to, jumplist-nondestructive)
@@ -215,7 +218,8 @@ au BufNewFile,BufRead *.scala set filetype=scala
 au BufNewFile,BufRead *.ttl set filetype=turtle
 autocmd BufNewFile,BufRead *.ts set filetype=typescript
 
-Glaive codefmt google_java_executable="java -jar /home/agentydragon/bin/google-java-format-1.7-all-deps.jar"
+" Silence if Glaive not installed.
+silent! Glaive codefmt google_java_executable="java -jar /home/agentydragon/bin/google-java-format-1.7-all-deps.jar"
 
 
 " Set autoformatter settings
