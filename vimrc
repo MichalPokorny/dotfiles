@@ -219,7 +219,7 @@ au BufNewFile,BufRead *.ttl set filetype=turtle
 autocmd BufNewFile,BufRead *.ts set filetype=typescript
 
 " Silence if Glaive not installed.
-silent! Glaive codefmt google_java_executable="java -jar /home/agentydragon/bin/google-java-format-1.7-all-deps.jar"
+silent! Glaive codefmt google_java_executable="java -jar /home/agentydragon/bin/google-java-format.jar"
 
 
 " Set autoformatter settings
