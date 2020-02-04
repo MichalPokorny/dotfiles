@@ -1,6 +1,0 @@
-MAILDIR=$HOME/.maildir/
-DEFAULT=$MAILDIR/
-LOGFILE=$HOME/.procmail/procmail.log
-
-:0 hc
-| /home/prvak/bin/incoming-mail
