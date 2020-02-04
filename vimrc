@@ -1,4 +1,4 @@
-set nocompat
+set nocompatible
 
 " filetypes
 filetype plugin on
