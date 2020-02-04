@@ -1,3 +1,5 @@
+set nocompat
+
 " filetypes
 filetype plugin on
 filetype indent on
@@ -202,10 +204,7 @@ silent! colorscheme solarized
 
 " Jump to last position on opening files (stolen from Destroy All Software)
 " ('\" == mark when last exiting buffer, g` = go to, jumplist-nondestructive)
-autocmd BufReadPost *
-  \ if line("'\"") > 0 && line("'\"") <= line("$") |
-  \     exe "normal g`\"" |
-  \ endif
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
 " Don't clear screen after exiting Vim.
 " http://www.shallowsky.com/linux/noaltscreen.html
