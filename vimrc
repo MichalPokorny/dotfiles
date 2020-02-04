@@ -106,13 +106,13 @@ set laststatus=2
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" Plugin 'wincent/command-t'
+" Plugin 'niklasl/vim-rdf'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'wincent/command-t'
 Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'niklasl/vim-rdf'
 Plugin 'pbrisbin/vim-mkdir' " mkdir needed dirs before writing buffer
 Plugin 'bazelbuild/vim-ft-bzl'
 Plugin 'google/vim-maktaba'  " dependency of vim-codefmt
