@@ -133,8 +133,8 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="578.8173828125"
-         height="606.091552734375"
+         width="264.567"
+         height="140.315"
          rx="0"
          ry="0" />
       <eventcontext
@@ -171,22 +171,24 @@
          style="fill:red;"
          end="0"
          start="0"
-         usecurrent="1" />
+         usecurrent="1"
+         rx="4.7395"
+         ry="4.7395" />
       <eventcontext
          id="star"
          magnitude="5"
          style="fill:yellow;"
          usecurrent="1"
-         proportion="0.58520575363487204"
+         proportion="0.585206"
          rounded="0"
          randomized="0"
          isflatsided="0" />
       <eventcontext
          id="spiral"
          style="fill:none;"
+         expansion="1"
          usecurrent="0"
          revolution="3"
-         expansion="1"
          t0="0" />
     </group>
     <group
@@ -194,7 +196,7 @@
        style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-linejoin:miter;stroke-linecap:butt;">
       <eventcontext
          id="pencil"
-         tolerance="4.0"
+         tolerance="4"
          selcue="1"
          style="stroke-width:1px;"
          usecurrent="0"
@@ -219,7 +221,9 @@
        tracebackground="0"
        usepressure="1"
        usetilt="0"
-       keep_selected="1">
+       keep_selected="1"
+       tremor="0"
+       wiggle="0">
       <group
          id="preset">
         <group
@@ -325,16 +329,21 @@
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
        unitid="3"
-       show_bbox="1" />
+       show_bbox="1"
+       unit="mm" />
     <eventcontext
        id="text"
        usecurrent="0"
        gradientdrag="1"
        font_sample="AaBbCcIiPpQq12369$€¢?.;/()"
        show_sample_in_list="1"
-       style="fill:black;fill-opacity:1;stroke:none;font-family:Sans;font-style:normal;font-weight:normal;font-size:10px;line-height:125%;letter-spacing:0px;word-spacing:0px"
+       style="fill:black;fill-opacity:1;stroke:none;font-family:UnPenheulim;font-style:normal;font-weight:normal;font-size:10px;line-height:125%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:UnPenheulim;font-stretch:normal;font-variant:normal"
        selcue="1"
-       align_mode="0" />
+       align_mode="0">
+      <group
+         id="lineheight"
+         display_unit="9" />
+    </eventcontext>
     <eventcontext
        id="nodes"
        selcue="1"
@@ -373,6 +382,8 @@
        mode="9" />
     <eventcontext
        id="spray"
+       selcue="1"
+       gradientdrag="0"
        usepressure="1"
        width="15"
        population="27"
@@ -380,7 +391,8 @@
        rotation_variation="0"
        scale_variation="0"
        standard_deviation="70"
-       mean="0" />
+       mean="0"
+       offset="100" />
     <eventcontext
        id="gradient"
        selcue="1"
@@ -411,7 +423,22 @@
        style="fill:#a0a0a0;stroke:none;"
        usecurrent="1"
        offset="0"
-       offsetunits="pt" />
+       offsetunits="pt"
+       threshold="5" />
+    <eventcontext
+       id="mesh"
+       selcue="1"
+       mesh_rows="1"
+       mesh_cols="1" />
+    <group
+       id="measure"
+       fontsize="10"
+       precision="2"
+       scale="100"
+       offset="5"
+       unit="mm"
+       measure-start="0,0"
+       measure-end="0,0" />
   </group>
   <group
      id="palette">
@@ -525,6 +552,9 @@
       <dash
          id="dash-0110-0110"
          style="stroke-dasharray:0.1,0.1" />
+      <dash
+         id="dash-empty"
+         style="stroke-dasharray:0 11" />
     </group>
   </group>
   <group
@@ -538,7 +568,8 @@
        panel_mode="1"
        panel_ratio="100"
        panel_wrap="0"
-       palette="Inkscape default" />
+       palette="Inkscape default"
+       panel_border="0" />
   </group>
   <group
      id="dialogs">
@@ -553,12 +584,21 @@
        state="2"
        x="0"
        y="0"
-       w="332"
-       h="370" />
+       w="678"
+       h="412"
+       panel_border="0"
+       page="2" />
     <group
-       id="filtereffects" />
-    <group
-       id="textandfont" />
+       id="textandfont"
+       panel_size="1"
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       x="0"
+       y="0"
+       w="667"
+       h="391" />
     <group
        id="transformation"
        applyseparately="0" />
@@ -605,10 +645,18 @@
        default=""
        append_extension="1"
        path=""
-       x="666"
-       y="340"
-       w="353"
-       h="335">
+       x="0"
+       y="0"
+       w="680"
+       h="454"
+       panel_size="1"
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       visible="1"
+       state="2"
+       placement="1">
       <group
          id="exportarea"
          value="drawing" />
@@ -621,7 +669,7 @@
        default="org.inkscape.output.svg.inkscape"
        append_extension="1"
        enable_preview="1"
-       path="/home/prvak"
+       path="/home/agentydragon/drive/Dustin Space/Art"
        use_current_dir="1" />
     <group
        id="save_copy"
@@ -632,16 +680,41 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/prvak/study/spyg/" />
+       path="/home/agentydragon/drive/Dustin Space/Art/" />
     <group
        id="import"
        enable_preview="1"
-       path="/home/prvak/" />
+       path="/home/prvak/"
+       ask="1"
+       link="link"
+       scale="optimizeSpeed" />
     <group
        id="debug"
        redirect="0" />
     <group
-       id="clonetiler" />
+       id="clonetiler"
+       panel_size="1"
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       fillrect="1"
+       jmax="8"
+       imax="3"
+       keepbbox="1"
+       fillwidth="50.0001"
+       shiftx_per_j="0"
+       shiftx_per_i="0"
+       shifty_excludeh="1"
+       shiftx_excludew="1"
+       shifty_per_j="0"
+       x="0"
+       y="0"
+       w="680"
+       h="522"
+       visible="1"
+       state="2"
+       placement="2" />
     <group
        id="gridtiler" />
     <group
@@ -652,7 +725,19 @@
     <group
        id="messages" />
     <group
-       id="swatches" />
+       id="swatches"
+       panel_size="1"
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       x="0"
+       y="0"
+       w="401"
+       h="66"
+       visible="0"
+       state="2"
+       placement="1" />
     <group
        id="iconpreview" />
     <group
@@ -691,6 +776,20 @@
        on-focus="1.0"
        on-blur="0.50"
        animate-time="100" />
+    <group
+       id="printing"
+       asbitmap="0" />
+    <group
+       h="412"
+       w="678"
+       y="0"
+       x="0"
+       panel_border="0"
+       panel_wrap="0"
+       panel_mode="1"
+       panel_ratio="100"
+       panel_size="1"
+       id="livepatheffect" />
   </group>
   <group
      id="printing">
@@ -776,8 +875,8 @@
        id="wheelscroll"
        value="40" />
     <group
-       id="spacepans"
-       value="0" />
+       value="0"
+       id="spacepans" />
     <group
        id="wheelzooms"
        value="0" />
@@ -809,8 +908,8 @@
        id="simplifythreshold"
        value="0.002" />
     <group
-       id="bitmapoversample"
-       value="1" />
+       value="1"
+       id="bitmapoversample" />
     <group
        id="bitmapeditor"
        value="0"
@@ -903,13 +1002,25 @@
        masks="65535" />
     <group
        id="svgoutput"
+       disable_optimizations="0"
        usenamedcolors="0"
        numericprecision="8"
        minimumexponent="-8"
        inlineattrs="0"
        indent="2"
-       allowrelativecoordinates="1"
-       forcerepeatcommands="0" />
+       pathstring_format="2"
+       forcerepeatcommands="0"
+       incorrect_attributes_warn="1"
+       incorrect_attributes_remove="0"
+       incorrect_style_properties_warn="1"
+       incorrect_style_properties_remove="0"
+       style_defaults_warn="1"
+       style_defaults_remove="0"
+       check_on_reading="0"
+       check_on_editing="0"
+       check_on_writing="0"
+       sort_attributes="0"
+       allowrelativecoordinates="1" />
     <group
        id="externalresources">
       <group
@@ -957,11 +1068,25 @@
     <group
        id="workarounds"
        colorsontop="0"
-       floatallowed="0"
-       partialdynamic="0" />
+       partialdynamic="0"
+       floatallowed="0" />
     <group
-       id="threading"
-       numthreads="1" />
+       numthreads="1"
+       id="threading" />
+    <group
+       id="renderingcache"
+       size="64" />
+    <group
+       id="grabsize"
+       value="3" />
+    <group
+       id="spacebarpans"
+       value="1" />
+    <group
+       id="defaultwindowsize"
+       value="2" />
+    <group
+       id="rendering" />
   </group>
   <group
      id="extensions"
@@ -969,11 +1094,11 @@
      org.inkscape.input.gdkpixbuf.jpg.link="link" />
   <group
      id="desktop"
-     style="opacity:1;fill:#888888;fill-opacity:1;stroke-width:1.69999999999999996;stroke-miterlimit:4;stroke-dasharray:none;stroke:#000000;stroke-opacity:1;font-size:40px;text-anchor:start;text-align:start;stroke-dashoffset:0;-inkscape-font-specification:Sans;font-family:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke-width:0.37795276;stroke-miterlimit:4;stroke-dasharray:none;stroke:#000000;stroke-opacity:1;font-size:32px;text-anchor:start;text-align:start;stroke-dashoffset:0;-inkscape-font-specification:'Latin Modern Mono Caps';font-family:'Latin Modern Mono Caps';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;line-height:125%">
     <group
-       width="1152"
-       height="720"
-       x="768"
+       width="1279"
+       height="1365"
+       x="1280"
        y="0"
        fullscreen="0"
        id="geometry"
@@ -1068,15 +1193,15 @@
   <group
      id="whiteboard">
     <group
-       id="server"
-       name="jabber.org"
-       port="5222"
+       ssl="0"
        username=""
-       ssl="0" />
+       port="5222"
+       name="jabber.org"
+       id="server" />
     <group
-       id="room"
+       server="gristle.org"
        name="inkboard"
-       server="gristle.org" />
+       id="room" />
   </group>
   <group
      id="debug">
