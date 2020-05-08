@@ -49,11 +49,6 @@ syntax on
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
-noremap <C-C> :botright cope<CR>
-noremap <C-N> :cn<CR>
-noremap <C-P> :cp<CR>
-noremap UU <Esc>:r!uuidgen<CR>kJo
-
 " to byvalo <S-M>, ale to koliduje s 'vyber prostredni radku'
 noremap <Leader>m :make<CR>
 
@@ -61,16 +56,10 @@ noremap <C-l> :noh<CR>
 
 " noremap <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .
 
-noremap <S-w>t :tabnew<CR>
-noremap <S-w>c :tabclose<CR>
-
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
-
-" Nette templaty jsou vlastne PHP.
-au BufNewFile,BufRead *.phpt set filetype=php
 
 " au BufNewFile,BufRead,BufEnter *.cpp,*.h set omnifunc=omni#cpp#complete#Main
 
@@ -78,27 +67,11 @@ au BufNewFile,BufRead *.phpt set filetype=php
 :command W w
 :command Q q
 
-" for learning vim direction keys
-inoremap <up> <nop>
-vnoremap <up> <nop>
-nnoremap <up> <nop>
-inoremap <down> <nop>
-vnoremap <down> <nop>
-nnoremap <down> <nop>
-inoremap <left> <nop>
-vnoremap <left> <nop>
-nnoremap <left> <nop>
-inoremap <right> <nop>
-vnoremap <right> <nop>
-nnoremap <right> <nop>
-
 " unlearn moving by single characters
 "vnoremap h <nop>
 "nnoremap h <nop>
 "vnoremap l <nop>
 "nnoremap l <nop>
-
-" zR: open all folds
 
 set showcmd
 set laststatus=2
@@ -126,21 +99,11 @@ call vundle#end()
 " Ignore error if Glaive not installed.
 silent! call glaive#Install()
 
-"let g:airline_left_sep = ''
-"let g:airline_left_alt_sep = ''
-"let g:airline_right_sep = ''
-"let g:airline_right_alt_sep = ''
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
-	let g:airline_symbols={}
+  let g:airline_symbols={}
 endif
-" The default Airline symbol for 'line number' is an annoying Unicode glyph.
-let g:airline_symbols.linenr = ''
-" The default is ['indent', 'trailing']. Trailing whitespace are annoying
-" when it's intended.
-let g:airline#extensions#whitespace#checks = ['indent']
-
-" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 
 set textwidth=80
 autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
@@ -157,8 +120,10 @@ autocmd Filetype c setlocal cindent nosmartindent
 " autocmd Filetype cpp setlocal cindent nosmartindent tabstop=2 softtabstop=2 expandtab
 autocmd Filetype cpp setlocal cindent nosmartindent
 
-" skryj swapfily v NetRW
-let g:netrw_list_hide='.*\.swp$'
+" Hide stuff in .gitignore and swapfiles
+let g:netrw_list_hide= netrw_gitignore#Hide().'.*\.swp$'
+" Hide netrw banner
+let g:netrw_banner=0
 
 " nechci intro
 " f: (3 of 5) misto (file 3 of 5)
@@ -229,9 +194,12 @@ augroup autoformat_settings
   autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType gn AutoFormatBuffer gn
   " autocmd FileType html,css,json AutoFormatBuffer js-beautify
-  "
-  " turned off for anki contributions:
-  " autocmd FileType java AutoFormatBuffer google-java-format
-  " autocmd FileType python AutoFormatBuffer autopep8
+  autocmd FileType java AutoFormatBuffer google-java-format
+  autocmd FileType python AutoFormatBuffer autopep8
   " Alternative: autocmd FileType python AutoFormatBuffer yapf
 augroup END
+
+set foldmethod=syntax
+set foldcolumn=1
+let javaScript_fold=1 "activate folding by JS syntax
+set foldlevelstart=99
