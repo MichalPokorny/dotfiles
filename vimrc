@@ -120,8 +120,19 @@ autocmd Filetype c setlocal cindent nosmartindent
 " autocmd Filetype cpp setlocal cindent nosmartindent tabstop=2 softtabstop=2 expandtab
 autocmd Filetype cpp setlocal cindent nosmartindent
 
-" Hide stuff in .gitignore and swapfiles
-let g:netrw_list_hide= netrw_gitignore#Hide().'.*\.swp$'
+" Hide stuff in:
+"   anything from .gitignore,
+"   the . and .. entries,
+"   Vim swapfiles,
+"   .git directory
+"   unuseful stuff in ~
+let g:netrw_list_hide= join([
+\ netrw_gitignore#Hide(),
+\  '.*\.sw?$',
+\  '^\./$',
+\  '^\.\./$',
+\  '.*/\.git/$'],
+\',')
 " Hide netrw banner
 let g:netrw_banner=0
 
