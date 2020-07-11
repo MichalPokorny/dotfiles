@@ -192,6 +192,7 @@ au BufNewFile,BufRead *.scala set filetype=scala
 
 au BufNewFile,BufRead *.ttl set filetype=turtle
 autocmd BufNewFile,BufRead *.ts set filetype=typescript
+autocmd BufNewFile,BufRead *.textproto set filetype=proto
 
 " Silence if Glaive not installed.
 silent! Glaive codefmt google_java_executable="java -jar /home/agentydragon/bin/google-java-format.jar"
