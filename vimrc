@@ -106,13 +106,7 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 
 set textwidth=80
-autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
-
-autocmd Filetype haml setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
-autocmd Filetype eruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
-autocmd Filetype coffee setlocal tabstop=2 softtabstop=2 shiftwidth=2
-
-" Haskell: 2-space tabs, expand them
+autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd Filetype haskell setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 autocmd Filetype c setlocal cindent nosmartindent
