@@ -60,8 +60,10 @@ zstyle ':completion:*' matcher-list ''
 #compinit
 
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+# https://github.com/bamos/zsh-history-analysis#increasing-the-history-file-size
+HISTSIZE=10000000
+SAVEHIST=10000000
+setopt EXTENDED_HISTORY
 
 setopt autocd
 
