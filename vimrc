@@ -87,7 +87,6 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'pbrisbin/vim-mkdir' " mkdir needed dirs before writing buffer
 Plugin 'bazelbuild/vim-ft-bzl'
 Plugin 'google/vim-maktaba'  " dependency of vim-codefmt
@@ -201,8 +200,7 @@ augroup autoformat_settings
   autocmd FileType gn AutoFormatBuffer gn
   " autocmd FileType html,css,json AutoFormatBuffer js-beautify
   autocmd FileType java AutoFormatBuffer google-java-format
-  autocmd FileType python AutoFormatBuffer autopep8
-  " Alternative: autocmd FileType python AutoFormatBuffer yapf
+  autocmd FileType python AutoFormatBuffer yapf
 augroup END
 
 set foldmethod=syntax
