@@ -117,3 +117,7 @@ source $HOME/.aliases
 #
 # Do not paginate if less than 1 page.
 export LESS="-F -X $LESS"
+
+# SDK for Remarkable
+#. /usr/local/oecore-x86_64/environment-setup-cortexa9hf-neon-oe-linux-gnueabi
+
