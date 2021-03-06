@@ -75,8 +75,9 @@ set laststatus=2
 
 " Vundle plugins
 " To install: vim +PluginInstall +qall, or run :PluginInstall
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
 
 " Plugin 'wincent/command-t'
 " Plugin 'tpope/vim-fugitive'
@@ -92,8 +93,8 @@ Plugin 'google/vim-maktaba'  " dependency of vim-codefmt
 Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'  " used to configure codefmt's maktaba flags
 Plugin 'leafgarland/typescript-vim'
-
 call vundle#end()
+
 " Ignore error if Glaive not installed.
 silent! call glaive#Install()
 
