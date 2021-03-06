@@ -5,8 +5,7 @@
 .fetchmailrc*
 
 # obsahuje penezenku
-.bitcoin*
-.electrum
+*.swp
 
 .gitk
 .tuxguitar-1.2
@@ -16,7 +15,6 @@
 .fehbg
 .gpg
 
-.last_bank_rates
 .dbshell
 
 .xmonad/*.hi

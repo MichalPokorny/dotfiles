@@ -1,5 +1,3 @@
-set nocompatible
-
 " filetypes
 filetype plugin on
 filetype indent on
@@ -20,7 +18,6 @@ set wildmenu
 set hidden
 set number
 set hlsearch
-set background=dark
 
 " ukazuj prvni match
 set incsearch
@@ -82,8 +79,10 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Plugin 'wincent/command-t'
-" Plugin 'niklasl/vim-rdf'
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'tpope/vim-fugitive'
+Plugin 'niklasl/vim-rdf'
+" Plugin 'altercation/vim-colors-solarized'
+Plugin 'overcache/NeoSolarized'
 Plugin 'bling/vim-airline'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'vim-ruby/vim-ruby'
@@ -169,7 +168,8 @@ set t_Co=256
 set background=light
 
 " Silence if colorscheme not installed.
-silent! colorscheme solarized
+set termguicolors
+silent! colorscheme NeoSolarized
 
 " Jump to last position on opening files (stolen from Destroy All Software)
 " ('\" == mark when last exiting buffer, g` = go to, jumplist-nondestructive)
@@ -190,7 +190,6 @@ autocmd BufNewFile,BufRead *.textproto set filetype=proto
 " Silence if Glaive not installed.
 silent! Glaive codefmt google_java_executable="java -jar /home/agentydragon/bin/google-java-format.jar"
 
-
 " Set autoformatter settings
 augroup autoformat_settings
   autocmd FileType bzl AutoFormatBuffer buildifier
@@ -198,6 +197,7 @@ augroup autoformat_settings
   autocmd FileType dart AutoFormatBuffer dartfmt
   autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType gn AutoFormatBuffer gn
+  autocmd FileType rust AutoFormatBuffer rustfmt
   " autocmd FileType html,css,json AutoFormatBuffer js-beautify
   autocmd FileType java AutoFormatBuffer google-java-format
   autocmd FileType python AutoFormatBuffer yapf
